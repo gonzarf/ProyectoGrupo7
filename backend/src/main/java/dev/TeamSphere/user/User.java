@@ -55,7 +55,6 @@ public class User {
     @Digits(integer = 9, fraction = 0, message = "The phone number must be 9 digits")
     private Integer phone;
 
-    @ElementCollection(fetch = FetchType.EAGER)
-    @Enumerated(EnumType.STRING)
-    private Set<Role> roles;
+    @Column(nullable = false)
+    private Integer role;
 }
