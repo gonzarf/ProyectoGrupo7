@@ -1,5 +1,7 @@
 create database if not exists teamsphere;
 
+drop table if exists seguidores;
+drop table if exists likes;
 drop table if exists ventas;
 drop table if exists productos;
 drop table if exists usuarios;
@@ -11,7 +13,6 @@ create table if not exists posts(
     titulo varchar(100) not null,
     descripcion varchar(800) not null,
     tipo varchar(20) not null,
-    likes integer not null,
     imagen varchar(2000)
 );
 
@@ -51,36 +52,52 @@ create table if not exists ventas(
 
 );
 
+create table if not exists seguidores (
+	idSeguidorSeguido varchar(255) primary key,
+    fk_idSeguidor varchar(255) not null,
+    foreign key (fk_idSeguidor) references usuarios(idUsuario),
+    fk_idSeguido varchar(255) not null,
+    foreign key (fk_idSeguido) references usuarios(idUsuario)
+);
+
+create table if not exists likes (
+	idLike varchar(255) primary key,
+    fk_idUsuario varchar(255) not null,
+    foreign key (fk_idUsuario) references usuarios(idUsuario),
+    fk_idPost varchar(255) not null,
+    foreign key (fk_idPost) references posts(idPost)
+);
+
 /*Inserción de datos en la tabla de posts*/
 -- Inserciones aleatorias
-INSERT INTO posts (idPost, titulo, descripcion, tipo, likes, imagen)
+INSERT INTO posts (idPost, titulo, descripcion, tipo, imagen)
 VALUES
-  ('76534786795', 'Increíble Aventura', 'Explorando las montañas', 'Aventura', 50, 'aventura1.jpg'),
-  ('45476874344', 'Receta del Día', 'Delicioso pastel de chocolate', 'Receta', 30, 'receta2.jpg'),
-  ('53465874876', 'Noticias Tecnológicas', 'Últimas novedades en gadgets', 'Tecnología', 70, 'tecnologia3.jpg'),
-  ('43768746356', 'Fotografía de Viaje', 'Atardecer en la playa', 'Viaje', 120, 'viaje4.jpg'),
-  ('56475675656', 'Reflexiones Filosóficas', 'El sentido de la vida', 'Filosofía', 15, 'filosofia5.jpg'),
-  ('35467336647', 'Evento Cultural', 'Concierto de jazz en el parque', 'Cultura', 40, 'cultura6.jpg'),
-  ('98765435676', 'Receta Saludable', 'Ensalada fresca de verano', 'Receta', 25, 'receta7.jpg'),
-  ('12345665323', 'Noticias Deportivas', 'Resultados del campeonato de tenis', 'Deporte', 60, 'deporte8.jpg'),
-  ('09890908765', 'Fotografía de Naturaleza', 'Cascada en el bosque', 'Naturaleza', 90, 'naturaleza9.jpg'),
-  ('56765789008', 'Reflexiones Literarias', 'El poder de las palabras', 'Literatura', 20, 'literatura10.jpg'),
-  ('56743636789', 'Recuerdo Familiar', 'Celebrando el cumpleaños de abuelo', 'Familia', 80, 'familia11.jpg'),
-  ('98778998765', 'Noticias Políticas', 'Debate sobre el cambio climático', 'Política', 35, 'politica12.jpg'),
-  ('45678756790', 'Fotografía Urbana', 'Rascacielos al atardecer', 'Ciudad', 110, 'ciudad13.jpg'),
-  ('87657476898', 'Reflexiones Espirituales', 'Meditación en la montaña', 'Espiritualidad', 10, 'espiritualidad14.jpg'),
-  ('87654457876', 'Evento Gastronómico', 'Festival de comida callejera', 'Gastronomía', 45, 'gastronomia15.jpg'),
-  ('34566535666', 'Noticias Científicas', 'Descubrimiento de nueva especie', 'Ciencia', 75, 'ciencia16.jpg'),
-  ('34567887654', 'Fotografía de Mascotas', 'Gatito jugando con una bola', 'Mascotas', 65, 'mascotas17.jpg'),
-  ('76545678788', 'Reflexiones Creativas', 'El arte de la improvisación', 'Creatividad', 30, 'creatividad18.jpg'),
-  ('98765678987', 'Evento Deportivo', 'Maratón benéfico', 'Deporte', 55, 'deporte19.jpg'),
-  ('34567658785', 'Noticias Económicas', 'Crecimiento del mercado de criptomonedas', 'Economía', 95, 'economia20.jpg'),
-  ('96876950485', 'Fotografía de Playa', 'Surf al amanecer', 'Playa', 70, 'playa21.jpg'),
-  ('98576584987', 'Reflexiones Históricas', 'Lecciones del pasado', 'Historia', 25, 'historia22.jpg'),
-  ('98765748399', 'Evento Solidario', 'Recaudación de fondos para refugio de animales', 'Solidaridad', 50, 'solidaridad23.jpg'),
-  ('87658498754', 'Noticias Artísticas', 'Exposición de pintura contemporánea', 'Arte', 85, 'arte24.jpg'),
-  ('98765675675', 'Fotografía de Montaña', 'Cumbre nevada', 'Montaña', 100, 'montana25.jpg'),
-  ('98677631234', 'Reflexiones Sociales', 'Desafíos de la diversidad', 'Sociedad', 40, 'sociedad26.jpg');
+  ('76534786795', 'Increíble Aventura', 'Explorando las montañas', 'Aventura', 'aventura1.jpg'),
+  ('45476874344', 'Receta del Día', 'Delicioso pastel de chocolate', 'Receta', 'receta2.jpg'),
+  ('53465874876', 'Noticias Tecnológicas', 'Últimas novedades en gadgets', 'Tecnología', 'tecnologia3.jpg'),
+  ('43768746356', 'Fotografía de Viaje', 'Atardecer en la playa', 'Viaje', 'viaje4.jpg'),
+  ('56475675656', 'Reflexiones Filosóficas', 'El sentido de la vida', 'Filosofía', 'filosofia5.jpg'),
+  ('35467336647', 'Evento Cultural', 'Concierto de jazz en el parque', 'Cultura', 'cultura6.jpg'),
+  ('98765435676', 'Receta Saludable', 'Ensalada fresca de verano', 'Receta', 'receta7.jpg'),
+  ('12345665323', 'Noticias Deportivas', 'Resultados del campeonato de tenis', 'Deporte', 'deporte8.jpg'),
+  ('09890908765', 'Fotografía de Naturaleza', 'Cascada en el bosque', 'Naturaleza', 'naturaleza9.jpg'),
+  ('56765789008', 'Reflexiones Literarias', 'El poder de las palabras', 'Literatura', 'literatura10.jpg'),
+  ('56743636789', 'Recuerdo Familiar', 'Celebrando el cumpleaños de abuelo', 'Familia', 'familia11.jpg'),
+  ('98778998765', 'Noticias Políticas', 'Debate sobre el cambio climático', 'Política', 'politica12.jpg'),
+  ('45678756790', 'Fotografía Urbana', 'Rascacielos al atardecer', 'Ciudad', 'ciudad13.jpg'),
+  ('87657476898', 'Reflexiones Espirituales', 'Meditación en la montaña', 'Espiritualidad', 'espiritualidad14.jpg'),
+  ('87654457876', 'Evento Gastronómico', 'Festival de comida callejera', 'Gastronomía', 'gastronomia15.jpg'),
+  ('34566535666', 'Noticias Científicas', 'Descubrimiento de nueva especie', 'Ciencia', 'ciencia16.jpg'),
+  ('34567887654', 'Fotografía de Mascotas', 'Gatito jugando con una bola', 'Mascotas', 'mascotas17.jpg'),
+  ('76545678788', 'Reflexiones Creativas', 'El arte de la improvisación', 'Creatividad', 'creatividad18.jpg'),
+  ('98765678987', 'Evento Deportivo', 'Maratón benéfico', 'Deporte', 'deporte19.jpg'),
+  ('34567658785', 'Noticias Económicas', 'Crecimiento del mercado de criptomonedas', 'Economía', 'economia20.jpg'),
+  ('96876950485', 'Fotografía de Playa', 'Surf al amanecer', 'Playa', 'playa21.jpg'),
+  ('98576584987', 'Reflexiones Históricas', 'Lecciones del pasado', 'Historia', 'historia22.jpg'),
+  ('98765748399', 'Evento Solidario', 'Recaudación de fondos para refugio de animales', 'Solidaridad', 'solidaridad23.jpg'),
+  ('87658498754', 'Noticias Artísticas', 'Exposición de pintura contemporánea', 'Arte', 'arte24.jpg'),
+  ('98765675675', 'Fotografía de Montaña', 'Cumbre nevada', 'Montaña', 'montana25.jpg'),
+  ('98677631234', 'Reflexiones Sociales', 'Desafíos de la diversidad', 'Sociedad', 'sociedad26.jpg');
 
 
 /*Fin de la inserción de datos en la tabla de posts*/
@@ -187,4 +204,52 @@ insert into ventas(idUsuarioProducto,fk_idUsuario,fk_idProducto) values('350','5
 
 /*Fin de la insercción de datos en la tabla de ventas*/
 
+/*Insercción de datos en la tabla de likes*/
 
+insert into likes(idLike,fk_idUsuario,fk_idPost) values
+('352626','5139909162533199','45678756790'),
+('436748','4844010316873026','45678756790'),
+('865865','5100178471935470','45678756790'),
+('345678','5100178471935470','45476874344'),
+('987655','3551637426201386','45476874344'),
+('346787','5139909162533199','87654457876'),
+('234675','5139909162533199','98765678987'),
+('436277','3551637426201386','45678756790'),
+('777753','4844010316873026','98677631234'),
+('366663','3551637426201386','98765678987'),
+('346663','30178414427268','45678756790'),
+('373888','30178414427268','45476874344'),
+('347889','5100178471935470','98765678987'),
+('253255','30178414427268','98765678987'),
+('273784','5602239313583507','98765678987'),
+('568438','372301567722568','98765678987'),
+('456753','3582175376667242','98765678987'),
+('379043','3549964939774724','98765678987'),
+('346788','5602239313583507','45476874344'),
+('346784','3549964939774724','45476874344');
+
+/*Fin de la insercción de datos en la tabla de seguidores*/
+
+insert into seguidores(idSeguidorSeguido,fk_idSeguidor,fk_idSeguido) values
+('235678','5139909162533199','3588890444128845'),
+('843267','5139909162533199','3551637426201386'),
+('346378','5139909162533199','3544722075850392'),
+('438096','5139909162533199','5010127209864030'),
+('222356','3588890444128845','5139909162533199'),
+('253627','3588890444128845','3551637426201386'),
+('433327','3588890444128845','3544722075850392'),
+('256780','3588890444128845','5010127209864030'),
+('985444','3588890444128845','6377791692245042'),
+('234793','3588890444128845','4844010316873026'),
+('098743','3551637426201386','5139909162533199'),
+('345377','3551637426201386','3588890444128845'),
+('964333','3551637426201386','3551637426201386'),
+('378836','201871619586978','5139909162533199'),
+('364678','201871619586978','3588890444128845'),
+('488944','3544722075850392','5139909162533199'),
+('557899','3544722075850392','3588890444128845'),
+('333229','3544722075850392','3551637426201386'),
+('080776','3544722075850392','5010127209864030'),
+('098765','3544722075850392','6377791692245042');
+
+/*Fin de la insercción de datos en la tabla de seguidores*/
