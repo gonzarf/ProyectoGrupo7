@@ -1,81 +1,89 @@
-<body>
+<div class="body">
     <div class="container">
         <div class="signin-signup">
-            <div class="sigin">
-
-                <h2 class="title">HOLA !!</h2>
-                <h2 class="title">BUENOS DIAS</h2>
-    
-                <form action="" class="sign-in-form">
-                    <div class="input-field">
-                        <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Username">
+            <div class="signin">
+                <div class="welcome-text">
+                    <h2 class="title">HOLA!!</h2>
+                    <h2 class="title">BUENOS DIAS</h2>
+                </div>  
+                
+                <div class="datos">
+                    <div class="login-text">
+                        <p class="orange-text">Entra</p><p>con tu cuenta</p>
                     </div>
-                    <div class="input-field">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Password">
-                    </div>
-                    <input type="submit" value="Login" class="btn">
-                    <p class="account-text">Don't have an account? <a href="#" id="sign-up-btn2">Sign up</a></p>
-                </form>
 
+                    <div class="sign-in-form">
+                        <div class="input-field">
+                            <i class="fas fa-user"></i>
+                            <input type="text" placeholder="Username">
+                        </div>
+                        <div class="input-field">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" placeholder="Password">
+                        </div>
+                        <input type="submit" value="Entrar" class="btn">
+                    </div>
+                </div>
+
+                <div class="no-account">
+                    <p class="account-text">¿No tienes cuenta? <a href="#" id="sign-up-btn2" (click)="showSignUp()">Registrate</a></p>
+                </div>
             </div>
 
-            <!-- <form action="" class="sign-up-form"> -->
-                <!-- <h2 class="title">Sign up</h2> -->
-                <!-- <div class="input-field"> -->
-                    <!-- <i class="fas fa-user"></i> -->
-                    <!-- <input type="text" placeholder="Username"> -->
-                <!-- </div> -->
-                <!-- <div class="input-field"> -->
-                    <!-- <i class="fas fa-envelope"></i> -->
-                    <!-- <input type="text" placeholder="Email"> -->
-                <!-- </div> -->
-                <!-- <div class="input-field"> -->
-                    <!-- <i class="fas fa-lock"></i> -->
-                    <!-- <input type="password" placeholder="Password"> -->
-                <!-- </div> -->
-                <!-- <input type="submit" value="Sign up" class="btn"> -->
-                <!-- <p class="social-text">Or Sign in with social platform</p> -->
-                <!-- <div class="social-media"> -->
-                    <!-- <a href="#" class="social-icon"> -->
-                        <!-- <i class="fab fa-facebook"></i> -->
-                    <!-- </a> -->
-                    <!-- <a href="" class="social-icon"> -->
-                        <!-- <i class="fab fa-twitter"></i> -->
-                    <!-- </a> -->
-                    <!-- <a href="" class="social-icon"> -->
-                        <!-- <i class="fab fa-google"></i> -->
-                    <!-- </a> -->
-                    <!-- <a href="" class="social-icon"> -->
-                        <!-- <i class="fab fa-linkedin-in"></i> -->
-                    <!-- </a> -->
-                <!-- </div> -->
-                <!-- <p class="account-text">Already have an account? <a href="#" id="sign-in-btn2">Sign in</a></p> -->
-            <!-- </form> -->
-            
+            <div class="signup">
+                <div class="welcome-text-2">
+                    <h2 class="title">HOLA!!</h2>
+                    <h2 class="title">BUENOS DIAS</h2>
+                </div>  
+                
+                <div class="datos">
+                    <div class="login-text">
+                        <p class="orange-text">Registrate</p><p>con tus datos</p>
+                    </div>
 
-            <div class="left-panel">
-                <div class="content">
-                    <h3>Member of Brand?</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque accusantium dolor, eos incidunt minima iure?</p>
-                    <button class="btn" id="sign-in-btn">Sign in</button>
+                    <div class="sign-up-form">
+                        <div class="input-field">
+                            <i class="fas fa-user"></i>
+                            <input type="text" placeholder="Nombre">
+                        </div>
+                        <div class="input-field">
+                            <i class="fas fa-lock"></i>
+                            <input type="text" placeholder="Apellido">
+                        </div>
+                        <div class="input-field">
+                            <i class="fas fa-lock"></i>
+                            <input type="email" placeholder="Correo">
+                        </div>
+                        <div class="input-field">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" placeholder="Contraseña">
+                        </div>
+                        <div class="input-field">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" placeholder="Repita la contraseña">
+                        </div>
+                        <input type="submit" value="Registrarse" class="btn">
+                    </div>
                 </div>
-                <img src="signin.svg" alt="" class="image">
+
+                <div class="no-account">
+                    <p class="account-text">¿Ya tienes cuenta? <a href="#" id="sign-up-btn2" (click)="showSignIn()">Inicia sesión</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <img src="../../assets/img/logoNombre.png.png" alt="" class="image">
+                </div>
+                
             </div>
             <div class="panel right-panel">
                 <div class="content">
-                    <h3>New to Brand?</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque accusantium dolor, eos incidunt minima iure?</p>
-                    <button class="btn" id="sign-up-btn">Sign up</button>
+                    <img src="../../assets/img/logoNombre.png.png" alt="" class="image">
                 </div>
-                <img src="signup.svg" alt="" class="image">
             </div>
-
-
-
         </div>
-
     </div>
-    <script src="app.js"></script>
-</body>
+</div>

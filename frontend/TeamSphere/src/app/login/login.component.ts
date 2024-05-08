@@ -9,4 +9,14 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
+  showSignUp(): void {
+    const container = document.querySelector('.container') as HTMLDivElement;
+    container.classList.add('sign-up-mode');
+  }
+ 
+  showSignIn(): void {
+    const container = document.querySelector('.container') as HTMLDivElement;
+    container.classList.remove('sign-up-mode');
+  }
+
 }
