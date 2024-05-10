@@ -1,6 +1,8 @@
 package dev.TeamSphere.product;
 
+import dev.TeamSphere.storage.StorageService;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.UUID;
@@ -11,11 +13,13 @@ public class ProductServiceImpl implements ProductService{
 
     private final ProductRepository repository;
     private final ProductMapper mapper;
+    private final StorageService storageService;
 
 
-    public ProductServiceImpl(ProductRepository repository, ProductMapper mapper) {
+    public ProductServiceImpl(ProductRepository repository, ProductMapper mapper, StorageService storageService) {
         this.repository = repository;
         this.mapper = mapper;
+        this.storageService = storageService;
     }
 
     @Override
@@ -27,11 +31,23 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public ResponseProductDto postProduct(CreateProductDto createProductDto) {
+    public ResponseProductDto postProduct(CreateProductDto createProductDto, List<MultipartFile> fileList) {
         Product product = mapper.toProductFromCreate(createProductDto);
+
+        List<String> urlList = product.getImage();
+
+        for (MultipartFile multipartFile : fileList) {
+            String image = storageService.store(multipartFile);
+            String urlImage = storageService.getUrl(image);
+            urlList.add(urlImage);
+        }
+
+        product.setImage(urlList);
         Product saveProduct = repository.save(product);
         return mapper.toResponseDto(saveProduct);
     }
+
+
 
     @Override
     public ResponseProductDto getProductById(UUID id) {
