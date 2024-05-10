@@ -18,6 +18,7 @@ public class UserMapper {
 
     public User toUserFromUpdate(UpdateUserDto updateUserDto, User user) {
         return User.builder()
+                .id(user.getId())
                 .name(updateUserDto.name() != null ? updateUserDto.name() : user.getName())
                 .lastName(updateUserDto.lastName() != null ? updateUserDto.lastName() : user.getLastName())
                 .email(updateUserDto.email() != null ? updateUserDto.email() : user.getEmail())

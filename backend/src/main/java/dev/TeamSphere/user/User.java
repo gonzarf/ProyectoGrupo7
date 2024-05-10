@@ -45,4 +45,5 @@ public class User {
     @ElementCollection(fetch = FetchType.EAGER)
     @Enumerated(EnumType.STRING)
     @Builder.Default
-    private Set<Role> roles = Set.of(Role.USER);}
+    private Set<Role> roles = Set.of(Role.USER);
+}
