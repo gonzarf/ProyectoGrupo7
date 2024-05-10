@@ -5,6 +5,7 @@ import { LoginServices } from '../../Services/login.services';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Usuario } from './usuario.model';
+import { routes } from '../app.routes';
 
 
 @Component({
@@ -31,11 +32,13 @@ export class LoginComponent{
     
     this.usuario!.then(
       (result) =>{
+        return "/home"
         if(result.email==""){
           alert("tu madre");
           console.log("no va");
           
         }else{
+          
           alert("mi padre")
           console.log("va");
           
