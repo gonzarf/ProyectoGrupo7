@@ -1,5 +1,7 @@
 package dev.TeamSphere.post;
 
+import dev.TeamSphere.likes.Like;
+import dev.TeamSphere.user.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -9,6 +11,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -41,7 +44,9 @@ public class Post {
     @Column(nullable = false)
     private String tipo;
 
-
+    @Column
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<User> likesUsers;
 
 
 }
