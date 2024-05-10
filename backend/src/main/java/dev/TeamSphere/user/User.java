@@ -42,8 +42,6 @@ public class User {
     @Column(nullable = false)
     private String phone;
 
-    @ElementCollection(fetch = FetchType.EAGER)
-    @Enumerated(EnumType.STRING)
-    @Builder.Default
-    private Set<Role> roles = Set.of(Role.USER);
+    @Column(nullable=false)
+    private String roles = "Administrador";
 }

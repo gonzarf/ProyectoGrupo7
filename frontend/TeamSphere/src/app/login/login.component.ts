@@ -1,11 +1,13 @@
 
 import { Component, OnInit } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { LoginServices } from '../../Services/login.services';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Usuario } from './usuario.model';
 import { routes } from '../app.routes';
+import { LoginDTO } from './loginDTO.model';
+import { error } from 'console';
 
 
 @Component({
@@ -16,35 +18,47 @@ import { routes } from '../app.routes';
   styleUrl: './login.component.css'
 })
 export class LoginComponent{
-  constructor(private service:LoginServices){
+  constructor(private service:LoginServices, private router:Router){
   }
 
   email:string = "";
+  password:string = "";
   
-  usuario:Promise<Usuario> | undefined;
+  usuario:Usuario = new Usuario;
   
   
   login(): void {
-    this.usuario= this.service.login(this.email);
-    console.log(typeof this.usuario);
-    
-    console.log(this.usuario);
-    
-    this.usuario!.then(
-      (result) =>{
-        return "/home"
-        if(result.email==""){
-          alert("tu madre");
-          console.log("no va");
-          
-        }else{
-          
-          alert("mi padre")
-          console.log("va");
-          
-        }
+    let logindto: LoginDTO = {email: this.email, password: this.password}
+
+    this.service.login(logindto).subscribe(dato =>{
+
+      if (dato.email == this.email){
+        this.router.navigate(['/home'])
+      }else{
+        console.log("hola")
       }
-    );
+
+    }, error => console.log(error))
+
+    
+    //console.log(typeof this.usuario);
+    //
+    //console.log(this.usuario);
+    
+    //this.usuario!.then(
+    //  (result) =>{
+    //    if(result.email==""){
+    //      alert("tu madre");
+    //      console.log("no va");
+    //      
+    //    }else{
+    //      
+    //      alert("mi padre")
+    //      console.log(this.usuario);
+    //      
+    //    }
+    //  }
+    //);
   }
 
 

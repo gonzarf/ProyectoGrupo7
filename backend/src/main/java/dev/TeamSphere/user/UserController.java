@@ -12,6 +12,7 @@ import java.util.Objects;
 
 @RestController
 @RequestMapping("user")
+@CrossOrigin(origins = "*", methods = {RequestMethod.POST, RequestMethod.PUT, RequestMethod.GET, RequestMethod.DELETE})
 public class UserController {
     private final UserServiceImpl userService;
 
@@ -35,7 +36,7 @@ public class UserController {
         return ResponseEntity.ok(userService.getUserByEmail(email));
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public ResponseEntity<ResponseUserDto> login(@RequestBody LoginDto loginDto) {
         return ResponseEntity.ok(userService.login(loginDto));
     }

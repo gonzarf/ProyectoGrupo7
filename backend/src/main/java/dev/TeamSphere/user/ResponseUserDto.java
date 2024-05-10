@@ -18,6 +18,6 @@ public record ResponseUserDto(
 
         String  phone,
 
-        Set<Role> role
+        String role
 ) {
 }
