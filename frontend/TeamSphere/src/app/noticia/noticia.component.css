@@ -6,12 +6,16 @@
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
+    border: 1px solid black;
+    border-radius: 8px;
+    background-color: white;
   }
   
   .imagen {
     width: 100px;
     height: 100px;
     margin-right: 20px;
+    border-radius: 8px;
   }
   
   .contenido {
