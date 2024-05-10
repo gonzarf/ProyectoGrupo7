@@ -16,6 +16,7 @@ public class ProductMapper {
 
     public Product toProductFromUpdate(UpdateProductDto updateProductDto, Product product){
         return Product.builder()
+                .id(product.getId())
                 .name(updateProductDto.name() != null ? updateProductDto.name() : product.getName())
                 .price(updateProductDto.price() != null ? updateProductDto.price() : product.getPrice())
                 .description(updateProductDto.description() != null ? updateProductDto.description() : product.getDescription())
