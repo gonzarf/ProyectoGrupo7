@@ -1,7 +1,7 @@
 <div class="body">
     <div class="container">
         <div class="signin-signup">
-            <div class="signin">
+            <form class="signin">
                 <div class="welcome-text">
                     <h2 class="title">HOLA!!</h2>
                     <h2 class="title">BUENOS DIAS</h2>
@@ -11,11 +11,10 @@
                     <div class="login-text">
                         <p class="orange-text">Entra</p><p>con tu cuenta</p>
                     </div>
-
                     <div class="sign-in-form">
                         <div class="input-field">
                             <i class="fas fa-user"></i>
-                            <input type="text" placeholder="Correo" [(ngModel)]="email">
+                            <input type="text" placeholder="Correo" [(ngModel)]="email" name="email">
                         </div>
                         <div class="input-field">
                             <i class="fas fa-lock"></i>
@@ -28,19 +27,13 @@
                 <div class="no-account">
                     <p class="account-text">¿No tienes cuenta? <a href="#" id="sign-up-btn2" (click)="showSignUp()">Registrate</a></p>
                 </div>
-            </div>
+            </form>
 
-            <div class="signup">
-                <div class="welcome-text-2">
-                    <h2 class="title">HOLA!!</h2>
-                    <h2 class="title">BUENOS DIAS</h2>
-                </div>  
-                
+            <form class="signup">
                 <div class="datos">
                     <div class="login-text">
                         <p class="orange-text">Registrate</p><p>con tus datos</p>
                     </div>
-
                     <div class="sign-up-form">
                         <div class="input-field">
                             <i class="fas fa-user"></i>
@@ -69,19 +62,19 @@
                 <div class="no-account">
                     <p class="account-text">¿Ya tienes cuenta? <a href="#" id="sign-up-btn2" (click)="showSignIn()">Inicia sesión</a></p>
                 </div>
-            </div>
+            </form>
         </div>
         
         <div class="panels-container">
             <div class="panel left-panel">
                 <div class="content">
-                    <img src="../../assets/img/logoNombre.png.png" alt="" class="image">
+                    <img src="../../assets/img/logoNombre.png" alt="" class="image">
                 </div>
                 
             </div>
             <div class="panel right-panel">
                 <div class="content">
-                    <img src="../../assets/img/logoNombre.png.png" alt="" class="image">
+                    <img src="../../assets/img/logoNombre.png" alt="" class="image">
                 </div>
             </div>
         </div>
