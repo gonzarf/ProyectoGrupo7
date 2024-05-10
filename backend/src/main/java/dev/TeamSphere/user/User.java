@@ -46,4 +46,6 @@ public class User {
     @Enumerated(EnumType.STRING)
     @Builder.Default
     private Set<Role> roles = Set.of(Role.USER);
+
+
 }
