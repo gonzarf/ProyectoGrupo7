@@ -1,5 +1,7 @@
 package dev.TeamSphere.likes;
 
+import dev.TeamSphere.post.Post;
+import dev.TeamSphere.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,6 +16,7 @@ import java.util.UUID;
 @Builder
 @Data
 @AllArgsConstructor
+@Table(name="likes")
 @NoArgsConstructor(force = true)
 public class Like {
 
@@ -21,10 +24,11 @@ public class Like {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column
-    private UUID id_user;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    @Column
-    private UUID id_post;
-
+    @ManyToOne
+    @JoinColumn(name = "post_id")
+    private Post post;
 }

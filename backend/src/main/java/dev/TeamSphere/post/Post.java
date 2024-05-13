@@ -20,6 +20,7 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor(force = true)
+@Table(name="posts")
 public class Post {
 
     @Id
@@ -29,24 +30,20 @@ public class Post {
     @Column(nullable = false)
     @NotBlank(message = "A title is required")
     @Length(min = 2, max = 50, message = "The name must be between 3 and 50 characters")
-    private String titulo;
+    private String title;
 
     @Column(nullable = false)
     @NotBlank(message = "A description is required")
     private String description;
 
-    @Column
-    private Integer likes;
-
     @Column(nullable = false)
     private String image;
 
     @Column(nullable = false)
-    private String tipo;
+    private String type;
 
     @Column
     @OneToMany(cascade = CascadeType.ALL)
-    private List<User> likesUsers;
-
+    private List<Like> likes;  //la columna de likes sera el tamaño del array luego para el front
 
 }

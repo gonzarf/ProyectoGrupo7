@@ -1,4 +1,7 @@
 package dev.TeamSphere.post;
+import dev.TeamSphere.likes.Like;
+import dev.TeamSphere.likes.LikeRepository;
+import dev.TeamSphere.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -9,6 +12,9 @@ public class PostService {
 
     @Autowired
     private PostRepository postRepository;
+
+    @Autowired
+    private LikeRepository likeRepository;
 
     public List<Post> getAllPosts(){
 
@@ -60,6 +66,34 @@ public class PostService {
             }
             postRepository.save(existingPost);
         }
+    }
+
+    //when you like a post you add a like(which is the id of the user and the id of the post into de list of likesof the post)
+    public void likePost(User user, UUID postId){
+        Post postLiked = postRepository.findById(postId).get();
+        Like likeNew = new Like();
+
+        likeNew.setPost(postLiked);
+        likeNew.setUser(user);
+
+        postLiked.getLikes().add(likeNew);
+    }
+
+    public void unlikePost(User user, UUID postId){
+        Post postLiked = postRepository.findById(postId).get();
+
+        //find the like which belongs to the user
+
+        List<Like> likes = likeRepository.findByPostId(postId);
+
+        for (Like like: likes){
+
+            if(like.getUser().getId() == user.getId()){
+
+                postLiked.getLikes().remove(like);
+            }
+        }
+
     }
 
 }
