@@ -14,4 +14,4 @@ public class StorageNotFound extends StorageException {
     public StorageNotFound(String id) {
         super("No se encontró el almacenamiento con id: " + id);
     }
-}
+}//comment

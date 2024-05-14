@@ -11,3 +11,4 @@ public abstract class StorageException extends RuntimeException {
         super(message);
     }
 }
+//comment

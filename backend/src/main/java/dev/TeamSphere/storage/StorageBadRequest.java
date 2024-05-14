@@ -14,4 +14,4 @@ public class StorageBadRequest extends StorageException {
     public StorageBadRequest(String message) {
         super(message);
     }
-}
+}//comment
