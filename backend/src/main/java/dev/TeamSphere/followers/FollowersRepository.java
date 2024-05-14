@@ -11,7 +11,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface FollowersRepository {
-    @Query("SELECT f.followedUser FROM Follower f WHERE f.follower = :user")
+    @Query("SELECT f.fk_idFollowed FROM followers f WHERE f.fk_idFolower = :user")
     List<User> findFollowedUsersByFollower(User user);
     Optional<Followers> findById(UUID id);
 

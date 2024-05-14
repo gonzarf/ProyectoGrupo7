@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface FollowersService {
-    @Query("SELECT f.fk_idSeguido FROM Follower f WHERE f.fk_idSeguidor = :user")
+    @Query("SELECT f.fk_idFollowed FROM followers f WHERE f.fk_idFollower = :user")
     List<User> findFollowedUsersByFollower(User user);
 }

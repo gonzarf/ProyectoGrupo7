@@ -20,15 +20,15 @@ public class Followers {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID idSeguidorSeguido;
+    private UUID idFollowerFollowed;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fk_idSeguidor", nullable = false)
-    private User seguidor; // Usuario que sigue
+    @JoinColumn(name = "fk_idFollower", nullable = false)
+    private User idFollower; // Usuario que sigue
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fk_idSeguido", nullable = false)
-    private User seguido; // Usuario seguido
+    @JoinColumn(name = "fk_idSFollowed", nullable = false)
+    private User idFollowed; // Usuario seguido
 
 
 }
