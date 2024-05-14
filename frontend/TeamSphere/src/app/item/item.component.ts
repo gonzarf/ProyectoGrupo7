@@ -8,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrl: './item.component.css'
 })
 export class ItemComponent {
-
+  
+  id: string =""; 
+  name: string = "";
+  desc: string = "";
+  price?: number;
+  image: string = "";
+  date?: Date;
 }
