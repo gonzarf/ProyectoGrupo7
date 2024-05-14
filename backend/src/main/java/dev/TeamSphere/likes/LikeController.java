@@ -27,4 +27,22 @@ public class LikeController {
 
         return likeService.getPostsLikedUser(idUser) ;
     }
+
+    @GetMapping("/all")
+    public List<Like> getAllLikes(){
+
+        return likeService.getAllLikes();
+    }
+
+
+    //LIKE AND UNLIKE POST
+
+    @PostMapping("/add-like")
+    public void addLike(@RequestBody LikeRequest likeRequest) {
+        UUID idUser = likeRequest.getIdUser();
+        UUID idPost = likeRequest.getIdPost();
+
+        // Lógica para agregar el like
+        likeService.addLike(idUser, idPost);
+    }
 }

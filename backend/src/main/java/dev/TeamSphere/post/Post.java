@@ -42,8 +42,7 @@ public class Post {
     @Column(nullable = false)
     private String type;
 
-    @Column
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Like> likes;  //la columna de likes sera el tamaño del array luego para el front
+
+    //en el front para sacar el numero de likes de un post basta con hacer un recuento en la tabla de likes
 
 }

@@ -31,6 +31,11 @@ public class PostController {
         return null;
     }
 
+    @GetMapping("/get-news/")
+    public List<Post> getNews(){
+        return null;
+    }
+
     @GetMapping("/{name}")
     public Post getPostByName(@PathVariable String name){
         return postService.getPostByName(name);
@@ -63,7 +68,7 @@ public class PostController {
     }
 
     //like and unlike a post
-
+    /*
     @PostMapping("/like-post/{idPost}")
     public ResponseEntity<String> likePost(@PathVariable("idPost") UUID postId, @RequestBody User user){
 
@@ -78,5 +83,7 @@ public class PostController {
         return ResponseEntity.status(HttpStatus.OK).body("El like se ha dado correctamente.");
 
     }
+
+     */
 
 }
