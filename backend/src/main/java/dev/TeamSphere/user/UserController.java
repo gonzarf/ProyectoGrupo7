@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 import java.util.Objects;
 
+//controller for user
 @RestController
 @RequestMapping("user")
 public class UserController {
