@@ -50,26 +50,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ResponseUserDto getUserByEmail(String email) {
-        log.info("Getting user by email: {}", email);
-        User user = userRepository.findByEmail(email)
-                .orElseThrow(() -> new UserNotFound("User not found with email: " + email));
-        return userMapper.toResponseDto(user);
-    }
-
-    @Override
-    public ResponseUserDto login(LoginDto loginDto) {
-        log.info("Logging in user: {}", loginDto);
-        User user = userRepository.findByEmail(loginDto.email())
-                .orElseThrow(() -> new UserNotFound("User not found with email: " + loginDto.email()));
-        if (user.getPassword().equals(loginDto.password())) {
-            return userMapper.toResponseDto(user);
-        } else {
-            throw new UserNotFound("Invalid password");
-        }
-    }
-
-    @Override
     public ResponseUserDto createUser(CreateUserDto createUserDto) {
         log.info("Creating user: {}", createUserDto);
         User user = userMapper.toUserFromCreate(createUserDto);

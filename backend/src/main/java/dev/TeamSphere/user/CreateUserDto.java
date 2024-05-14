@@ -19,6 +19,10 @@ public record CreateUserDto (
     @Email(message = "The email is invalid")
      String email,
 
+    @NotBlank(message = "Username cannot be empty")
+    @Length(min = 3, message = "Username must have at least 3 characters")
+    String username,
+
     @NotBlank(message = "The password is required")
     @Length(min = 8, max = 100, message = "The password must be between 5 and 20 characters")
      String password,

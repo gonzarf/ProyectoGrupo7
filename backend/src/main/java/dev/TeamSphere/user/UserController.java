@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 import java.util.Objects;
 
+//controller for user
 @RestController
 @RequestMapping("user")
 public class UserController {
@@ -28,16 +29,6 @@ public class UserController {
     @GetMapping("/{id}")
     public ResponseEntity<ResponseUserDto> getUserById(@PathVariable String id) {
         return ResponseEntity.ok(userService.getUserById(id));
-    }
-
-    @GetMapping("/email/{email}")
-    public ResponseEntity<ResponseUserDto> getUserByEmail(@PathVariable String email) {
-        return ResponseEntity.ok(userService.getUserByEmail(email));
-    }
-
-    @GetMapping("/login")
-    public ResponseEntity<ResponseUserDto> login(@RequestBody LoginDto loginDto) {
-        return ResponseEntity.ok(userService.login(loginDto));
     }
 
     @PostMapping

@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 import java.util.Set;
 import java.util.UUID;
 
@@ -15,6 +16,7 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor(force = true)
+@Table(name = "users")
 public class User {
 
     public static final String IMAGE_DEFAULT = "https://cdn.pixabay.com/photo/2012/04/26/19/43/profile-42914_640.png";
@@ -30,6 +32,9 @@ public class User {
     private String lastName;
 
     @Column(nullable = false)
+    private String username;
+
+    @Column(nullable = false)
     private String email;
 
     @Column(nullable = false)
@@ -42,8 +47,6 @@ public class User {
     @Column(nullable = false)
     private String phone;
 
-    @ElementCollection(fetch = FetchType.EAGER)
-    @Enumerated(EnumType.STRING)
-    @Builder.Default
-    private Set<Role> roles = Set.of(Role.USER);
+    @Column(nullable=false)
+    private Role roles = Role.USER;
 }

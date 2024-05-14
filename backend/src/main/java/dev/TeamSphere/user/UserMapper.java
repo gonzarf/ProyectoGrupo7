@@ -10,9 +10,11 @@ public class UserMapper {
                 .name(requestDto.name())
                 .lastName(requestDto.lastName())
                 .email(requestDto.email())
+                .username(requestDto.username())
                 .password(requestDto.password())
                 .image(requestDto.image() != null ? requestDto.image() : User.IMAGE_DEFAULT)
                 .phone(requestDto.phone())
+                .roles(Role.USER)
                 .build();
     }
 
@@ -22,6 +24,7 @@ public class UserMapper {
                 .name(updateUserDto.name() != null ? updateUserDto.name() : user.getName())
                 .lastName(updateUserDto.lastName() != null ? updateUserDto.lastName() : user.getLastName())
                 .email(updateUserDto.email() != null ? updateUserDto.email() : user.getEmail())
+                .username(updateUserDto.username() != null ? updateUserDto.username() : user.getUsername())
                 .password(updateUserDto.password() != null ? updateUserDto.password() : user.getPassword())
                 .image(updateUserDto.image() != null ? updateUserDto.image() : user.getImage())
                 .phone(updateUserDto.phone() != null ? updateUserDto.phone() : user.getPhone())
@@ -34,6 +37,7 @@ public class UserMapper {
                 .name(user.getName())
                 .lastName(user.getLastName())
                 .email(user.getEmail())
+                .username(user.getUsername())
                 .image(user.getImage())
                 .phone(user.getPhone())
                 .role(user.getRoles())

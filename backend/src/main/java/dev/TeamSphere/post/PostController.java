@@ -1,5 +1,6 @@
 package dev.TeamSphere.post;
 
+import dev.TeamSphere.user.User;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,6 +28,11 @@ public class PostController {
     @GetMapping("/{id}")
     public Post getPostById(@PathVariable UUID idPost){
 
+        return null;
+    }
+
+    @GetMapping("/get-news/")
+    public List<Post> getNews(){
         return null;
     }
 
@@ -60,5 +66,24 @@ public class PostController {
             postService.updatePost(postId,updatedPost);
         return ResponseEntity.status(HttpStatus.OK).body("El post se actualizo correctamente.");
     }
+
+    //like and unlike a post
+    /*
+    @PostMapping("/like-post/{idPost}")
+    public ResponseEntity<String> likePost(@PathVariable("idPost") UUID postId, @RequestBody User user){
+
+        postService.likePost(user,postId);
+
+        return ResponseEntity.status(HttpStatus.OK).body("El like se ha dado correctamente.");
+    }
+
+    @PostMapping("/unlike-post/{idPost}")
+    public ResponseEntity<String> unlikePost(@PathVariable("idPost") UUID postId, @RequestBody User user){
+
+        return ResponseEntity.status(HttpStatus.OK).body("El like se ha dado correctamente.");
+
+    }
+
+     */
 
 }
