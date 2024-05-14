@@ -3,20 +3,22 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Usuario } from "../app/login/usuario.model";
 import { LoginDTO } from "../app/login/loginDTO.model";
+import { Noticia } from "../app/noticia/noticia.model";
 
 @Injectable({
     providedIn: 'root',
 })
 
-export class LoginServices {
-    private url = 'http://localhost:8081/user';
+export class HomeServices {
+    private url = 'http://localhost:8081/post';
     constructor (private http: HttpClient){
 
     }
 
-    login (logindto:LoginDTO): Observable<Usuario> {
+    // LLamada para recoger todos los post de tipo noticia
+    loadNews (): Observable<Array<Noticia>> {
         const header = new HttpHeaders()
 
-        return this.http.post<Usuario>(`${this.url}/login`, logindto, {headers:header})
+        return this.http.get<Array<Noticia>>(`${this.url}/all`)
     }
 }

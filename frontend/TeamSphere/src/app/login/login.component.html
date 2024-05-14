@@ -18,9 +18,9 @@
                         </div>
                         <div class="input-field">
                             <i class="fas fa-lock"></i>
-                            <input type="password" placeholder="Password">
+                            <input type="password" placeholder="Password" [(ngModel)]="password" name="password">
                         </div>
-                        <input type="submit" value="Entrar" class="btn" (click)="login()" [routerLink]="['/home']">
+                        <input type="submit" value="Entrar" class="btn" (click)="login()" >
                     </div>
                 </div>
 
