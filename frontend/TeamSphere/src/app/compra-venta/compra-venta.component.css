@@ -1,5 +1,5 @@
 
-body {
+.body {
     margin-left: 30px;
     background-color: #fedbcd;
 }
@@ -32,7 +32,7 @@ body {
   .search-bar input[type="text"] {
     flex: 1;
     padding: 8px;
-    border: none;
+    border: 1px solid black;
     border-radius: 5px 0 0 5px;
   }
   
@@ -51,9 +51,19 @@ body {
     border-radius: 50%;
   }
   
-  .container-items {
-    display: grid;
-    
-    justify-content: space-between;
-    padding: auto;
+  .container-items { 
+ 
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-around; 
+    align-items: flex-start; 
+    height: 100%; 
+    padding: 20px; 
+    box-sizing: border-box; 
+  }
+
+  .container-items > app-item {
+    flex: 1 0 auto;
+    max-width: 300px; 
+    margin: 10px; 
   }
