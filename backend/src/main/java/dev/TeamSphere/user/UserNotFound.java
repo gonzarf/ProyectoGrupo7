@@ -13,3 +13,5 @@ public class UserNotFound extends UserException {
         super("User with id " + id + " not found");
     }
 }
+
+//not found exception

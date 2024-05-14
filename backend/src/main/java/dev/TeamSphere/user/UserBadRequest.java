@@ -9,3 +9,4 @@ public class UserBadRequest extends UserException {
         super(message);
     }
 }
+//bad request exception

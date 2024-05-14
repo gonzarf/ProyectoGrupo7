@@ -5,3 +5,4 @@ public abstract class UserException extends RuntimeException {
         super(message);
     }
 }
+//exception for user
