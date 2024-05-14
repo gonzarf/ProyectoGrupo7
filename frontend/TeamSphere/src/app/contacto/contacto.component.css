@@ -77,6 +77,19 @@ iframe{
     justify-content: inherit;
 }
 
+.volver{
+    height: 40px;
+    width: 40px;
+    background-image: url("../../assets/img/volver.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    right: 470px;
+    top: 20px;
+    cursor: pointer;
+
+}
+
 .signup{
     width: 49%;
     height: 100%;
