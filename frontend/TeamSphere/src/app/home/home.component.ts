@@ -13,17 +13,9 @@ import { NgForOf } from '@angular/common';
     standalone: true,
     templateUrl: './home.component.html',
     styleUrl: './home.component.css',
-<<<<<<< Updated upstream
-    imports: [SideBarComponent, NoticiaComponent, RouterLink, NoticiaComponent, NgForOf]
+    imports: [SideBarComponent, NoticiaComponent, RouterLink, NoticiaComponent, NgForOf, NavbarComponent]
 })
-export class HomeComponent {
 
-    
-
-=======
-    imports: [SideBarComponent, NoticiaComponent, NavbarComponent]
-})
 export class HomeComponent {
     title = "Home";
->>>>>>> Stashed changes
 }
