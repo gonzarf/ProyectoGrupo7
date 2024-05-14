@@ -1,6 +1,7 @@
 package dev.TeamSphere.user;
 
 import lombok.Builder;
+
 import java.util.Set;
 import java.util.UUID;
 

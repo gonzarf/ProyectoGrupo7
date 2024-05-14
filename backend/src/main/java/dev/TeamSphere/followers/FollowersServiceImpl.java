@@ -6,18 +6,27 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-public class FollowersServiceImpl implements FollowersService{
-
+@Service
+public class FollowersServiceImpl implements FollowersService {
 
     private final FollowersRepository followersRepository;
 
     @Autowired
-    public FollowersServiceImpl(FollowersRepository followerRepository) {
-        this.followersRepository = followerRepository;
+    public FollowersServiceImpl(FollowersRepository followersRepository) {
+        this.followersRepository = followersRepository;
     }
 
     @Override
     public List<User> findFollowedUsersByFollower(User user) {
         return followersRepository.findFollowedUsersByFollower(user);
+    }
+
+    @Override
+    public Followers addFollower(User follower, User followed) {
+        Followers followers = Followers.builder()
+                .idFollower(follower)
+                .idFollowed(followed)
+                .build();
+        return followersRepository.save(followers);
     }
 }
