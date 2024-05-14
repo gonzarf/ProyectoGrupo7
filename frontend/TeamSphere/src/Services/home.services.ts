@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Injectable } from "@angular/core";
+import { Injectable, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
 import { Usuario } from "../app/login/usuario.model";
 import { LoginDTO } from "../app/login/loginDTO.model";
@@ -9,7 +9,7 @@ import { Noticia } from "../app/noticia/noticia.model";
     providedIn: 'root',
 })
 
-export class HomeServices {
+export class HomeServices{
     private url = 'http://localhost:8081/post';
     constructor (private http: HttpClient){
 

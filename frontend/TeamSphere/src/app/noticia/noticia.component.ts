@@ -1,5 +1,5 @@
 import { NgForOf } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { HomeServices } from '../../Services/home.services';
 import { Noticia } from './noticia.model';
 
@@ -11,16 +11,6 @@ import { Noticia } from './noticia.model';
   styleUrl: './noticia.component.css'
 })
 export class NoticiaComponent {
-  constructor(private sercice:HomeServices){
-
-  }
-
-  noticias:Array<Noticia> = new Array<Noticia>;
-
-  loadNews(): void {
-      this.sercice.loadNews().subscribe(data =>{
-          this.noticias = data
-      })
-    }
-
+  
+  @Input() noticia: any
 }

@@ -1,17 +1,16 @@
-
 body {
     margin-left: 30px;
     background-color: #fedbcd;
 }
+
 .header {
     background-color: white;
-    padding-bottom: 10px;
+    padding: 10px;
     height: 50px;
     box-shadow: 0 0px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
     margin-right: 0;
 
   }
@@ -42,11 +41,13 @@ body {
     border: none;
     border-radius: 0 5px 5px 0;
     cursor: pointer;
-  }
+  } 
   
   .user-profile img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
   }
+
+  
   
