@@ -2,6 +2,11 @@ import { Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { CompraVentaComponent } from './compra-venta/compra-venta.component';
+import { SocialComponent } from './social/social.component';
+import { AfterworkComponent } from './afterwork/afterwork.component';
+import { DesplazamientosComponent } from './desplazamientos/desplazamientos.component';
+import { ConfiComponent } from './confi/confi.component';
+import { AparcamientoComponent } from './aparcamiento/aparcamiento.component';
 
 export const routes: Routes = [
     {
@@ -12,22 +17,22 @@ export const routes: Routes = [
         component:HomeComponent
     },{
         path:'social',
-        component:HomeComponent
+        component:SocialComponent
     },{
         path:'afterwork',
-        component:HomeComponent
+        component:AfterworkComponent
     },{
         path:'compra-venta',
         component:CompraVentaComponent
     },{
         path:'desplazamientos',
-        component:HomeComponent
+        component:DesplazamientosComponent
     },{
         path:'aparcamiento',
-        component:HomeComponent
+        component:AparcamientoComponent
     },{
         path:'confi',
-        component:HomeComponent
+        component:ConfiComponent
     },{
         path:'contacto',
         component:HomeComponent
