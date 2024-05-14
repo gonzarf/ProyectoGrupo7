@@ -5,20 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0613a5e-175e-4f3b-a5b6-e551a65a7094" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/followers/FollowersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/followers/FollowersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/followers/FollowersController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/followers/FollowersRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/followers/FollowersRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/followers/FollowersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/followers/FollowersService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/followers/FollowersServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/followers/FollowersServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/post/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/post/PostService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/product/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/product/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/product/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/product/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/product/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/product/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/product/UpdateProductDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/product/UpdateProductDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/user/CreateUserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/user/CreateUserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/user/ResponseUserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/user/ResponseUserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/user/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

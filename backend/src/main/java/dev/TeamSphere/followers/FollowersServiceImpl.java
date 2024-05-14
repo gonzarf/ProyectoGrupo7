@@ -29,4 +29,9 @@ public class FollowersServiceImpl implements FollowersService {
                 .build();
         return followersRepository.save(followers);
     }
+
+    @Override
+    public void removeFollower(User follower, User followed) {
+        followersRepository.deleteByIdFollowerAndIdFollowed(follower, followed);
+    }
 }

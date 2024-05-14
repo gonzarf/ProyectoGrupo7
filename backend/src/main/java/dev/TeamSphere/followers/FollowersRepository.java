@@ -15,4 +15,8 @@ public interface FollowersRepository extends JpaRepository<Followers, UUID> {
     List<User> findFollowedUsersByFollower(User user);
 
     Optional<Followers> findById(UUID id);
+
+    // Método para eliminar una relación de seguimiento
+    void deleteByIdFollowerAndIdFollowed(User follower, User followed);
 }
+
