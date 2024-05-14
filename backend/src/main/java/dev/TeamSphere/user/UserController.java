@@ -30,6 +30,16 @@ public class UserController {
         return ResponseEntity.ok(userService.getUserById(id));
     }
 
+    @GetMapping("/email/{email}")
+    public ResponseEntity<ResponseUserDto> getUserByEmail(@PathVariable String email) {
+        return ResponseEntity.ok(userService.getUserByEmail(email));
+    }
+
+    @GetMapping("/login")
+    public ResponseEntity<ResponseUserDto> login(@RequestBody LoginDto loginDto) {
+        return ResponseEntity.ok(userService.login(loginDto));
+    }
+
     @PostMapping
     public ResponseEntity<ResponseUserDto> createUser(@Valid @RequestBody CreateUserDto createUserDto) {
         return ResponseEntity.status(201).body(userService.createUser(createUserDto));
