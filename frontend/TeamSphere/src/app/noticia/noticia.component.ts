@@ -8,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './noticia.component.css'
 })
 export class NoticiaComponent {
-
+  id: string = "";
+  tittle: string = "";
+  desc: string = "";
+  img: string = "";
 }
