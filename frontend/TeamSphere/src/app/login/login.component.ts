@@ -28,6 +28,8 @@ export class LoginComponent{
   
   
   login(): void {
+    this.router.navigate(['/home'])
+    
     let logindto: LoginDTO = {email: this.email, password: this.password}
 
     this.service.login(logindto).subscribe(dato =>{

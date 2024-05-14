@@ -22,11 +22,12 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
-
-compiler.xml
-misc.xml
-modules.xml
-vcs.xml
-jarRepositories.xml
-ProyectoGrupo7.iml
-workspace.xml
+.idea/ProyectoGrupo7.iml
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml .idea/workspace.xml
+.idea/compiler.xml
+.idea/vcs.xml
+.idea/jarRepositories.xml
+.idea/workspace.xml

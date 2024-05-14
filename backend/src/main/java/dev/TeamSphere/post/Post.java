@@ -1,5 +1,7 @@
 package dev.TeamSphere.post;
 
+import dev.TeamSphere.likes.Like;
+import dev.TeamSphere.user.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -9,6 +11,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -17,6 +20,7 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor(force = true)
+@Table(name="posts")
 public class Post {
 
     @Id
@@ -26,22 +30,19 @@ public class Post {
     @Column(nullable = false)
     @NotBlank(message = "A title is required")
     @Length(min = 2, max = 50, message = "The name must be between 3 and 50 characters")
-    private String titulo;
+    private String title;
 
     @Column(nullable = false)
     @NotBlank(message = "A description is required")
     private String description;
 
-    @Column
-    private Integer likes;
-
     @Column(nullable = false)
     private String image;
 
     @Column(nullable = false)
-    private String tipo;
+    private String type;
 
 
-
+    //en el front para sacar el numero de likes de un post basta con hacer un recuento en la tabla de likes
 
 }
