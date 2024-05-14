@@ -40,7 +40,7 @@ public class AuthServiceImpl implements AuthService {
                 .email(request.getEmail())
                 .name(request.getName())
                 .lastName(request.getLastName())
-                .roles(Stream.of(Role.USER).collect(Collectors.toSet()))
+                .roles(Role.USER)
                 .build();
         try {
             var userStored = authUsersRepository.save(user);
