@@ -20,6 +20,6 @@ public record ResponseUserDto(
 
         String  phone,
 
-        String role
+        Role role
 ) {
 }

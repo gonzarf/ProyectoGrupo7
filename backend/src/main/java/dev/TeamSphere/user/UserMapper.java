@@ -14,6 +14,7 @@ public class UserMapper {
                 .password(requestDto.password())
                 .image(requestDto.image() != null ? requestDto.image() : User.IMAGE_DEFAULT)
                 .phone(requestDto.phone())
+                .roles(Role.USER)
                 .build();
     }
 

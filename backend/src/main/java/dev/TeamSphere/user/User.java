@@ -16,6 +16,7 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor(force = true)
+@Table(name = "users")
 public class User {
 
     public static final String IMAGE_DEFAULT = "https://cdn.pixabay.com/photo/2012/04/26/19/43/profile-42914_640.png";
@@ -47,5 +48,5 @@ public class User {
     private String phone;
 
     @Column(nullable=false)
-    private String roles = "Administrador";
+    private Role roles = Role.USER;
 }
