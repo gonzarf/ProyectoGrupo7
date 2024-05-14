@@ -1,11 +1,6 @@
-
-.body {
-    margin-left: 30px;
-    background-color: #fedbcd;
-<<<<<<< Updated upstream
-}
 .header {
     background-color: white;
+    top: fixed;
     padding-bottom: 10px;
     height: 50px;
     box-shadow: 0 0px 4px rgba(0, 0, 0, 0.1);
@@ -16,12 +11,13 @@
     margin-right: 0;
 
   }
-  
-  p.tittle-page {
-    margin-left: 50px;
+
+  p.title-page {
+    margin-left: 100px;
     color: #f97c4b;
     font-weight: bold;
     font-family: arial;
+    font-size: larger
   }
   
   .search-bar {
@@ -50,7 +46,3 @@
     height: 40px;
     border-radius: 50%;
   }
-  
-=======
-}
->>>>>>> Stashed changes
