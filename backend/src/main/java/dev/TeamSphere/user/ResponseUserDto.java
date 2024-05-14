@@ -14,6 +14,8 @@ public record ResponseUserDto(
 
         String email,
 
+        String username,
+
         String image,
 
         String  phone,

@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 import java.util.Set;
 import java.util.UUID;
 
@@ -28,6 +29,9 @@ public class User {
 
     @Column(nullable = false, name = "last_name")
     private String lastName;
+
+    @Column(nullable = false)
+    private String username;
 
     @Column(nullable = false)
     private String email;

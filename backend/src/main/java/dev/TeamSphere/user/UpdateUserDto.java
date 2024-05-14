@@ -1,6 +1,7 @@
 package dev.TeamSphere.user;
 
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import org.hibernate.validator.constraints.Length;
 
 public record UpdateUserDto(
@@ -13,6 +14,10 @@ public record UpdateUserDto(
 
         @Email(message = "The email is invalid")
         String email,
+
+        @NotBlank(message = "Username cannot be empty")
+        @Length(min = 3, message = "Username must have at least 3 characters")
+        String username,
 
         @Length(min = 8, max = 100, message = "The password must be between 5 and 20 characters")
         String password,

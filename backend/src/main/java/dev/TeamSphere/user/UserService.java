@@ -13,10 +13,6 @@ public interface UserService {
 
     ResponseUserDto getUserById(String id);
 
-    ResponseUserDto getUserByEmail(String email);
-
-    ResponseUserDto login(LoginDto loginDto);
-
     ResponseUserDto createUser(CreateUserDto createUserDto);
 
     ResponseUserDto updateUser(String id, UpdateUserDto updateUserDto);
