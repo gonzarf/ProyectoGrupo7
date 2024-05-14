@@ -14,4 +14,4 @@ public class StorageConflict extends StorageException {
     public StorageConflict(String message) {
         super(message);
     }
-}//comment
+}

@@ -22,4 +22,4 @@ public interface StorageService {
     void deleteAll();
 
     String getUrl(String filename);
-}//comment
+}
