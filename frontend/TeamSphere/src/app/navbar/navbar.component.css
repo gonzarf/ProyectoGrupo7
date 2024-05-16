@@ -70,6 +70,7 @@
     height: 40px;
     border-radius: 50%;
     padding-right: 10px;
+    padding-left: 10px;
   }
 
 
@@ -88,9 +89,12 @@
   }
 
 
-  @media screen and (min-width:450px) and (max-width: 560px) {
+  @media screen and (min-width:450px) and (max-width: 600px) {
     p.title-page {
-      margin-left: 90px;
+      margin-left: 70px;
+      white-space: nowrap;
+      overflow: hidden; 
+      text-overflow: ellipsis;
     }
 
 
