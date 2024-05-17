@@ -1,6 +1,6 @@
 package dev.TeamSphere.user;
 
-public enum Role {
+public enum Roles {
     USER,
-    ADMIN
+    ROLE_USER, ADMIN
 }

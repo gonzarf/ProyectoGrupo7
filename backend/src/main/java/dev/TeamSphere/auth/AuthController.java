@@ -1,9 +1,11 @@
 package dev.TeamSphere.auth;
 
+
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 
 @RestController
 @RequestMapping("/auth")
@@ -25,4 +27,5 @@ public class AuthController {
     public ResponseEntity<JwtAuthResponse> signIn(@Valid @RequestBody UserSignInRequest request) {
         return ResponseEntity.ok(authService.signIn(request));
     }
+
 }
