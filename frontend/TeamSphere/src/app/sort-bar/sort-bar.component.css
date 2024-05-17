@@ -1,0 +1,44 @@
+.sort-bar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding-left: 50px;
+  }
+  
+  .sort-bar label {
+    font-weight: bold;
+  }
+  
+  .sort-option {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+  }
+  
+  .sort-arrows {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+  }
+  
+  .sort-arrows:hover {
+    background-color: #eee;
+  }
+  
+  .fa-arrow-up,
+  .fa-arrow-down {
+    font-size: 14px;
+    color: #333;
+  }
+  
