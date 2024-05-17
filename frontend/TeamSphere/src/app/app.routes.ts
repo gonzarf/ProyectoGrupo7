@@ -9,6 +9,8 @@ import { ConfiComponent } from './confi/confi.component';
 import { AparcamientoComponent } from './aparcamiento/aparcamiento.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { ItemPageComponent } from './item-page/item-page.component';
+import { TarjetaSocialComponent } from './tarjeta-social/tarjeta-social.component';
+import { NoticiaComponent } from './noticia/noticia.component';
 
 export const routes: Routes = [
     {
@@ -39,8 +41,10 @@ export const routes: Routes = [
         path:'contacto',
         component:ContactoComponent
     },{
-        path:'item',
-        component:ItemPageComponent
+        path:'tarjetasocial',
+        component:TarjetaSocialComponent
+    },{
+        path:'noticia',
+        component:NoticiaComponent
     }
-    
 ];
