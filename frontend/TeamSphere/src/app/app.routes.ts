@@ -8,6 +8,7 @@ import { DesplazamientosComponent } from './desplazamientos/desplazamientos.comp
 import { ConfiComponent } from './confi/confi.component';
 import { AparcamientoComponent } from './aparcamiento/aparcamiento.component';
 import { ContactoComponent } from './contacto/contacto.component';
+import { ItemPageComponent } from './item-page/item-page.component';
 
 export const routes: Routes = [
     {
@@ -37,6 +38,9 @@ export const routes: Routes = [
     },{
         path:'contacto',
         component:ContactoComponent
+    },{
+        path:'item',
+        component:ItemPageComponent
     }
     
 ];
