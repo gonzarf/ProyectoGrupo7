@@ -12,5 +12,5 @@ import { NavbarComponent } from '../navbar/navbar.component';
     imports: [SideBarComponent, NavbarComponent]
 })
 export class ConfiComponent {
-    title = "Configuracion"
+    title = "Configuración"
 }
