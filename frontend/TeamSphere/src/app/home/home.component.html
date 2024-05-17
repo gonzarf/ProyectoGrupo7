@@ -4,18 +4,7 @@
 
   <app-sort-bar></app-sort-bar>
   
-  <app-noticia></app-noticia>
-  <app-noticia></app-noticia>
-  <app-noticia></app-noticia>
-  <app-noticia></app-noticia>
-  <app-noticia></app-noticia>
-  <app-noticia></app-noticia>
-  <app-noticia></app-noticia>
-  <app-noticia></app-noticia>
-  <app-noticia></app-noticia>
-  <app-noticia></app-noticia>
-
-
+  <app-noticia *ngFor = "let noticia of noticias" [noticia]="noticia"></app-noticia>
 
 </div>
 
