@@ -1,2 +1,47 @@
-<app-side-bar></app-side-bar>
-<app-navbar [title] = "title"></app-navbar>
+<div class="container">
+    <div class="profile-form">
+        <div class="profile-image">
+            <img src="../../assets/img/chart2.png" alt="Imagen de usuario">
+            <input style="margin-top: 1.5em;" type="file" accept="image/*">
+        </div>
+        <div class="form-fields">
+            
+            <div class="left">
+                <div class="input-field">
+                    <input type="text" placeholder="Username" [(ngModel)]="username">
+                </div>
+                <div class="input-field">
+                    <input class="input-field" type="text" placeholder="Name" [(ngModel)]="name">
+                </div>
+                <div class="input-field">
+                    <input class="input-field" type="text" placeholder="Lastname" [(ngModel)]="lastname">
+                </div>
+                <div class="input-field">
+                    <input class="input-field" type="email" placeholder="Email" [(ngModel)]="email">
+                </div>
+                
+            </div>
+            <div class="right">
+                <div class="input-field">
+                    <input class="input-field" type="tel" placeholder="Phone" [(ngModel)]="phone">
+
+                </div>
+                <div class="input-field">
+                    <input class="input-field" type="password" placeholder="Current Password" [(ngModel)]="currentPassword">
+
+                </div>
+                <div class="input-field">
+                    <input class="input-field" type="password" placeholder="New Password" [(ngModel)]="newPassword">
+
+                </div>
+                <div class="input-field">
+                    <input class="input-field" type="password" placeholder="Repeat Password" [(ngModel)]="repeatPassword">
+
+                </div>
+            </div>
+        </div>
+        <div>
+            <button class="btn">Guardar cambios</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,145 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #FCBFA7;
+    overflow: hidden;
+}
+
+.profile-form {
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 45em;
+    height: 40em;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.profile-image {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5em;
+}
+
+.profile-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.form-fields {
+    width: 100%;
+    display: flex;
+    flex-wrap:wrap;
+    flex-direction: row;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    justify-content: center;
+    align-items: center;
+    row-gap: .7em;
+}
+
+.form-fields input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.input-field {
+   
+    width:100%;
+    height: 50px;
+    background: #f0f0f0;
+    border: 2px solid #F97C4B;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    
+}
+
+.input-field input {
+    width: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 600px;
+    color: #444;
+}
+
+.btn {
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    background: #F97C4B;
+    color: #fff;
+    font-weight: 600;
+    margin: 10px 0;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+}
+
+.btn:hover {
+    background: #f97c4bcb;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+.left{
+    text-align: center;
+   display: flex;
+   flex-direction: column;
+   row-gap: .7em;
+}
+
+input{
+    border-radius: 1%;
+    width: 20em;
+}
+
+.right{
+    text-align: center;
+    display: flex;
+   flex-direction: column;
+   margin-left: 3.5em;
+   row-gap: .7em;
+
+}
+
+@media only screen and (max-width: 600px) {
+    .profile-form {
+        width: 90%;
+        overflow: scroll;
+    }
+}
+
+@media (max-width: 597px){
+    .right{
+       margin-left: 0;
+    }
+    .form-fields{
+        column-gap: 1em;
+    }
+    
+}

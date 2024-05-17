@@ -237,7 +237,6 @@ p{
 .btn {
     width: 150px;
     height: 50px;
-    border: block;
     border-radius: 10px;
     background: #F97C4B;
     color: #fff;
@@ -246,6 +245,7 @@ p{
     margin-bottom: 15px;
     text-transform: uppercase;
     cursor: pointer;
+    border: none;
 }
 
 .btn:hover {
