@@ -14,9 +14,7 @@ iframe{
 }
 
 .img{
-    margin-top: 4em;
-    width: 15em;
-    
+    width: 15em;   
 }
 
 
@@ -83,9 +81,8 @@ iframe{
     background-image: url("../../assets/img/volver.png");
     background-repeat: no-repeat;
     background-size: contain;
-    position: absolute;
-    right: 470px;
-    top: 20px;
+    margin-top: 10px;
+    align-self: flex-start;
     cursor: pointer;
 
 }
