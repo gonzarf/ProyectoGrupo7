@@ -1,63 +1,26 @@
 <app-side-bar></app-side-bar>   
 <app-navbar [title] = "title"></app-navbar>
 
-<!-- <div class="body">
-    <div class="area-img">
-        <img src={{img_route}}>
-    </div>
-    <div class="info">
-        <p>{{name}}</p>
-        <p>{{desc}}</p>
-        <p>{{price}}</p>
-    </div>
-
-</div> -->
-
-<!-- <div class="body">
-    <div class="container-info">
-        <div class="name">
-            <h1>{{name}}</h1>
-            <h2 class="price">{{price}} €</h2>
-        </div>
-
-        :before
-        <div class="description mt-4">
-            <h2>Descripción: </h2>
-            <p>{{desc}}</p>
-        </div>
-        <div class="container-img">
-            <img src={{img_route}} alt="" class="product-image">
-        </div>
-        <div class="footer d-flex flex-column mt-5">
-            <div class="row actions">
-                <div class="col action-item">
-                    <button type="button" class="btn btn-outline-warning"><a href="#">Comprar</a></button>
-                </div>
-            </div>
-        </div>
-        
-    </div>
-    
-</div> -->
 
 <div class="body">
     <div class="container">
-        <div class="images">
-        <img src={{img_route}} />
-        </div>
-        
-
-        <div class="product">
-        <p>Vendedor: {{user}}</p>
-        <h1>{{name}}</h1>
-        <h2>{{price}} €</h2>
-        <p class="desc">{{desc}}</p>
+      <div class="images">
+        <button class="prev" (click)="prevImage()">&#10094;</button>
+            <img [src]="images[currentImageIndex]" alt="Product Image" id="carousel-image" />
+        <button class="next" (click)="nextImage()">&#10095;</button>
+      </div>
+  
+      <div class="product">
+        <p>Vendedor: {{ user }}</p>
+        <h1>{{ name }}</h1>
+        <h2>{{ price }} €</h2>
+        <p class="desc">{{ desc }}</p>
         <div class="buttons">
-            <button class="add">Comprar</button>
+          <button class="add">Comprar</button>
             <span class="button-separator"></span>
-            <button class="like"><span>♥</span></button>
+          <button class="like"><span>♥</span></button>
         </div>
-        </div>
+      </div>
     </div>
-</div>
+  </div>
   

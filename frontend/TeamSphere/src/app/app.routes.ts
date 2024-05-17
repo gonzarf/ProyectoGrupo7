@@ -11,6 +11,8 @@ import { ContactoComponent } from './contacto/contacto.component';
 import { ItemPageComponent } from './item-page/item-page.component';
 import { TarjetaSocialComponent } from './tarjeta-social/tarjeta-social.component';
 import { NoticiaComponent } from './noticia/noticia.component';
+import { CambiarPasswordComponent } from './cambiar-password/cambiar-password.component';
+
 
 export const routes: Routes = [
     {
@@ -45,6 +47,12 @@ export const routes: Routes = [
         component:TarjetaSocialComponent
     },{
         path:'noticia',
-        component:NoticiaComponent
+        component:NoticiaComponent},{
+
+        path:'item',
+        component:ItemPageComponent
+    },{
+        path:'cambiar-password',
+        component:CambiarPasswordComponent
     }
 ];
