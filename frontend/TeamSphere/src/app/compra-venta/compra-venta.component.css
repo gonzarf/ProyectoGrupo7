@@ -1,21 +1,28 @@
-
 .body {
-    margin-left: 30px;
-    background-color: #fedbcd;
+  margin-left: 30px;
+  background-color: #fedbcd;
 }
-  .container-items { 
- 
-    display: flex;
-    flex-wrap: wrap; 
-    justify-content: space-around; 
-    align-items: flex-start; 
-    height: 100%; 
-    padding: 20px; 
-    box-sizing: border-box; 
-  }
+.container-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
 
-  .container-items > app-item {
-    flex: 1 0 auto;
-    max-width: 300px; 
-    margin: 10px; 
-  }
+.container-items > app-item {
+  flex: 1 0 auto;
+  max-width: 300px;
+  margin: 10px;
+}
+
+.card{
+  width: 100%;
+}
+
+
+
+
+

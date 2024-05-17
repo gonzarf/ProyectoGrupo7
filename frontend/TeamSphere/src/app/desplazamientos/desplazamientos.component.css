@@ -1,0 +1,22 @@
+.contenido {
+    position: relative;
+      margin-left: 50px;
+      background-color: #fedbcd;
+  }
+    .container-desplazamiento-items { 
+   
+      display: flex;
+      flex-wrap: wrap; 
+      justify-content: center; 
+      align-items: flex-start; 
+      height: 100%; 
+      padding: 20px; 
+      box-sizing: border-box; 
+      gap: 50px 50px;
+    }
+  
+    .container-items > app-desplazamiento-item {
+      flex: 1 0 auto;
+      max-width: 300px; 
+      margin: 10px;
+    }
