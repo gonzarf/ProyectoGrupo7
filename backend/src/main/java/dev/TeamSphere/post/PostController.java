@@ -1,6 +1,5 @@
 package dev.TeamSphere.post;
 
-import dev.TeamSphere.user.User;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,6 +8,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 
@@ -20,15 +20,18 @@ public class PostController {
     @Autowired
     private PostService postService;
 
+    @Autowired
+    private PostRepository postRepository;
+
     @GetMapping("/all")
     public List<Post> getAllPosts(){
         return postService.getAllPosts();
     }
 
-    @GetMapping("/{id}")
-    public Post getPostById(@PathVariable UUID idPost){
+    @GetMapping("/get-by-id/{idPost}")
+    public Optional<Post> getPostById(@PathVariable("idPost") UUID idPost){
 
-        return null;
+        return postService.getPostById(idPost);
     }
 
     @GetMapping("/get-news/")
@@ -51,20 +54,30 @@ public class PostController {
     }
 
     @DeleteMapping("/delete/{idPost}")
-    public ResponseEntity<String> deletePost(@PathVariable("idPost") UUID postId) {
+    public void deletePost(@PathVariable("idPost") UUID idPost) {
 
-        if (postService.getPostById(postId) == null) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se encontró el post con el ID proporcionado.");
-        }
+        postService.deletePostById(idPost);
 
-        postService.deletePostById(postId);
-        return ResponseEntity.status(HttpStatus.OK).body("El post se eliminó correctamente.");
     }
 
     @PutMapping("/update/{idPost}")
     public ResponseEntity<String> updatePost(@PathVariable("idPost") UUID postId, @RequestBody Post updatedPost){
-            postService.updatePost(postId,updatedPost);
+            Post existingPost = postRepository.findById(postId).orElse(null);
+            postService.updatePost(existingPost,updatedPost);
+
         return ResponseEntity.status(HttpStatus.OK).body("El post se actualizo correctamente.");
+    }
+
+    @PatchMapping("/addlike/{idPost}/{idUser}")
+    public void addLike(@PathVariable("idPost") UUID idPost, @PathVariable("idUser")String idUser){
+       Optional<Post> postOptional = postService.getPostById(idPost);
+        Post post = postOptional.get();
+        List<String> likeList = post.getLikes();
+        likeList.add(idUser);
+        post.setLikes(likeList);
+
+        postService.addNewPost(post);
+
     }
 
     //like and unlike a post
