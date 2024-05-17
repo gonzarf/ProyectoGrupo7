@@ -208,4 +208,22 @@
     display: flex;
     column-gap: 1em;
     justify-content: center;
+.body {
+    padding-left: 30px;
+    background-color: #fedbcd;
+}
+
+.contenedor{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    align-items: flex-start; 
+    height: 100%; 
+    padding: 20px; 
+    box-sizing: border-box; 
+}
+
+.container-items > app-tarjeta-social {
+    margin: 100px;
   }
