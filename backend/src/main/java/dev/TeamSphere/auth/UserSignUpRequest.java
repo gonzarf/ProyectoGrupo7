@@ -14,24 +14,25 @@ import org.hibernate.validator.constraints.Length;
 @Builder
 public class UserSignUpRequest {
 
-    @NotBlank(message = "Name cannot be empty")
+    @NotBlank(message = "Name is required")
     private String name;
 
-    @NotBlank(message = "Last name cannot be empty")
+    @NotBlank(message = "Last name is required")
     private String lastName;
 
-    @NotBlank(message = "Username cannot be empty")
-    @Length(min = 3, message = "Username must have at least 3 characters")
+    @NotBlank(message = "Username is required")
     private String username;
 
-    @Email(regexp = ".*@.*\\..*", message = "Email must be valid")
-    @NotBlank(message = "Email cannot be empty")
+    @Email(regexp = ".*@.*\\..*", message = "Email is invalid")
+    @NotBlank(message = "Email is required")
     private String email;
 
-    @Length(min = 9, max = 12, message = "The phone is invalid")
+    @NotBlank(message = "Password is required")
+    @Length(min = 5, message = "Password must be at least 5 characters long")
+    private String password;
+
+    @NotBlank(message = "Phone number is required")
+    @Length(min = 9, max = 12, message = "Phone number is invalid")
     private String phone;
 
-    @NotBlank(message = "Password cannot be empty")
-    @Length(min = 5, message = "Password must have at least 5 characters")
-    private String password;
 }

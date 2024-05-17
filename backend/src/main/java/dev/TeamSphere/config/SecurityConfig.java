@@ -1,7 +1,5 @@
 package dev.TeamSphere.config;
 
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -41,8 +39,10 @@ public class SecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(manager -> manager.sessionCreationPolicy(STATELESS))
-                .authorizeHttpRequests(request -> request.requestMatchers("/user/**").permitAll())
+                .authorizeHttpRequests(request -> request.requestMatchers("/error/**").permitAll())
+                .authorizeHttpRequests(request -> request.requestMatchers("/like/**").permitAll())
                 .authorizeHttpRequests(request -> request.requestMatchers("/product/**").permitAll())
+                .authorizeHttpRequests(request -> request.requestMatchers("/user/**").permitAll())
                 .authorizeHttpRequests(request -> request.requestMatchers("/post/**").permitAll())
                 .authorizeHttpRequests(request -> request.requestMatchers("/storage/**").permitAll())
                 .authorizeHttpRequests(request -> request.requestMatchers("/auth/**").permitAll())

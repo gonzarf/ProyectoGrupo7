@@ -16,7 +16,7 @@ import java.util.Map;
 
 @RestController
 @Slf4j
-@RequestMapping("storage")
+@RequestMapping("/storage")
 public class StorageController {
     private final StorageService storageService;
     
