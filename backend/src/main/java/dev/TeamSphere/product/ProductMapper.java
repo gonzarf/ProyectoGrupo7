@@ -2,6 +2,7 @@ package dev.TeamSphere.product;
 
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
 import java.util.Collections;
 
 @Component
@@ -12,7 +13,8 @@ public class ProductMapper {
                 .name(createProductDto.name())
                 .price(createProductDto.price())
                 .description(createProductDto.description())
-                .image(Collections.singletonList(createProductDto.image()))
+                .date(LocalDateTime.now())
+                .image(createProductDto.imageList())
                 .build();
     }
 
@@ -22,7 +24,8 @@ public class ProductMapper {
                 .name(updateProductDto.name() != null ? updateProductDto.name() : product.getName())
                 .price(updateProductDto.price() != null ? updateProductDto.price() : product.getPrice())
                 .description(updateProductDto.description() != null ? updateProductDto.description() : product.getDescription())
-                .image(updateProductDto.image() != null ? Collections.singletonList(updateProductDto.image()) : product.getImage())
+                .date(LocalDateTime.now())
+                .image(updateProductDto.image() != null ? updateProductDto.image() : product.getImage())
                 .build();
     }
 

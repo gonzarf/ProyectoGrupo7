@@ -15,7 +15,7 @@ public interface ProductService {
 
     ResponseProductDto getProductById(UUID id);
 
-    ResponseProductDto updateProductById(UpdateProductDto updateProductDto, UUID id);
+    ResponseProductDto updateProductById(UpdateProductDto updateProductDto, UUID id, List<MultipartFile> fileList);
 
     void deleteProduct(UUID id);
 }

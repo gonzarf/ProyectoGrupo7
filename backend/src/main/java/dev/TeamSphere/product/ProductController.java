@@ -1,6 +1,9 @@
 package dev.TeamSphere.product;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -27,8 +30,19 @@ public class ProductController {
         return service.getProductList();
     }
 
-    @PostMapping
-    public ResponseProductDto postProduct(@RequestBody CreateProductDto product, List<MultipartFile> fileList){
+    /*@PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseProductDto postProduct(@RequestBody CreateProductDto product, @RequestParam("file") List<MultipartFile> fileList){
+        return service.postProduct(product, fileList);
+    }*/
+    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseProductDto postProduct(
+            @RequestParam("product") String productJson,
+            @RequestParam("file") List<MultipartFile> fileList) throws JsonProcessingException {
+
+        // Convierte el JSON del producto a un objeto CreateProductDto
+        ObjectMapper objectMapper = new ObjectMapper();
+        CreateProductDto product = objectMapper.readValue(productJson, CreateProductDto.class);
+
         return service.postProduct(product, fileList);
     }
 
@@ -37,9 +51,17 @@ public class ProductController {
         return service.getProductById(id);
     }
 
-    @PutMapping("/{id}")
-    public ResponseProductDto updateProductById(@PathVariable("id") UUID id, @RequestBody UpdateProductDto product){
-        return service.updateProductById(product, id);
+    @PutMapping(value = "/{id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseProductDto updateProductById(
+            @PathVariable("id") UUID id,
+            @RequestParam("product") String productJson,
+            @RequestParam("file") List<MultipartFile> fileList) throws JsonProcessingException {
+
+        // Convierte el JSON del producto a un objeto CreateProductDto
+        ObjectMapper objectMapper = new ObjectMapper();
+        UpdateProductDto product = objectMapper.readValue(productJson, UpdateProductDto.class);
+
+        return service.updateProductById(product, id, fileList);
     }
 
     @DeleteMapping("/{id}")

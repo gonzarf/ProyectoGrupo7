@@ -39,7 +39,8 @@ public class Product {
     @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime date = LocalDateTime.now();
 
-    @Column(nullable = false)
+    //@Column(nullable = false)
+    @ElementCollection(fetch = FetchType.EAGER)
     private List<String> image;
 
     //private UUID id_comprador;
