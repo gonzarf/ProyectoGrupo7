@@ -12,7 +12,7 @@ import java.util.Objects;
 
 //controller for user
 @RestController
-@RequestMapping("user")
+@RequestMapping("/user")
 public class UserController {
     private final UserServiceImpl userService;
 

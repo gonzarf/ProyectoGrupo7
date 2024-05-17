@@ -1,6 +1,6 @@
 package dev.TeamSphere.auth;
 
-import dev.TeamSphere.user.Role;
+import dev.TeamSphere.user.Roles;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,6 +18,7 @@ public class UserResponse {
     private String lastName;
     private String username;
     private String email;
+    private String phone;
     @Builder.Default
-    private Set<Role> roles = Set.of(Role.USER);
+    private Set<Roles> roles = Set.of(Roles.USER);
 }

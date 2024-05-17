@@ -2,6 +2,8 @@ package dev.TeamSphere.user;
 
 import org.springframework.stereotype.Component;
 
+import java.util.Set;
+
 @Component
 public class UserMapper {
 
@@ -14,7 +16,7 @@ public class UserMapper {
                 .password(requestDto.password())
                 .image(requestDto.image() != null ? requestDto.image() : User.IMAGE_DEFAULT)
                 .phone(requestDto.phone())
-                .roles(Role.USER)
+                .roles(Set.of(Roles.USER))
                 .build();
     }
 
@@ -40,7 +42,7 @@ public class UserMapper {
                 .username(user.getUsername())
                 .image(user.getImage())
                 .phone(user.getPhone())
-                .role(user.getRoles())
+                .roles(user.getRoles())
                 .build();
     }
 }

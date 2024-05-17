@@ -37,28 +37,28 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(@NonNull HttpServletRequest request,
                                     @NonNull HttpServletResponse response, @NonNull FilterChain filterChain)
             throws ServletException, IOException {
-        log.info("Starting JWT authentication filter");
+        log.info("Iniciando el filtro de autenticación...");
         final String authHeader = request.getHeader("Authorization");
         final String jwt;
         UserDetails userDetails = null;
         String userName = null;
 
         if (!StringUtils.hasText(authHeader) || !StringUtils.startsWithIgnoreCase(authHeader, "Bearer ")) {
-            log.info("Does not have Authorization header or does not start with Bearer");
+            log.info("No se ha encontrado cabecera de autenticación, se ignora");
             filterChain.doFilter(request, response);
             return;
         }
 
-        log.info("Authorization header found");
+        log.info("Se ha encontrado cabecera de autenticación, se procesa");
         jwt = authHeader.substring(7);
         try {
             userName = jwtService.extractUserName(jwt);
         } catch (Exception e) {
-            log.info("Invalid token: {}", jwt);
-            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Token unauthorized or invalid");
+            log.info("Token no válido");
+            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Token no autorizado o no válido");
             return;
         }
-        log.info("Authenticating user: {}", userName);
+        log.info("Usuario autenticado: {}", userName);
         if (StringUtils.hasText(userName)
                 && SecurityContextHolder.getContext().getAuthentication() == null) {
 
@@ -67,12 +67,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 userDetails = authUsersService.loadUserByUsername(userName);
             } catch (Exception e) {
                 log.info("Usuario no encontrado: {}", userName);
-                response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Not authorized");
+                response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Usuario no autorizado");
                 return;
             }
-            log.info("User found: {}", userName);
+            log.info("Usuario encontrado: {}", userDetails);
             if (jwtService.isTokenValid(jwt, userDetails)) {
-                log.info("Valid JWT");
+                log.info("JWT válido");
                 SecurityContext context = SecurityContextHolder.createEmptyContext();
 
                 UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
