@@ -192,7 +192,7 @@ insert into products (id, name, description, price, image, fecha, fk_idBuyer, fk
 /*Insercción de datos en la tabla de sales*/
 
 
-insert into sales(idUserProduct,fk_idUser,fk_idProduct) values('343','5139909162533199','374283244721841');
+insert into sales(idUserProduct,fk_idUser,fk_idProduct) values('343',' ','374283244721841');
 insert into sales(idUserProduct,fk_idUser,fk_idProduct) values('344','5139909162533199','337941128958930');
 insert into sales(idUserProduct,fk_idUser,fk_idProduct) values('345','5139909162533199','374288425482907');
 insert into sales(idUserProduct,fk_idUser,fk_idProduct) values('346','5139909162533199','374283244721841');

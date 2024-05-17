@@ -34,4 +34,11 @@ public class FollowersServiceImpl implements FollowersService {
     public void removeFollower(User follower, User followed) {
         followersRepository.deleteByIdFollowerAndIdFollowed(follower, followed);
     }
+
+    @Override
+    public List<Followers> getAllFollowers() { // Implementación del nuevo método
+        return followersRepository.findAll();
+    }
+
+
 }

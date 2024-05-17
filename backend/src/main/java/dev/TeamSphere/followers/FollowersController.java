@@ -6,10 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/followers")
+@RequestMapping("/followers")
 public class FollowersController {
 
     private final FollowersService followersService;
@@ -19,6 +20,13 @@ public class FollowersController {
     public FollowersController(FollowersService followersService, UserRepository userRepository) {
         this.followersService = followersService;
         this.userRepository = userRepository;
+    }
+
+    // Método para obtener todos los seguidores
+    @GetMapping
+    public ResponseEntity<List<Followers>> getAllFollowers() {
+        List<Followers> followersList = followersService.getAllFollowers();
+        return ResponseEntity.ok(followersList);
     }
 
     // Método para agregar un nuevo seguidor
@@ -48,4 +56,6 @@ public class FollowersController {
         followersService.removeFollower(follower, followed);
         return ResponseEntity.ok("Follower removed successfully");
     }
+
+
 }
