@@ -47,8 +47,8 @@ export const routes: Routes = [
         component:TarjetaSocialComponent
     },{
         path:'noticia',
-        component:NoticiaComponent},{
-
+        component:NoticiaComponent}
+    ,{
         path:'item',
         component:ItemPageComponent
     },{
