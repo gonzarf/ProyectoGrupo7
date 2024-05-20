@@ -208,8 +208,10 @@
     display: flex;
     column-gap: 1em;
     justify-content: center;
+  }
 .body {
-    padding-left: 30px;
+  height: 92vh;
+    padding-left: 50px;
     background-color: #fedbcd;
 }
 
@@ -217,13 +219,12 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap; 
-    justify-content: space-between; 
-    align-items: flex-start; 
+    justify-content: space-around; 
     height: 100%; 
     padding: 20px; 
     box-sizing: border-box; 
 }
 
-.container-items > app-tarjeta-social {
-    margin: 100px;
-  }
+.contenedor > app-tarjeta-social {
+  width: 30%;
+}
