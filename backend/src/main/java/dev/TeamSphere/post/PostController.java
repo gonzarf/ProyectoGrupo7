@@ -80,23 +80,22 @@ public class PostController {
 
     }
 
-    //like and unlike a post
-    /*
-    @PostMapping("/like-post/{idPost}")
-    public ResponseEntity<String> likePost(@PathVariable("idPost") UUID postId, @RequestBody User user){
+    @PatchMapping("/dislike/{idPost}/{idUser}")
+    public void dislike(@PathVariable("idPost") UUID idPost, @PathVariable("idUser")String idUser){
+        Optional<Post> postOptional = postService.getPostById(idPost);
+        Post post = postOptional.get();
+        List<String> likeList = post.getLikes();
 
-        postService.likePost(user,postId);
+        for(int x= 0;x<likeList.toArray().length;x++){
 
-        return ResponseEntity.status(HttpStatus.OK).body("El like se ha dado correctamente.");
+            if(likeList.get(x).equals(idUser)){
+                    likeList.remove(x);
+            }
+        }
+
+        post.setLikes(likeList);
+        postService.addNewPost(post);
+
     }
-
-    @PostMapping("/unlike-post/{idPost}")
-    public ResponseEntity<String> unlikePost(@PathVariable("idPost") UUID postId, @RequestBody User user){
-
-        return ResponseEntity.status(HttpStatus.OK).body("El like se ha dado correctamente.");
-
-    }
-
-     */
 
 }
