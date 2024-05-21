@@ -84,7 +84,6 @@ public class PostController {
     public void dislike(@PathVariable("idPost") UUID idPost, @PathVariable("idUser")String idUser){
         Optional<Post> postOptional = postService.getPostById(idPost);
         Post post = postOptional.get();
-
         List<String> likeList = post.getLikes();
 
         for(int x= 0;x<likeList.toArray().length;x++){
@@ -98,24 +97,5 @@ public class PostController {
         postService.addNewPost(post);
 
     }
-
-    //like and unlike a post
-    /*
-    @PostMapping("/like-post/{idPost}")
-    public ResponseEntity<String> likePost(@PathVariable("idPost") UUID postId, @RequestBody User user){
-
-        postService.likePost(user,postId);
-
-        return ResponseEntity.status(HttpStatus.OK).body("El like se ha dado correctamente.");
-    }
-
-    @PostMapping("/unlike-post/{idPost}")
-    public ResponseEntity<String> unlikePost(@PathVariable("idPost") UUID postId, @RequestBody User user){
-
-        return ResponseEntity.status(HttpStatus.OK).body("El like se ha dado correctamente.");
-
-    }
-
-     */
 
 }
