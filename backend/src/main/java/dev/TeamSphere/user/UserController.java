@@ -9,8 +9,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
-//controller for user
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -27,7 +27,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ResponseUserDto> getUserById(@PathVariable String id) {
+    public ResponseEntity<ResponseUserDto> getUserById(@PathVariable("id") UUID id) {
         return ResponseEntity.ok(userService.getUserById(id));
     }
 
@@ -37,12 +37,12 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ResponseUserDto> updateUser(@PathVariable String id, @Valid @RequestBody UpdateUserDto updateUserDto) {
+    public ResponseEntity<ResponseUserDto> updateUser(@PathVariable("id") UUID id, @Valid @RequestBody UpdateUserDto updateUserDto) {
         return ResponseEntity.status(201).body(userService.updateUser(id, updateUserDto));
     }
 
     @PatchMapping(value = "/{id}/image", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<ResponseUserDto> patchProductImage(@PathVariable String id, @RequestParam("file") MultipartFile file) {
+    public ResponseEntity<ResponseUserDto> patchProductImage(@PathVariable("id") UUID id, @RequestParam("file") MultipartFile file) {
         if (!Objects.requireNonNull(file.getContentType()).startsWith("image/")) {
             return ResponseEntity.badRequest().build();
         }
@@ -50,7 +50,7 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteUser(@PathVariable String id) {
+    public ResponseEntity<Void> deleteUser(@PathVariable("id") UUID id) {
         userService.deleteUser(id);
         return ResponseEntity.noContent().build();
     }
