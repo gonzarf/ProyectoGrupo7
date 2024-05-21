@@ -24,15 +24,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UUID getUUID(String id) {
-        try {
-            return UUID.fromString(id);
-        } catch (IllegalArgumentException e) {
-            throw new UserBadRequest("Invalid UUID");
-        }
-    }
-
-    @Override
     public List<ResponseUserDto> getAllUsers() {
         log.info("Getting all users");
         List<User> users = userRepository.findAll();
@@ -42,9 +33,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ResponseUserDto getUserById(String id) {
+    public ResponseUserDto getUserById(UUID id){
         log.info("Getting user by id: {}", id);
-        User user = userRepository.findById(getUUID(id))
+        User user = userRepository.findById(id)
                 .orElseThrow(() -> new UserNotFound("User not found with id: " + id));
         return userMapper.toResponseDto(user);
     }
@@ -58,21 +49,21 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ResponseUserDto updateUser(String id, UpdateUserDto updateUserDto) {
+    public ResponseUserDto updateUser(UUID id, UpdateUserDto updateUserDto) {
         log.info("Updating user with id: {}", id);
-        User user = userRepository.findById(getUUID(id))
+        User user = userRepository.findById(id)
                 .orElseThrow(() -> new UserNotFound("User not found with id: " + id));
         User savedUser = userRepository.save(userMapper.toUserFromUpdate(updateUserDto, user));
         return userMapper.toResponseDto(savedUser);
     }
 
     @Override
-    public ResponseUserDto updateImage(String id, MultipartFile file) {
+    public ResponseUserDto updateImage(UUID id, MultipartFile file) {
         if (!file.isEmpty()) {
             String image = storageService.store(file);
             String urlImage = storageService.getUrl(image);
 
-            User user = userRepository.findById(getUUID(id)).orElseThrow(() -> new UserNotFound(id));
+            User user = userRepository.findById(id).orElseThrow(() -> new UserNotFound(id));
             storageService.delete(user.getImage());
             user.setImage(urlImage);
             User userSaved = userRepository.save(user);
@@ -83,10 +74,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deleteUser(String id) {
+    public void deleteUser(UUID id) {
         log.info("Deleting user with id: {}", id);
-        var user = userRepository.findById(getUUID(id)).orElseThrow(() -> new UserNotFound(id));
-        userRepository.deleteById(getUUID(id));
+        var user = userRepository.findById(id).orElseThrow(() -> new UserNotFound(id));
+        userRepository.deleteById(id);
         if (user.getImage() != null && !user.getImage().equals(User.IMAGE_DEFAULT)) {
             storageService.delete(user.getImage());
         }

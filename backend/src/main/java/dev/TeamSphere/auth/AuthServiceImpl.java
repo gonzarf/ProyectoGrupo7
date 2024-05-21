@@ -34,6 +34,10 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public JwtAuthResponse signUp(UserSignUpRequest request) {
         log.info("Creating user: {}", request);
+        if (authUsersRepository.findByUsername(request.getUsername()).isPresent() ||
+                authUsersRepository.findByEmail(request.getEmail()).isPresent()) {
+            throw new UserAuthNameOrEmailExist("User with username " + request.getUsername() + " or email " + request.getEmail() + " already exist");
+        }
         User user = User.builder()
                 .username(request.getUsername())
                 .password(passwordEncoder.encode(request.getPassword()))
@@ -53,11 +57,12 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public JwtAuthResponse signIn(UserSignInRequest request) {
-        log.info("Autenticando usuario: {}", request);
+        log.info("Authenticating user: {}", request);
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
         var user = authUsersRepository.findByUsername(request.getUsername())
                 .orElseThrow(() -> new AuthSingInInvalid("Invalid username or password"));
-        return JwtAuthResponse.builder().token(jwtService.generateToken(user)).build();
+        var jwt = jwtService.generateToken(user);
+        return JwtAuthResponse.builder().token(jwt).build();
     }
 }

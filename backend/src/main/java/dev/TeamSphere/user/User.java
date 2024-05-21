@@ -36,10 +36,10 @@ public class User implements UserDetails {
     @Column(nullable = false, name = "last_name")
     private String lastName;
 
-    @Column(nullable = false)
+    @Column(unique = true, nullable = false)
     private String username;
 
-    @Column(nullable = false)
+    @Column(unique = true, nullable = false)
     private String email;
 
     @Column(nullable = false, length = 60)
@@ -85,6 +85,6 @@ public class User implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 }
