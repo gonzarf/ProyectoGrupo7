@@ -1,6 +1,6 @@
 export class Noticia{
     title=""
-    description=""
+    description!:string
     type=""
     image=""
 }
