@@ -1,5 +1,5 @@
-<app-side-bar></app-side-bar>
 <body>
+  <app-side-bar></app-side-bar>
     <header class="header">
         <p class="tittle-page">HOME</p>
       <div class="search-bar">
@@ -8,11 +8,11 @@
       </div>
       
       <div class="user-profile">
-        <img src="imagen-usuario.jpg" alt="Imagen de usuario">
+        <img src="https://images.pexels.com/photos/1542085/pexels-photo-1542085.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Imagen de usuario">
       </div>
     </header>
     
-      <app-noticia></app-noticia>
+    <app-noticia *ngFor = "let noticia of noticias" [noticia]="noticia"></app-noticia>
 
 
 
