@@ -116,7 +116,7 @@
     max-width: 400px;
     box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
     text-align: center;
-    border: 1px black solid;;
+    border: 1px black solid;
   }
   
   .form-group {
@@ -209,8 +209,9 @@
     column-gap: 1em;
     justify-content: center;
   }
+
 .body {
-  height: 92vh;
+    height: 100%;
     padding-left: 50px;
     background-color: #fedbcd;
 }
@@ -218,13 +219,15 @@
 .contenedor{
     width: 100%;
     display: flex;
-    flex-wrap: wrap; 
-    justify-content: space-around; 
+    flex-wrap: wrap;
+    justify-content: start;
     height: 100%; 
     padding: 20px; 
     box-sizing: border-box; 
 }
 
 .contenedor > app-tarjeta-social {
+  margin-right: 10px;
+  margin-bottom: 20px;
   width: 24%;
 }

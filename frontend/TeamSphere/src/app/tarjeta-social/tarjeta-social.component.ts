@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-tarjeta-social',
@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './tarjeta-social.component.css'
 })
 export class TarjetaSocialComponent {
+  
+  @Input() noticia: any
   
 }
