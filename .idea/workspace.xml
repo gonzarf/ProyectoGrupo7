@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e0613a5e-175e-4f3b-a5b6-e551a65a7094" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/followers/Followers.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/followers/Followers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/followers/FollowersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/followers/FollowersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/followers/FollowersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/followers/FollowersService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/followers/FollowersServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/followers/FollowersServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/teamsphere.sql" beforeDir="false" afterPath="$PROJECT_DIR$/teamsphere.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,6 +52,12 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.intentionPowerPack&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\a925775\Desktop\GitProyectoG7\ProyectoGrupo7" />
+      <recent name="C:\Users\a925775\Desktop\GitProyectoG7\ProyectoGrupo7\backend\src\main\resources" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="TeamSphereApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="dev.TeamSphere.TeamSphereApplication" />

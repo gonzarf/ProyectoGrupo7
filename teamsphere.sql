@@ -26,7 +26,8 @@ create table if not exists users(
     password varchar(50) not null,
     roles enum("Administrador","Usuario") not null,
     fk_idPost varchar(255),
-    foreign key (fk_idPost) references posts(idPost)
+    foreign key (fk_idPost) references posts(id)
+
 );
 
 create table if not exists products(
@@ -35,7 +36,7 @@ create table if not exists products(
     description varchar(500) not null,
     price double not null,
     image varchar(2000) not null,
-    date datetime not null,
+    date date not null,
     fk_idBuyer varchar(255),
     foreign key (fk_idBuyer) references users(id),
     fk_idSeller varchar(255) not null,

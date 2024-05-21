@@ -27,8 +27,7 @@ public class Followers {
     private User idFollower; // Usuario que sigue
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fk_idSFollowed", nullable = false)
+    @JoinColumn(name = "fk_idFollowed", nullable = false) // Corrección en el nombre de la columna
     private User idFollowed; // Usuario seguido
-
 
 }

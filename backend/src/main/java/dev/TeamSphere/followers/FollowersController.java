@@ -43,6 +43,7 @@ public class FollowersController {
         return ResponseEntity.ok("Follower added successfully");
     }
 
+
     // Método para quitar un seguidor
     @DeleteMapping("/remove")
     public ResponseEntity<String> removeFollower(@RequestParam UUID followerId, @RequestParam UUID followedId) {
