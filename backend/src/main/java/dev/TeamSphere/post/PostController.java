@@ -80,6 +80,25 @@ public class PostController {
 
     }
 
+    @PatchMapping("/dislike/{idPost}/{idUser}")
+    public void dislike(@PathVariable("idPost") UUID idPost, @PathVariable("idUser")String idUser){
+        Optional<Post> postOptional = postService.getPostById(idPost);
+        Post post = postOptional.get();
+
+        List<String> likeList = post.getLikes();
+
+        for(int x= 0;x<likeList.toArray().length;x++){
+
+            if(likeList.get(x).equals(idUser)){
+                    likeList.remove(x);
+            }
+        }
+
+        post.setLikes(likeList);
+        postService.addNewPost(post);
+
+    }
+
     //like and unlike a post
     /*
     @PostMapping("/like-post/{idPost}")
