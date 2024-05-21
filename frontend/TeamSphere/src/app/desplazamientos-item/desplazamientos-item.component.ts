@@ -14,7 +14,7 @@ export class DesplazamientosItemComponent {
 
 
   Apuntarse(){
-   
+    
     if(this.espacios < 4){
 
       this.espacios++;
