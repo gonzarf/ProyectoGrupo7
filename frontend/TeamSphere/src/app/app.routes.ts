@@ -42,7 +42,8 @@ export const routes: Routes = [
         component:ContactoComponent
     },{
         path:'item',
-        component:ItemPageComponent},{
+        component:ItemPageComponent
+    },{
         path:'cambiar-password',
         component:CambiarPasswordComponent
     }
