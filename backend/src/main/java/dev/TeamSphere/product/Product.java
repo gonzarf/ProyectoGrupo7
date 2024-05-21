@@ -10,6 +10,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -38,8 +39,9 @@ public class Product {
     @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime date = LocalDateTime.now();
 
-    @Column(nullable = false)
-    private String image;
+    //@Column(nullable = false)
+    @ElementCollection(fetch = FetchType.EAGER)
+    private List<String> image;
 
     //private UUID id_comprador;
 

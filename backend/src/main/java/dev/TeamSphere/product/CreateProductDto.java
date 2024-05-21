@@ -2,6 +2,8 @@ package dev.TeamSphere.product;
 
 import jakarta.validation.constraints.NotBlank;
 
+import java.util.List;
+
 public record CreateProductDto(
 
         @NotBlank(message = "The name is required")
@@ -12,8 +14,18 @@ public record CreateProductDto(
         @NotBlank(message = "The description is required")
         String description,
 
-        String image
+        List<String> imageList
 
 ) {
+        public static CreateProductDto withUpdatedImages(CreateProductDto createProductDto, List<String> updatedImageList) {
+                return new CreateProductDto(
+                        createProductDto.name(),
+                        createProductDto.price(),
+                        createProductDto.description(),
+                        updatedImageList
+                );
+        }
+
+
 
 }
