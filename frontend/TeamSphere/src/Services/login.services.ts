@@ -11,11 +11,9 @@ export class LoginServices {
   private url = 'http://localhost:8081/user';
   constructor(private http: HttpClient) {}
 
-  login(logindto: LoginDTO): Observable<Usuario> {
-    const header = new HttpHeaders();
+    login (logindto:LoginDTO): Observable<Usuario> {
+        const header = new HttpHeaders()
 
-    return this.http.post<Usuario>(`${this.url}/login`, logindto, {
-      headers: header,
-    });
-  }
+        return this.http.post<Usuario>(`${this.url}/login`, logindto, {headers:header})
+    }
 }
