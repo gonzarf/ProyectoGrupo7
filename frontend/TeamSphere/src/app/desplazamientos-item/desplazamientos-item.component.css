@@ -139,6 +139,7 @@
     height: 1.4em;
     border-radius: 4px;
     margin-top: -0.5em;
+    padding: 3px;
     opacity: 0;
     background-color: #444857;
     transition: .2s ease-in-out;
