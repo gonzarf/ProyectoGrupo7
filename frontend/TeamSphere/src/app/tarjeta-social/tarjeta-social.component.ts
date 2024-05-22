@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-tarjeta-social',
@@ -8,5 +8,18 @@ import { Component } from '@angular/core';
   styleUrl: './tarjeta-social.component.css'
 })
 export class TarjetaSocialComponent {
+  likesAmount: number = 7;
+  liked: boolean = false;
+
+  toggleLike() {
+    this.liked = !this.liked;
+    if (this.liked) {
+      this.likesAmount++;
+    } else {
+      this.likesAmount--;
+    }
+  }
+  
+  @Input() noticia: any
   
 }

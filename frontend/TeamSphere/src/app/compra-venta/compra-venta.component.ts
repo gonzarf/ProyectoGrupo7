@@ -13,4 +13,6 @@ import { SortBarComponent } from "../sort-bar/sort-bar.component";
 })
 export class CompraVentaComponent {
     title = "Compra / Venta";
+
+    
 }
