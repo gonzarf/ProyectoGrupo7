@@ -11,6 +11,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -56,6 +57,33 @@ public class User implements UserDetails {
     @ElementCollection(fetch = FetchType.EAGER)
     @Enumerated(EnumType.STRING)
     private Set<Roles> roles;
+
+    @ManyToMany
+    @JoinTable(
+            name = "user_follower",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "follower_id"),
+            uniqueConstraints = {@UniqueConstraint(columnNames = {"user_id","follower_id"})}
+    )
+
+    private List<Follower> follower;
+
+    @ManyToMany
+    @JoinTable(
+            name = "user_followed",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "followed_id"),
+            uniqueConstraints = {@UniqueConstraint(columnNames = {"user_id","followed_id"})}
+    )
+
+    private List<Follower> followed;
+
+
+    //private List<UUID> followers;
+
+    //private List<UUID> followed;
+
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -43,6 +43,7 @@ public class UserMapper {
                 .image(user.getImage())
                 .phone(user.getPhone())
                 .roles(user.getRoles())
+                //.followers(user.getFollowers())
                 .build();
     }
 }

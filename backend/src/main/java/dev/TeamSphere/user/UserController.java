@@ -15,15 +15,29 @@ import java.util.UUID;
 @RequestMapping("/user")
 public class UserController {
     private final UserServiceImpl userService;
+    private final FollowerServiceImpl followerService;
+    private final FollowedServiceImpl followedService;
 
     @Autowired
-    public UserController(UserServiceImpl userService) {
+    public UserController(UserServiceImpl userService, FollowerServiceImpl followerService, FollowedServiceImpl followedService) {
         this.userService = userService;
+        this.followerService = followerService;
+        this.followedService = followedService;
     }
 
     @GetMapping
     public ResponseEntity<List<ResponseUserDto>> getAllUsers() {
+        //System.out.println(userService.getAllUsers());
         return ResponseEntity.ok(userService.getAllUsers());
+    }
+
+    @GetMapping("/{id}/followers")
+    public ResponseEntity<List<Follower>> getAllFollowers() {
+        return ResponseEntity.ok(followerService.getAllFollower());
+    }
+    @GetMapping("/{id}/followeds")
+    public ResponseEntity<List<Followed>> getAllFolloweds() {
+        return ResponseEntity.ok(followedService.getAllFollowed());
     }
 
     @GetMapping("/{id}")
