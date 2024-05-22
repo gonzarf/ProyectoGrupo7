@@ -14,6 +14,7 @@ public class ProductMapper {
                 .price(createProductDto.price())
                 .description(createProductDto.description())
                 .date(LocalDateTime.now())
+                .seller(createProductDto.seller())
                 .image(createProductDto.imageList())
                 .build();
     }
@@ -25,6 +26,7 @@ public class ProductMapper {
                 .price(updateProductDto.price() != null ? updateProductDto.price() : product.getPrice())
                 .description(updateProductDto.description() != null ? updateProductDto.description() : product.getDescription())
                 .date(LocalDateTime.now())
+                //TODO: Hay que meter el seller y el buyer
                 .image(updateProductDto.image() != null ? updateProductDto.image() : product.getImage())
                 .build();
     }
@@ -36,6 +38,7 @@ public class ProductMapper {
                 .price(product.getPrice())
                 .description(product.getDescription())
                 .date(product.getDate())
+                .seller(product.getSeller())
                 .image(product.getImage().toString())
                 .build();
 

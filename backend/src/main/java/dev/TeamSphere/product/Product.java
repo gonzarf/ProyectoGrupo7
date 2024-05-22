@@ -1,5 +1,6 @@
 package dev.TeamSphere.product;
 
+import dev.TeamSphere.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -43,9 +44,9 @@ public class Product {
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> image;
 
-    //private UUID id_comprador;
+    private UUID seller;
 
-    //private UUID id_vendedor;
+    private UUID buyer;
 
 
 }

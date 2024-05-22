@@ -1,6 +1,7 @@
 
 package dev.TeamSphere.product;
 
+import dev.TeamSphere.user.User;
 import lombok.Builder;
 
 import java.time.LocalDateTime;
@@ -18,6 +19,8 @@ public record ResponseProductDto(
         String description,
 
         LocalDateTime date,
+
+        UUID seller,
 
         String image
 ) {
