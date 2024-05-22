@@ -32,14 +32,6 @@ public class UserServiceImpl implements UserService {
                 .collect(Collectors.toList());
     }
 
-    /*@Override
-    public List<ResponseUserDto> getAllFollowers() {
-        List<User> followers = userRepository.findAll();
-        return followers.stream()
-                .map(userMapper::toResponseDto)
-                .collect(Collectors.toList());
-    }*/
-
     @Override
     public ResponseUserDto getUserById(UUID id){
         log.info("Getting user by id: {}", id);

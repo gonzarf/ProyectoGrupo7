@@ -53,10 +53,10 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private String phone;
 
-
     @ElementCollection(fetch = FetchType.EAGER)
     @Enumerated(EnumType.STRING)
     private Set<Roles> roles;
+
 
     @ManyToMany
     @JoinTable(
@@ -65,8 +65,8 @@ public class User implements UserDetails {
             inverseJoinColumns = @JoinColumn(name = "follower_id"),
             uniqueConstraints = {@UniqueConstraint(columnNames = {"user_id","follower_id"})}
     )
-
     private List<Follower> follower;
+
 
     @ManyToMany
     @JoinTable(
@@ -75,13 +75,10 @@ public class User implements UserDetails {
             inverseJoinColumns = @JoinColumn(name = "followed_id"),
             uniqueConstraints = {@UniqueConstraint(columnNames = {"user_id","followed_id"})}
     )
-
     private List<Follower> followed;
 
 
-    //private List<UUID> followers;
 
-    //private List<UUID> followed;
 
 
 

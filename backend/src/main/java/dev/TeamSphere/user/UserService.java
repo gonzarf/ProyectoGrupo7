@@ -9,8 +9,6 @@ public interface UserService {
 
     List<ResponseUserDto> getAllUsers();
 
-    //List<ResponseUserDto> getAllFollowers();
-
     ResponseUserDto getUserById(UUID id);
 
     ResponseUserDto createUser(CreateUserDto createUserDto);

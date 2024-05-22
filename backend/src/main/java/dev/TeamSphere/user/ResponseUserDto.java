@@ -24,6 +24,6 @@ public record ResponseUserDto(
 
         Set<Roles> roles
 
-        //List<UUID> followers
+
 ) {
 }
