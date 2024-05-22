@@ -1,0 +1,30 @@
+<div class="nft">
+  <div class='main'>
+    <img class='tokenImage' src="{{product.image}}" alt="NFT" />
+    <h2>{{product.name}}</h2>
+    <p class='description'>{{product.description}}</p>
+    <div class='tokenInfo'>
+      <div class="duration">
+        <ins>◷</ins>
+        <p>{{product.date}}</p>
+      </div>
+      <div class="price">
+        <p>{{product.price}} $</p>
+      </div>
+    </div>
+    <hr />
+    <div class="compra">
+      <div class='creator'>
+        <div class='wrapper'>
+          <img src="{{user.image}}" alt="Creator" />
+        </div>
+        <p> {{user.name}}</p>
+        <input type="submit" value="Comprar" (click)="productDetail()" class="btn"/>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  

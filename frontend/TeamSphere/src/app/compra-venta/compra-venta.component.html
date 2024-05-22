@@ -5,20 +5,9 @@
 <div class="body">
 <app-sort-bar></app-sort-bar>
 
-  <div class="container-items">
-        <app-item></app-item>
-        <app-item></app-item>
-        <app-item></app-item>
-        <app-item></app-item>
-        <app-item></app-item>
-        <app-item></app-item>
-        <app-item></app-item>
-        <app-item></app-item>
-        <app-item></app-item>
-        <app-item></app-item>
-        <app-item></app-item>
-        <app-item></app-item>
-    </div>
+  <div class="container-items" *ngFor="let product of products">
+    <app-product [product]="product"></app-product>
+  </div>
     
 
 </div>
