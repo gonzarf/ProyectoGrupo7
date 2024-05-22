@@ -3,7 +3,91 @@
 
 
 <div class="body">
-<app-sort-bar></app-sort-bar>
+  <app-sort-bar></app-sort-bar>
+
+  <button class="fixed-button" (click)="toggleForm()">
+    <img
+      src="../../assets/img/plus.png"
+      alt="Button Image"
+      class="button-image"
+    />
+  </button>
+
+  <div *ngIf="isFormVisible" class="overlay">
+    <div class="form-container">
+      <form class="margin-2">
+        <h2 for="field4 input-field">Añadir venta</h2>
+        <div class="input-field">
+          <i class="fas fa-user"></i>
+          <input
+            placeholder="Nombre"
+            type="text"
+            id="name"
+            name="name"
+            [(ngModel)]="formData.name"
+            required
+          />
+        </div>
+        <div class="input-field">
+          <i class="fas fa-user"></i>
+          <input
+            placeholder="Descripción"
+            type="text"
+            id="desc"
+            name="desc"
+            [(ngModel)]="formData.desc"
+            required
+          />
+        </div>
+        <div class="input-field">
+          <i class="fas fa-user"></i>
+          <input
+            placeholder="Precio"
+            type="number"
+            id="price"
+            name="price"
+            required
+            min="0"
+            [(ngModel)]="formData.price"
+          />
+        </div>
+        <div class="input-field">
+          <i class="fas fa-user"></i>
+          <input
+            placeholder="Fecha"
+            type="text"
+            id="date"
+            name="date"
+            required
+            [(ngModel)]="formData.date"
+          />
+        </div>
+        <div class="input-field">
+          <i class="fas fa-user"></i>
+          <input 
+          placeholder="Imagen"
+          type="file" 
+          id="Image" name="Image" 
+          (change)="handleImageUpload($event)" 
+          multiple>
+          
+        </div>
+        <div *ngFor="let imageUrl of imageUrls">
+          <img [src]="imageUrl" alt="Imagen seleccionada">
+        </div>
+
+        <div class="div-button">
+          <button type="submit" class="submit-button" (click)="create()">
+            Crear
+          </button>
+          <button type="button" class="cancel-button" (click)="cancel()">
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
 
   <div class="container-items">
         <app-item></app-item>
