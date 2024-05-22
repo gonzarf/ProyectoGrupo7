@@ -8,5 +8,11 @@
         <div class="ubicacion">Ubicación: Cramela</div>
     </div>
 
-    <button class="like"><i class="fa-solid fa-heart"></i></button>
+    <!-- <button class="like"><i class="fa-solid fa-heart"></i></button> -->
+    <div class="like-button" (click)="toggleLike()">
+        <div class="heart-bg">
+          <div class="heart-icon" [class.liked]="liked"></div>
+        </div>
+        <div class="likes-amount">{{ likesAmount }}</div>
+      </div>      
 </div>

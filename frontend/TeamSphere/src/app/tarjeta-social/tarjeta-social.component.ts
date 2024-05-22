@@ -8,5 +8,15 @@ import { Component } from '@angular/core';
   styleUrl: './tarjeta-social.component.css'
 })
 export class TarjetaSocialComponent {
-  
+  likesAmount: number = 7;
+  liked: boolean = false;
+
+  toggleLike() {
+    this.liked = !this.liked;
+    if (this.liked) {
+      this.likesAmount++;
+    } else {
+      this.likesAmount--;
+    }
+  }
 }
