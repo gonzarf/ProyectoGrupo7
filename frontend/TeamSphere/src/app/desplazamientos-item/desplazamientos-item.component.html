@@ -1,26 +1,47 @@
-<div class="contenido">
-    <div class="card_back">
-    </div>
-<div class="main">
+<div class="contenido" >
+  <div class="card_back"></div>
+  <div class="main">
     <div class="card">
-        <img src="../../assets/img/coche.jpg" class="img" alt="" srcset="">
+      <img src="../../assets/img/coche.jpg" class="img" alt="" srcset="" />
     </div>
     <div class="data">
       <div class="text">
         <div class="text_m">
-            <div class="calle">C/calle 23</div>
-            <div class="fecha">17/05/2024 - 8:10</div>
+          <div class="calle">C/calle 23</div>
+          <div class="fecha">17/05/2024 - 8:10</div>
         </div>
         <div class="text_s">
-            <div class="usuario">Usuario</div>
-            <div class="plazas"><p>{{ espacios }}/4</p></div>
+          <div class="usuario">Usuario</div>
+          <div class="plazas">
+            <p>{{ espacios }}/4</p>
+          </div>
         </div>
       </div>
     </div>
     <div class="btns">
+      @if (btnApuntarse != "none") {
       <div class="likes">
-        <div class="likes_text" (click)="Apuntarse()">Apuntarse</div>
+        <div
+          class="likes_text"
+          (click)="Apuntarse()"
+          [ngStyle]="{ 'pointer-events': btnApuntarse }"
+        >
+          Apuntarse
+        </div>
       </div>
+      }
+      @if (btnApuntarse == "none") {
+      <div class="likes">
+        <div
+          class="likes_text"
+          (click)="Desapuntarse()"
+          [ngStyle]="{ 'pointer-events': btnDesapuntarse }"
+        >
+          Desapuntarse
+        </div>
+      </div>
+      }
+      
     </div>
   </div>
 </div>
