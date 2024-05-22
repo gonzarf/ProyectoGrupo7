@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e0613a5e-175e-4f3b-a5b6-e551a65a7094" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/followers/Followers.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/followers/Followers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/followers/FollowersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/followers/FollowersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/teamsphere.sql" beforeDir="false" afterPath="$PROJECT_DIR$/teamsphere.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/followers/FollowersServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/followers/FollowersServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,20 +36,24 @@
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="2gGhmOI114Q9U4jh0auKybrD8Rp" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.TeamSphereApplication.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;b-followers&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/a925775/Desktop/GitProyectoG7/ProyectoGrupo7&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.intentionPowerPack&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Application.TeamSphereApplication.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "b-followers",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/a925775/Desktop/GitProyectoG7/ProyectoGrupo7",
+    "settings.editor.selected.configurable": "preferences.intentionPowerPack"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\a925775\Desktop\GitProyectoG7\ProyectoGrupo7" />
@@ -88,5 +90,19 @@
       <updated>1715329980109</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

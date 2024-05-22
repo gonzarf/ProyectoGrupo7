@@ -39,6 +39,4 @@ public class FollowersServiceImpl implements FollowersService {
     public List<Followers> getAllFollowers() { // Implementación del nuevo método
         return followersRepository.findAll();
     }
-
-
 }
