@@ -9,4 +9,18 @@ import { Component } from '@angular/core';
 })
 export class DesplazamientosItemComponent {
 
+  espacios = 0;
+  // btnApuntarse = document.getElementsByClassName("likes_text");
+
+
+  Apuntarse(){
+    
+    if(this.espacios < 4){
+
+      this.espacios++;
+      
+    }
+   
+    
+  }
 }

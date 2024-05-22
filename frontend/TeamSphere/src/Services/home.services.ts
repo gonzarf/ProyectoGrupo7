@@ -1,8 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Usuario } from '../app/login/usuario.model';
-import { LoginDTO } from '../app/login/loginDTO.model';
 import { Noticia } from '../app/noticia/noticia.model';
 
 @Injectable({

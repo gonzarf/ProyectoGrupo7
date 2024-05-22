@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-tarjeta-social',
@@ -19,4 +19,7 @@ export class TarjetaSocialComponent {
       this.likesAmount--;
     }
   }
+  
+  @Input() noticia: any
+  
 }
