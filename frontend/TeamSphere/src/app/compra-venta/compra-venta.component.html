@@ -18,7 +18,7 @@
       <form class="margin-2">
         <h2 for="field4 input-field">Añadir venta</h2>
         <div class="input-field">
-          <i class="fas fa-user"></i>
+          <i class="fas fa-info "></i>
           <input
             placeholder="Nombre"
             type="text"
@@ -29,7 +29,7 @@
           />
         </div>
         <div class="input-field">
-          <i class="fas fa-user"></i>
+          <i class="fa fa-align-justify"></i>
           <input
             placeholder="Descripción"
             type="text"
@@ -40,7 +40,7 @@
           />
         </div>
         <div class="input-field">
-          <i class="fas fa-user"></i>
+          <i class="fa fa-euro"></i>
           <input
             placeholder="Precio"
             type="number"
@@ -51,27 +51,18 @@
             [(ngModel)]="formData.price"
           />
         </div>
+   
         <div class="input-field">
-          <i class="fas fa-user"></i>
-          <input
-            placeholder="Fecha"
-            type="text"
-            id="date"
-            name="date"
-            required
-            [(ngModel)]="formData.date"
-          />
-        </div>
-        <div class="input-field">
-          <i class="fas fa-user"></i>
+          <i class="fa fa-picture-o "></i>
           <input 
           placeholder="Imagen"
           type="file" 
           id="Image" name="Image" 
           (change)="handleImageUpload($event)" 
           multiple>
-          
         </div>
+
+            <!-- TODO Mostrar Imganes subidas -->
         <div *ngFor="let imageUrl of imageUrls">
           <img [src]="imageUrl" alt="Imagen seleccionada">
         </div>

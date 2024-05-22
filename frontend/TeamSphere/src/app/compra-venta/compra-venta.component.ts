@@ -33,7 +33,6 @@ export class CompraVentaComponent  implements OnInit{
         name: '',
         desc: '',
         price: '',
-        date: '',
         image: ''
     };
 
@@ -45,9 +44,7 @@ export class CompraVentaComponent  implements OnInit{
         const name = this.formData.name;
         const desc = this.formData.desc;
         const price = this.formData.price;
-        const date = this.formData.date;
         const image = this.formData.image;
-
         
     }
 
