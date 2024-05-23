@@ -1,21 +1,60 @@
 <app-side-bar></app-side-bar>
 <app-navbar [title] = "title"></app-navbar>
-
+<button class="fixed-button" (click)="toggleForm()">
+    <img
+      src="../../assets/img/plus.png"
+      alt="Button Image"
+      class="button-image"
+    />
+  </button>
 <div class="contenido">
-
     <div class="container-desplazamiento-items">
-        <app-desplazamientos-item></app-desplazamientos-item>
-        <app-desplazamientos-item></app-desplazamientos-item>
-        <app-desplazamientos-item></app-desplazamientos-item>
-        <app-desplazamientos-item></app-desplazamientos-item>
-        <app-desplazamientos-item></app-desplazamientos-item>
-        <app-desplazamientos-item></app-desplazamientos-item>
-        <app-desplazamientos-item></app-desplazamientos-item>
-        <app-desplazamientos-item></app-desplazamientos-item>
-        <app-desplazamientos-item></app-desplazamientos-item>
-        <app-desplazamientos-item></app-desplazamientos-item>
-        <app-desplazamientos-item></app-desplazamientos-item>
-        <app-desplazamientos-item></app-desplazamientos-item>
-        
+        <app-desplazamientos-item *ngFor="let desplazamiento of desplazamientos" [desplazamiento]="desplazamiento"></app-desplazamientos-item>
     </div>
 </div>
+<div *ngIf="isFormVisible" class="overlay">
+    <div class="form-container">
+      <form class="margin-2">
+        <h2 for="field4 input-field">AGREGA UN NUEVO VIAJE</h2>
+        <div class="input-field">
+          <i class="fas fa-user"></i>
+          <input
+            placeholder="Calle"
+            type="text"
+            id="field1"
+            name="field1"
+            required
+            [(ngModel)]="titulo"
+          />
+        </div>
+        <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input
+              placeholder="Fecha de salida"
+              type="date"
+              id="field1"
+              name="field1"
+              required
+              [(ngModel)]="fechaSalida"
+            />
+          </div>
+        <div class="input-field">
+          <i class="fas fa-user"></i>
+          <input
+            placeholder="Descripcion"
+            type="text"
+            id="field4"
+            name="field4"
+            required
+            [(ngModel)]="description"
+          />
+        </div>
+        <div class="div-button">
+          <button type="submit" class="submit-button" (click)="createDisplacement()">Crear</button>
+          <button type="button" class="cancel-button" (click)="cancel()">
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>

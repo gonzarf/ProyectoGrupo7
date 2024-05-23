@@ -7,11 +7,11 @@
     <div class="data">
       <div class="text">
         <div class="text_m">
-          <div class="calle">C/calle 23</div>
-          <div class="fecha">17/05/2024 - 8:10</div>
+          <div class="calle">{{desplazamiento.title}}</div>
+          <div class="fecha">{{desplazamiento.fechaSalida}}</div>
         </div>
         <div class="text_s">
-          <div class="usuario">Usuario</div>
+          <div class="usuario">{{desplazamiento.description}}</div>
           <div class="plazas">
             <p>{{ espacios }}/4</p>
           </div>
@@ -41,7 +41,6 @@
         </div>
       </div>
       }
-      
     </div>
   </div>
 </div>
