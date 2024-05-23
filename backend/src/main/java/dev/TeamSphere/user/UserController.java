@@ -4,6 +4,8 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -13,6 +15,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/user")
+@PreAuthorize("hasRole('USER')")
 public class UserController {
     private final UserServiceImpl userService;
 
@@ -31,17 +34,30 @@ public class UserController {
         return ResponseEntity.ok(userService.getUserById(id));
     }
 
+    @GetMapping("/me/profile")
+    public ResponseEntity<ResponseUserDto> me(@AuthenticationPrincipal User user) {
+        return ResponseEntity.ok(userService.getUserById(user.getId()));
+    }
+
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<ResponseUserDto> createUser(@Valid @RequestBody CreateUserDto createUserDto) {
         return ResponseEntity.status(201).body(userService.createUser(createUserDto));
     }
 
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<ResponseUserDto> updateUser(@PathVariable("id") UUID id, @Valid @RequestBody UpdateUserDto updateUserDto) {
         return ResponseEntity.status(201).body(userService.updateUser(id, updateUserDto));
     }
 
+    @PutMapping("/me/profile")
+    public ResponseEntity<ResponseUserDto> updateMe(@AuthenticationPrincipal User user, @Valid @RequestBody UpdateUserDto updateUserDto) {
+        return ResponseEntity.status(201).body(userService.updateUser(user.getId(), updateUserDto));
+    }
+
     @PatchMapping(value = "/{id}/image", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<ResponseUserDto> patchProductImage(@PathVariable("id") UUID id, @RequestParam("file") MultipartFile file) {
         if (!Objects.requireNonNull(file.getContentType()).startsWith("image/")) {
             return ResponseEntity.badRequest().build();
@@ -49,9 +65,24 @@ public class UserController {
         return ResponseEntity.ok(userService.updateImage(id, file));
     }
 
+    @PatchMapping(value = "/me/profile/image", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<ResponseUserDto> patchMeImage(@AuthenticationPrincipal User user, @RequestParam("file") MultipartFile file) {
+        if (!Objects.requireNonNull(file.getContentType()).startsWith("image/")) {
+            return ResponseEntity.badRequest().build();
+        }
+        return ResponseEntity.ok(userService.updateImage(user.getId(), file));
+    }
+
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Void> deleteUser(@PathVariable("id") UUID id) {
         userService.deleteUser(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @DeleteMapping("/me/profile")
+    public ResponseEntity<Void> deleteMe(@AuthenticationPrincipal User user) {
+        userService.deleteUser(user.getId());
         return ResponseEntity.noContent().build();
     }
 
