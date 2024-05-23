@@ -48,10 +48,20 @@ export class HomeComponent implements OnInit {
   };
 
   noticias: Array<Noticia> = new Array<Noticia>();
+  datos: Array<Noticia> = new Array<Noticia>();
+
 
   loadNews(): void {
     this.service.loadNews().subscribe((data) => {
-      this.noticias = data;
+      this.datos = data;
+    });
+
+    this.datos.forEach(dato => {
+      console.log(dato.type);
+      
+      if ((dato.type.toUpperCase() == "NOTICIA")||(dato.type.toUpperCase() == "NOTICIAS")) {
+        this.noticias.push(dato);
+      }
     });
   }
   toggleForm() {
