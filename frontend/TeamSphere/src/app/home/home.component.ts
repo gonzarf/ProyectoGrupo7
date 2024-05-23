@@ -57,7 +57,6 @@ export class HomeComponent implements OnInit {
     });
 
     this.datos.forEach(dato => {
-      console.log(dato.type);
       
       if ((dato.type.toUpperCase() == "NOTICIA")||(dato.type.toUpperCase() == "NOTICIAS")) {
         this.noticias.push(dato);
@@ -77,8 +76,6 @@ export class HomeComponent implements OnInit {
       type: this.type,
       image: this.image
     }
-
-    console.log(this.image);
     
     this.service.postNews(noticia);
     window.location.reload();
