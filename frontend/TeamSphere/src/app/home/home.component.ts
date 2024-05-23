@@ -4,8 +4,9 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { NoticiaComponent } from '../noticia/noticia.component';
 import { RouterLink } from '@angular/router';
 import { HomeServices } from '../../Services/home.services';
-import { NgForOf } from '@angular/common';
+import { CommonModule, NgForOf } from '@angular/common';
 import { SortBarComponent } from '../sort-bar/sort-bar.component';
+import { FormsModule } from '@angular/forms';
 import { Noticia } from '../noticia/noticia.model';
 
 @Component({
@@ -21,16 +22,30 @@ import { Noticia } from '../noticia/noticia.model';
     NgForOf,
     NavbarComponent,
     SortBarComponent,
+    FormsModule,
+    CommonModule
   ],
 })
 export class HomeComponent implements OnInit {
   constructor(private service: HomeServices) {}
 
   title = 'Home';
-
+  isFormVisible = false;
   ngOnInit(): void {
     this.loadNews();
   }
+
+  titulo = "";
+  description="";
+  type = "noticias";
+  image = "";
+
+  formData = {
+    field1: '',
+    field2: '',
+    field3: '',
+    field4: ''
+  };
 
   noticias: Array<Noticia> = new Array<Noticia>();
 
@@ -38,5 +53,24 @@ export class HomeComponent implements OnInit {
     this.service.loadNews().subscribe((data) => {
       this.noticias = data;
     });
+  }
+  toggleForm() {
+    this.isFormVisible = !this.isFormVisible;
+  }
+  cancel() {
+    this.isFormVisible = false;
+  }
+  createNews(){
+    let noticia : Noticia = {
+      title: this.titulo,
+      description: this.description,
+      type: this.type,
+      image: this.image
+    }
+
+    console.log(this.image);
+    
+    this.service.postNews(noticia);
+    window.location.reload();
   }
 }

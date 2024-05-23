@@ -12,6 +12,6 @@ import { Noticia } from './noticia.model';
 })
 export class NoticiaComponent {
 
-  @Input() noticia: any
+  @Input() noticia: any = "C:\Users\a926861\OneDrive - Eviden\Documentos\GitHub\ProyectoGrupo7\frontend\TeamSphere\src\assets\img\chart2.png";
 
 }

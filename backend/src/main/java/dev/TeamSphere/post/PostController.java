@@ -4,6 +4,7 @@ import dev.TeamSphere.user.User;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -41,7 +42,7 @@ public class PostController {
         return postService.getPostByName(name);
     }
 
-    @PostMapping("/add")
+    @PostMapping(value = "/add")
     public ResponseEntity<String> addNewPost(@Valid @RequestBody Post post, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return ResponseEntity.badRequest().body("error");
