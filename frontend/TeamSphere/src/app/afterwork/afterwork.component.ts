@@ -64,7 +64,7 @@ export class AfterworkComponent implements OnInit{
 
     this.noticias.forEach(element => {
 
-      if(element.type == "Naturaleza"){
+      if(element.type == "Afterwork"){
         this.datos.push(element)
       }
       
