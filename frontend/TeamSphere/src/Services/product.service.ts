@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Product } from "../app/producto/producto.model";
@@ -15,7 +15,28 @@ import { Product } from "../app/producto/producto.model";
     //Obtener lista de productos
 
     getProducts():Observable<Product[]>{
-        return this.http.get<Product[]>(`${this.url}`);
+      //const header = new HttpHeaders();
+
+      return this.http.get<Product[]>(`${this.url}`);
     }
+
+    createProduct(producto:Product){
+
+      let body = JSON.stringify(producto);
+      const headers = new HttpHeaders().set('Content-Type','application/json');
+      return this.http.post(`${this.url}/add`,body,{headers:headers}).subscribe(
+        (response) => {
+          console.log(response);
+          
+        },
+        (error) => {
+          console.error(error);
+          
+        }
+      );
+
+    }
+
+
 
   }
