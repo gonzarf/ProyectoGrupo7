@@ -9,8 +9,17 @@
   </button>
 <div class="contenido">
     <div class="container-desplazamiento-items">
+      <h1 class="texto">MIS DESPLAZAMIENTOS</h1>
+      <div class="mis-desplazamientos">
+        <app-desplazamientos-item></app-desplazamientos-item>
+        <app-desplazamientos-item></app-desplazamientos-item>
+        <app-desplazamientos-item></app-desplazamientos-item>
+      </div>
+      <h1 class="texto">TODOS LOS DESPLAZAMIENTOS</h1>
+      <div class="desplazamientos-general">
         <app-desplazamientos-item *ngFor="let desplazamiento of desplazamientos" [desplazamiento]="desplazamiento"></app-desplazamientos-item>
-    </div>
+      </div>
+      </div>
 </div>
 <div *ngIf="isFormVisible" class="overlay">
     <div class="form-container">

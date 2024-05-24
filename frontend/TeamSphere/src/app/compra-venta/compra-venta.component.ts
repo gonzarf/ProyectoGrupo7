@@ -98,10 +98,11 @@ export class CompraVentaComponent implements OnInit{
       this.getProducts();
     }
   
-    getProducts() {
+    getProducts(): void {
   
       this.productService.getProducts().subscribe((data: Product[]) => {
         this.products = data;
+        
       });
     }
 }
