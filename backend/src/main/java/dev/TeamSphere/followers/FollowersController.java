@@ -22,6 +22,32 @@ public class FollowersController {
         this.userRepository = userRepository;
     }
 
+    // Método para obtener todos los seguidores de un usuario
+    @GetMapping("/followers/{userId}")
+    public ResponseEntity<List<User>> getFollowers(@PathVariable UUID userId) {
+        User user = userRepository.findById(userId).orElse(null);
+
+        if (user == null) {
+            return ResponseEntity.badRequest().body(null);
+        }
+
+        List<User> followers = followersService.findFollowersByFollowedUser(user);
+        return ResponseEntity.ok(followers);
+    }
+
+    // Método para obtener todos los usuarios seguidos por un usuario
+    @GetMapping("/following/{userId}")
+    public ResponseEntity<List<User>> getFollowing(@PathVariable UUID userId) {
+        User user = userRepository.findById(userId).orElse(null);
+
+        if (user == null) {
+            return ResponseEntity.badRequest().body(null);
+        }
+
+        List<User> following = followersService.findFollowedUsersByFollower(user);
+        return ResponseEntity.ok(following);
+    }
+
     // Método para obtener todos los seguidores
     @GetMapping
     public ResponseEntity<List<Followers>> getAllFollowers() {
@@ -43,7 +69,6 @@ public class FollowersController {
         return ResponseEntity.ok("Follower added successfully");
     }
 
-
     // Método para quitar un seguidor
     @DeleteMapping("/remove")
     public ResponseEntity<String> removeFollower(@RequestParam UUID followerId, @RequestParam UUID followedId) {
@@ -57,6 +82,5 @@ public class FollowersController {
         followersService.removeFollower(follower, followed);
         return ResponseEntity.ok("Follower removed successfully");
     }
-
-
 }
+

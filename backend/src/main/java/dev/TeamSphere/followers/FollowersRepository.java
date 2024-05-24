@@ -11,12 +11,17 @@ import java.util.UUID;
 
 @Repository
 public interface FollowersRepository extends JpaRepository<Followers, UUID> {
+
     @Query("SELECT f.idFollowed FROM Followers f WHERE f.idFollower = :user")
     List<User> findFollowedUsersByFollower(User user);
+
+    @Query("SELECT f.idFollower FROM Followers f WHERE f.idFollowed = :user")
+    List<User> findFollowersByFollowedUser(User user);
 
     Optional<Followers> findById(UUID id);
 
     // Método para eliminar una relación de seguimiento
     void deleteByIdFollowerAndIdFollowed(User follower, User followed);
 }
+
 

@@ -22,6 +22,11 @@ public class FollowersServiceImpl implements FollowersService {
     }
 
     @Override
+    public List<User> findFollowersByFollowedUser(User user) {
+        return followersRepository.findFollowersByFollowedUser(user);
+    }
+
+    @Override
     public Followers addFollower(User follower, User followed) {
         Followers followers = Followers.builder()
                 .idFollower(follower)
@@ -36,7 +41,8 @@ public class FollowersServiceImpl implements FollowersService {
     }
 
     @Override
-    public List<Followers> getAllFollowers() { // Implementación del nuevo método
+    public List<Followers> getAllFollowers() {
         return followersRepository.findAll();
     }
 }
+

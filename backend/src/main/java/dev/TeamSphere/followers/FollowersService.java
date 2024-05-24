@@ -7,6 +7,7 @@ import java.util.List;
 public interface FollowersService {
     List<Followers> getAllFollowers();
     List<User> findFollowedUsersByFollower(User user);
+    List<User> findFollowersByFollowedUser(User user);
     Followers addFollower(User follower, User followed);
     void removeFollower(User follower, User followed);
 }
