@@ -14,10 +14,10 @@ import { Product } from "../app/producto/producto.model";
 
     //Obtener lista de productos
 
-    getProducts():Observable<Array<Product[]>>{
-      const header = new HttpHeaders();
+    getProducts():Observable<Product[]>{
+      //const header = new HttpHeaders();
 
-        return this.http.get<Array<Product[]>>(`${this.url}`);
+      return this.http.get<Product[]>(`${this.url}`);
     }
 
     createProduct(producto:Product){
