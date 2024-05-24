@@ -21,29 +21,58 @@ import { ProductService } from '../../Services/product.service';
 })
 
 export class CompraVentaComponent implements OnInit{
+    productService: any;
+    constructor(private service: ProductService) {}
+
     title = "Compra / Venta";
+
+    isFormVisible = false;
+
+
     imageUrl!: File;
     imageUrls!: [];
 
-    isFormVisible = false;
+    name= '';
+    desc= '';
+    price!:number ;
+    image!: [];
+
   
     formData = {
         name: '',
         desc: '',
-        price: '',
-        image: ''
+        price: 0 ,
+        image: []
     };
 
     toggleForm() {
         this.isFormVisible = !this.isFormVisible;
     }
 
-    create() {
+    createProduct() {
         const name = this.formData.name;
         const desc = this.formData.desc;
         const price = this.formData.price;
         const image = this.formData.image;
+
         
+        let currentDate = new Date();
+        let formattedDate = currentDate.toISOString().split('T')[0]; // Formato: YYYY-MM-DD
+
+        let producto: Product = {
+            name: this.name,
+            description: this.desc,
+            price: this.price,
+            image: this.image,
+            date: formattedDate,
+            seller: 0,
+            buyer: 0
+        };
+
+
+      
+          this.service.createProduct(producto);
+          window.location.reload();
     }
 
     cancel() {
@@ -63,7 +92,6 @@ export class CompraVentaComponent implements OnInit{
 
     products!: Product[];
 
-    constructor(private productService: ProductService) { }
   
   
     ngOnInit(): void {
@@ -72,7 +100,7 @@ export class CompraVentaComponent implements OnInit{
   
     getProducts() {
   
-      this.productService.getProducts().subscribe((data) => {
+      this.productService.getProducts().subscribe((data: Product[]) => {
         this.products = data;
       });
     }
