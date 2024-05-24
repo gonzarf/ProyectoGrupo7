@@ -21,8 +21,8 @@ import { ProductService } from '../../Services/product.service';
 })
 
 export class CompraVentaComponent implements OnInit{
-    productService: any;
-    constructor(private service: ProductService) {}
+
+    constructor(private productService: ProductService) {}
 
     title = "Compra / Venta";
 
@@ -71,7 +71,7 @@ export class CompraVentaComponent implements OnInit{
 
 
       
-          this.service.createProduct(producto);
+          this.productService.createProduct(producto);
           window.location.reload();
     }
 
@@ -100,7 +100,7 @@ export class CompraVentaComponent implements OnInit{
   
     getProducts(): void {
   
-      this.productService.getProducts().subscribe((data: Product[]) => {
+      this.productService.getProducts().subscribe((data) => {
         this.products = data;
         
       });
