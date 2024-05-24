@@ -74,6 +74,12 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.OK).body("el unfollowing se ha producido.");
     }
 
+    @GetMapping("get-followers/{idUser}")
+    public List<User> getFollowersUser(@PathVariable UUID idUser){
+
+        return  userService.getFollowers(idUser);
+    }
+
 
 
 }
