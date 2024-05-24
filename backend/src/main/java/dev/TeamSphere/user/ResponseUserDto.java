@@ -2,6 +2,7 @@ package dev.TeamSphere.user;
 
 import lombok.Builder;
 
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -21,6 +22,10 @@ public record ResponseUserDto(
 
         String phone,
 
-        Set<Roles> roles
+        Set<Roles> roles,
+        List<UUID> followers,
+        List<UUID> following
+
+
 ) {
 }

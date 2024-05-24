@@ -10,9 +10,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.Collection;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Entity
@@ -57,6 +55,17 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Set<Roles> roles;
 
+    //logic for following system
+
+    //list with the ids of the people that follows someone
+    @ElementCollection(fetch = FetchType.EAGER)
+    private List<UUID> followers = new ArrayList<>();
+
+    //list with the ids of the people that a user follows
+    @ElementCollection(fetch = FetchType.EAGER)
+    private List<UUID> following = new ArrayList<>();
+
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return roles.stream()
@@ -67,6 +76,7 @@ public class User implements UserDetails {
     public String getUsername() {
         return username;
     }
+
 
     @Override
     public boolean isAccountNonExpired() {
