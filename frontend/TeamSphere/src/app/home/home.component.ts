@@ -31,6 +31,7 @@ export class HomeComponent implements OnInit {
 
   title = 'Home';
   isFormVisible = false;
+  isNewVisible = false;
   ngOnInit(): void {
     this.loadNews();
   }
@@ -49,7 +50,7 @@ export class HomeComponent implements OnInit {
 
   noticias: Array<Noticia> = new Array<Noticia>();
   datos: Array<Noticia> = new Array<Noticia>();
-
+  noticiaActual: Noticia = new Noticia();
 
   loadNews(): void {
     this.service.loadNews().subscribe((data) => {
@@ -66,8 +67,16 @@ export class HomeComponent implements OnInit {
   toggleForm() {
     this.isFormVisible = !this.isFormVisible;
   }
+  toggleNew(noticia:Noticia) {
+    this.isNewVisible = !this.isNewVisible;
+    this.noticiaActual = noticia;
+    
+  }
   cancel() {
     this.isFormVisible = false;
+  }
+  cancelNew() {
+    this.isNewVisible = false;
   }
   createNews(){
     let noticia : Noticia = {

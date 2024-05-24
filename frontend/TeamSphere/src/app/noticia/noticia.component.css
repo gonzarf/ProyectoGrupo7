@@ -3,24 +3,39 @@
     margin-top: 10px;
     margin-bottom: 10px;
     box-shadow: 0 0px 4px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    height: auto;
+    width: 40em;
+    height: 10em;
     margin-left: auto;
     margin-right: auto;
     border: 1px solid black;
     border-radius: 8px;
     background-color: white;
+    overflow: scroll;
+    scrollbar-width: none;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+  .noticia:hover{
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.5);
+    transform: scale(1.2);
   }
   
   .imagen {
-    width: 100px;
-    height: 100px;
+    width: 180px;
+    height: 100%;
     margin-right: 20px;
     border-radius: 8px;
   }
   
   .contenido {
     flex: 1;
+  }
+  hr{
+    max-width: 200px;
+    align-self: flex-start;
+    margin-left: 0;
   }
   
   .titulo {
@@ -32,5 +47,10 @@
   
   .texto {
     font-size: 14px;
+    width: 90%;
+    overflow-y: scroll;
+    text-overflow: ellipsis;
+    height: 50%;
+    scrollbar-width: none;
   }
   

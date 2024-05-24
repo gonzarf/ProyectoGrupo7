@@ -12,6 +12,7 @@ import { ItemPageComponent } from './item-page/item-page.component';
 import { TarjetaSocialComponent } from './tarjeta-social/tarjeta-social.component';
 import { NoticiaComponent } from './noticia/noticia.component';
 import { CambiarPasswordComponent } from './cambiar-password/cambiar-password.component';
+import { ErrorpageComponent } from '../assets/errorpage/errorpage.component';
 
 
 export const routes: Routes = [
@@ -54,5 +55,8 @@ export const routes: Routes = [
     },{
         path:'cambiar-password',
         component:CambiarPasswordComponent
+    },{
+        path:'**',
+        component:ErrorpageComponent
     }
 ];
