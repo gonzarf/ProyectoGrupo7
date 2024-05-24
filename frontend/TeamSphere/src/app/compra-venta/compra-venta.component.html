@@ -48,6 +48,7 @@
             name="price"
             required
             min="0"
+            (input)="onPriceInput($event)"
             [(ngModel)]="formData.price"
           />
         </div>
