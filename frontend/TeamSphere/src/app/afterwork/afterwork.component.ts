@@ -55,7 +55,7 @@ export class AfterworkComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.loadNews();
+    this.loadAfterwork();
 
   }
 
@@ -63,7 +63,7 @@ export class AfterworkComponent implements OnInit{
   datos: Array<Afterwork> = new Array<Afterwork>();
 
 
-  loadNews(): void {
+  loadAfterwork(): void {
     this.service.loadAfterwork().subscribe((data) => {
 
       this.noticias = data;
