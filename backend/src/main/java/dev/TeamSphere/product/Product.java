@@ -12,6 +12,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -40,9 +41,12 @@ public class Product {
     @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime date = LocalDateTime.now();
 
-    //@Column(nullable = false)
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> image;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @Enumerated(EnumType.STRING)
+    private Set<Status> status;
 
     private UUID seller;
 
