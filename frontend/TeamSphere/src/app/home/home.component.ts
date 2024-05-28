@@ -27,12 +27,22 @@ import { Noticia } from '../noticia/noticia.model';
   ],
 })
 export class HomeComponent implements OnInit {
+
+  postListFiltered : Noticia[] = [];
+
   constructor(private service: HomeServices) {}
 
   title = 'Home';
   isFormVisible = false;
+
   ngOnInit(): void {
     this.loadNews();
+    
+  }
+
+  onSearchResult(data: Noticia[]) {
+    this.postListFiltered = data;
+    this.noticias = this.postListFiltered;
   }
 
   titulo = "";
@@ -49,6 +59,7 @@ export class HomeComponent implements OnInit {
 
   noticias: Array<Noticia> = new Array<Noticia>();
   datos: Array<Noticia> = new Array<Noticia>();
+  
 
 
   loadNews(): void {
