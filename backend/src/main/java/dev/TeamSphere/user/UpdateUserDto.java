@@ -4,6 +4,9 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import org.hibernate.validator.constraints.Length;
 
+import java.util.List;
+import java.util.UUID;
+
 public record UpdateUserDto(
 
         @Length(min = 2, max = 50, message = "The name must be between 3 and 50 characters")
@@ -25,6 +28,10 @@ public record UpdateUserDto(
         String image,
 
         @Length(min = 9, max = 12, message = "The phone is invalid")
-        String phone
+        String phone,
+
+        List<UUID> followers,
+
+        List<UUID> following
 ) {
 }

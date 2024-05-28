@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -73,6 +74,7 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+
     @Override
     public void deleteUser(UUID id) {
         log.info("Deleting user with id: {}", id);
@@ -81,5 +83,44 @@ public class UserServiceImpl implements UserService {
         if (user.getImage() != null && !user.getImage().equals(User.IMAGE_DEFAULT)) {
             storageService.delete(user.getImage());
         }
+    }
+
+    //following system
+    public void followSomeone(UUID idUser,UUID idFollowing){
+
+        User user = userRepository.findById(idFollowing)
+                .orElseThrow(() -> new UserNotFound("User not found with id: " + idFollowing));
+
+        List<UUID> followersUser = user.getFollowers();
+        followersUser.add(idUser);
+        user.setFollowers(followersUser);
+        userRepository.save(user);
+    }
+
+    public void unFollowSomeone(UUID idUser,UUID idUnFollowing){
+
+        User user = userRepository.findById(idUnFollowing)
+                .orElseThrow(() -> new UserNotFound("User not found with id: " + idUnFollowing));
+
+        List<UUID> followersUser = user.getFollowers();
+        followersUser.remove(idUser);
+
+        user.setFollowers(followersUser);
+        userRepository.save(user);
+
+    }
+
+    public List<User> getFollowers(UUID idUser){
+        User user = userRepository.findById(idUser)
+                .orElseThrow(() -> new UserNotFound("User not found with id: " + idUser));
+
+        List<User> followersOfUser = new ArrayList<>();
+
+        for(UUID id: user.getFollowers()){
+            followersOfUser.add(userRepository.findById(idUser).orElseThrow(() -> new UserNotFound("User not found with id: " + idUser)));
+        }
+
+        return followersOfUser;
+
     }
 }

@@ -1,78 +1,54 @@
-
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { LoginServices } from '../../Services/login.services';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Usuario } from './usuario.model';
-import { routes } from '../app.routes';
-import { LoginDTO } from './loginDTO.model';
-import { error } from 'console';
-
+import { FormBuilder } from '@angular/forms';
+import { Token } from './token.model';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, FormsModule, CommonModule],
+  imports: [RouterOutlet, RouterLink, FormsModule, CommonModule, ReactiveFormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css']
 })
-export class LoginComponent{
-  constructor(private service:LoginServices, private router:Router){
+export class LoginComponent {
+  constructor(private service: LoginServices, private router: Router, private fb: FormBuilder) {}
+
+  loginForm = this.fb.group({
+    username: ['', [Validators.required]],
+    password: ['', [Validators.required]],
+  });
+
+  onSubmit(): void {
+    if (this.loginForm.valid) {
+      const username = this.loginForm.controls.username.value || '';
+      const password = this.loginForm.controls.password.value || '';
+      this.service.login({ username, password }).subscribe(
+        (data: Token) => {
+          console.log('Response data:', data);
+          if (data.token) {
+            localStorage.setItem('access_token', data.token);
+            this.router.navigate(['home']);
+          } else {
+            console.error('Access token is undefined');
+          }
+        },
+        error => {
+          console.error('Error during login', error);
+        }
+      );
+    }
   }
-
-  email:string = "";
-  password:string = "";
-  
-  usuario:Usuario = new Usuario;
-  
-  
-  login(): void {
-    this.router.navigate(['/home']);
-    
-    let logindto: LoginDTO = {email: this.email, password: this.password}
-
-    this.service.login(logindto).subscribe(dato =>{
-
-      if (dato.email == this.email){
-        this.router.navigate(['/home'])
-      }else{
-        console.log("hola")
-      }
-
-    }, error => console.log(error))
-
-    
-    //console.log(typeof this.usuario);
-    //
-    //console.log(this.usuario);
-    
-    //this.usuario!.then(
-    //  (result) =>{
-    //    if(result.email==""){
-    //      alert("tu madre");
-    //      console.log("no va");
-    //      
-    //    }else{
-    //      
-    //      alert("mi padre")
-    //      console.log(this.usuario);
-    //      
-    //    }
-    //  }
-    //);
-  }
-
-
 
   showSignUp(): void {
     const container = document.querySelector('.container') as HTMLDivElement;
     container.classList.add('sign-up-mode');
   }
- 
+
   showSignIn(): void {
     const container = document.querySelector('.container') as HTMLDivElement;
     container.classList.remove('sign-up-mode');
   }
-
 }
