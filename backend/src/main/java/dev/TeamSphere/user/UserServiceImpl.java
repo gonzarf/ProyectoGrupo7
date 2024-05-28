@@ -132,4 +132,11 @@ public class UserServiceImpl implements UserService {
         return followersOfUser;
 
     }
+
+    public List<ResponseUserDto> getUsersByName(String name) {
+        List<User> users = userRepository.findByNameContainingIgnoreCase(name);
+        return users.stream()
+                .map(userMapper::toResponseDto)
+                .collect(Collectors.toList());
+    }
 }

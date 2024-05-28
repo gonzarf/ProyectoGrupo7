@@ -51,4 +51,12 @@ public class ProductServiceImpl implements ProductService{
     public void deleteProduct(UUID id) {
         repository.deleteById(id);
     }
+
+
+    public List<ResponseProductDto> searchProductsByName(String name) {
+        List<Product> products = repository.findByNameContainingIgnoreCase(name);
+        return products.stream()
+                .map(mapper::toResponseDto)
+                .collect(Collectors.toList());
+    }
 }

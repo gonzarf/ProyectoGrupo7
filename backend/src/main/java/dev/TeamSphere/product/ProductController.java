@@ -46,5 +46,10 @@ public class ProductController {
         service.deleteProduct(id);
     }
 
+    @GetMapping("/search")
+    public List<ResponseProductDto> searchProductsByName(@RequestParam("name") String name) {
+        return service.searchProductsByName(name);
+    }
+
 
 }
