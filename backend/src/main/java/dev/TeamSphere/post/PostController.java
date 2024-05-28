@@ -98,5 +98,9 @@ public class PostController {
 
     }
 
+    @GetMapping("/search")
+    public List<Post> searchPosts(@RequestParam String query) {
+        return postService.searchPosts(query);
+    }
 
 }
