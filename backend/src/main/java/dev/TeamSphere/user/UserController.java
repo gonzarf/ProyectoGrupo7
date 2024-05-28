@@ -2,6 +2,7 @@ package dev.TeamSphere.user;
 
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -85,5 +86,30 @@ public class UserController {
         userService.deleteUser(user.getId());
         return ResponseEntity.noContent().build();
     }
+
+    //logic for the following system
+
+    @PatchMapping("/follow-someone/{idUser}/{idUserFollowing}")
+    public ResponseEntity<String> followSomeone(@PathVariable UUID idUser, @PathVariable UUID idUserFollowing){
+
+        userService.followSomeone(idUser,idUserFollowing);
+
+        return ResponseEntity.status(HttpStatus.OK).body("el following se ha producido.");
+
+    }
+
+    @PatchMapping("/unfollow-someone/{idUser}/{idUserUnFollowing}")
+    public ResponseEntity<String> unFollowSomeone(@PathVariable UUID idUser, @PathVariable UUID idUserUnFollowing){
+        userService.unFollowSomeone(idUser,idUserUnFollowing);
+        return ResponseEntity.status(HttpStatus.OK).body("el unfollowing se ha producido.");
+    }
+
+    @GetMapping("get-followers/{idUser}")
+    public List<User> getFollowersUser(@PathVariable UUID idUser){
+
+        return  userService.getFollowers(idUser);
+    }
+
+
 
 }
