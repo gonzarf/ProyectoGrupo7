@@ -212,17 +212,16 @@
   height: 100%;
   padding-left: 50px;
   background-color: #fedbcd;
+  overflow-x: hidden;
 }
 
 .contenedor {
-  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   height: 100%;
   padding: 20px;
-  box-sizing: border-box;
-  gap: 50px;
+  gap: 85px;
 }
 
 .contenedor > app-tarjeta-social {
@@ -230,3 +229,30 @@
   margin-bottom: 20px;
   width: 24%;
 }
+
+/* Responsive de la página */
+
+@media (max-width: 1050px) {
+
+  .contenedor{
+    flex-direction: column;
+    align-items: center;
+  }
+  .contenedor > app-tarjeta-social{
+    width: 85%;
+    height: 110%;
+  }
+  .contenedor > app-tarjeta-social > .contenedor{
+    width: fit-content;
+    
+  }
+  
+}
+
+
+
+
+
+
+
+
