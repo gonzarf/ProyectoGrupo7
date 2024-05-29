@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SideBarComponent } from '../side-bar/side-bar.component';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { NoticiaComponent } from '../noticia/noticia.component';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { HomeServices } from '../../Services/home.services';
 import { CommonModule, NgForOf } from '@angular/common';
 import { SortBarComponent } from '../sort-bar/sort-bar.component';
@@ -29,14 +29,16 @@ import Swal from 'sweetalert2';
   ],
 })
 export class HomeComponent implements OnInit {
-  constructor(private service: HomeServices) {}
+  constructor(private service: HomeServices, private router:Router) {}
 
   title = 'Home';
   isFormVisible = false;
   isEditVisible = false;
   isNewVisible = false;
+
   ngOnInit(): void {
-    this.loadNews();
+      this.loadNews();
+
   }
 
   titulo = "";
@@ -84,7 +86,6 @@ export class HomeComponent implements OnInit {
   }
 
   Editar(visible:boolean, noticia:NoticiaExistente){
-    console.log(visible);
     
     if (visible) {
       this.isFormVisible = false;
@@ -126,7 +127,7 @@ export class HomeComponent implements OnInit {
       });
       Toast.fire({
         icon: "success",
-        title: "¡Noticia publicada!"
+        title: "¡Noticia modificada!"
       });
       setTimeout(() => {
         window.location.reload();

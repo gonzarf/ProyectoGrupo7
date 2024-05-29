@@ -17,7 +17,7 @@
       </div>
       <h1 class="texto">TODOS LOS DESPLAZAMIENTOS</h1>
       <div class="desplazamientos-general">
-        <app-desplazamientos-item *ngFor="let desplazamiento of desplazamientos" [desplazamiento]="desplazamiento"></app-desplazamientos-item>
+        <app-desplazamientos-item *ngFor="let desplazamiento of desplazamientos" [desplazamiento]="desplazamiento" (btnEditarPulsado)="Editar($event,desplazamiento)"></app-desplazamientos-item>
       </div>
       </div>
 </div>
@@ -61,6 +61,52 @@
         <div class="div-button">
           <button type="submit" class="submit-button" (click)="createDisplacement()">Crear</button>
           <button type="button" class="cancel-button" (click)="cancel()">
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+<div *ngIf="isEditVisible" class="overlay">
+    <div class="form-container">
+      <form class="margin-2">
+        <h2 for="field4 input-field">MODIFICAR ESTE VIAJE</h2>
+        <div class="input-field">
+          <i class="fas fa-user"></i>
+          <input
+            placeholder={{desplazamientoEditar.title}}
+            type="text"
+            id="field1"
+            name="field1"
+            required
+            [(ngModel)]="tituloEditar"
+          />
+        </div>
+        <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input
+              placeholder={{desplazamientoEditar.description}}
+              type="date"
+              id="field1"
+              name="field1"
+              required
+              [(ngModel)]="fechaSalidaEditar"
+            />
+          </div>
+        <div class="input-field">
+          <i class="fas fa-user"></i>
+          <input
+            placeholder={{desplazamientoEditar.description}}
+            type="text"
+            id="field4"
+            name="field4"
+            required
+            [(ngModel)]="descriptionEditar"
+          />
+        </div>
+        <div class="div-button">
+          <button type="submit" class="submit-button" (click)="editDisplacement(desplazamientoEditar)">Modificar</button>
+          <button type="button" class="cancel-button" (click)="cancelEdit()">
             Cancelar
           </button>
         </div>
