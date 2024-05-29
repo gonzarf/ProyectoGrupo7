@@ -15,9 +15,11 @@ export class DesplazamientosItemComponent {
   espacios = 0;
   btnApuntarse = "fill";
   btnDesapuntarse = "fill";
-
+  
   
   @Input() desplazamiento: any = "C:\Users\a926861\OneDrive - Eviden\Documentos\GitHub\ProyectoGrupo7\frontend\TeamSphere\src\assets\img\chart2.png";
+  @Output()
+  btnEditarPulsado = new EventEmitter<boolean>();
   
   Apuntarse(){
     console.log(this.desplazamiento);
@@ -46,6 +48,12 @@ export class DesplazamientosItemComponent {
    
     
   }
+
+
+  Editar(){
+    this.btnEditarPulsado.emit(true);
+  }
+
 
   // deleteDisplacement(id: number) {
   //   this.service.deleteDisplacement(id);

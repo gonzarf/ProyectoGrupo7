@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-tarjeta-social',
@@ -20,6 +20,14 @@ export class TarjetaSocialComponent {
     }
   }
   
-  @Input() noticia: any
+  @Input() noticia: any;
+  
+  @Output()
+  btnEditarPulsado = new EventEmitter<boolean>();
+
+  btnEditarSeleccionado(){ 
+    
+      this.btnEditarPulsado.emit(true);
+  }
   
 }

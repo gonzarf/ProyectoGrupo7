@@ -86,7 +86,6 @@ export class HomeComponent implements OnInit {
   }
 
   Editar(visible:boolean, noticia:NoticiaExistente){
-    console.log(visible);
     
     if (visible) {
       this.isFormVisible = false;
@@ -128,7 +127,7 @@ export class HomeComponent implements OnInit {
       });
       Toast.fire({
         icon: "success",
-        title: "¡Noticia publicada!"
+        title: "¡Noticia modificada!"
       });
       setTimeout(() => {
         window.location.reload();
