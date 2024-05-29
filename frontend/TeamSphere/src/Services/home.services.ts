@@ -53,6 +53,11 @@ export class HomeServices {
     );
   }
 
+  searchPosts(searchText: string): Observable<Noticia[]> {
+    console.log(`${this.url}/search?query=${searchText}`)
+    return this.http.get<Noticia[]>(`${this.url}/search?query=${searchText}`);
+  }
+
 
 
 }
