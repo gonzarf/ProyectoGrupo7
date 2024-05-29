@@ -17,7 +17,6 @@ export class NoticiaComponent {
   @Output()
   btnEditarPulsado = new EventEmitter<boolean>();
 
-
   btnEditarSeleccionado(editar: boolean){ 
     if (editar) {
       this.btnEditarPulsado.emit(true);
