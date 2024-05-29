@@ -9,7 +9,7 @@ import { after } from "node:test";
     providedIn: 'root',
   })
   export class AfterworkServices {
-    private url = 'http://localhost:8081/post';
+    private url = 'http://localhost:8080/post';
     constructor(private http: HttpClient) {}
   
   
