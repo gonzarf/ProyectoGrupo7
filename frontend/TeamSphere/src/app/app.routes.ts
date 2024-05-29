@@ -17,8 +17,12 @@ import { ErrorpageComponent } from '../assets/errorpage/errorpage.component';
 
 export const routes: Routes = [
     {
-        path:'', 
+        path:'login', 
         component:LoginComponent
+    },{
+        path:'',
+        redirectTo:'login',
+        pathMatch:'full'
     },{
         path:'home',
         component:HomeComponent

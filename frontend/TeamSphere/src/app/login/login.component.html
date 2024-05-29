@@ -2,12 +2,11 @@
 <div class="body">
     <div class="container animate__animated animate__fadeIn animate__slow">
         <div class="signin-signup">
-            <form class="signin">
+            <form class="signin" (ngSubmit)="onSubmit()" [formGroup]="loginForm">
                 <div class="welcome-text">
                     <h2 class="title">HOLA!!</h2>
                     <h2 class="title">BUENOS DIAS</h2>
                 </div>  
-                
                 
                 <div class="datos">
                     <div class="login-text">
@@ -16,13 +15,13 @@
                     <div class="sign-in-form">
                         <div class="input-field">
                             <i class="fas fa-user"></i>
-                            <input type="text" placeholder="Correo" [(ngModel)]="email" name="email">
+                            <input type="text" placeholder="Usuario"  name="username" formControlName="username">
                         </div>
                         <div class="input-field">
                             <i class="fas fa-lock"></i>
-                            <input type="password" placeholder="Password" [(ngModel)]="password" name="password">
+                            <input type="password" placeholder="Password" name="password" formControlName="password">
                         </div>
-                        <input type="submit" value="Entrar" class="btn" (click)="login()" >
+                        <button type="submit" value="Entrar" class="btn"></button>
                     </div>
                 </div>
 
