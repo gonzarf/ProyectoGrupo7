@@ -1,6 +1,7 @@
 import { NgClass, NgStyle } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Desplazamiento } from '../desplazamientos/desplazamiento.model';
+import { DisplacementServices } from '../../Services/displacement.service';
 
 @Component({
   selector: 'app-desplazamientos-item',
@@ -10,7 +11,7 @@ import { Desplazamiento } from '../desplazamientos/desplazamiento.model';
   styleUrl: './desplazamientos-item.component.css'
 })
 export class DesplazamientosItemComponent {
-
+  constructor(private service: DisplacementServices) {}
   espacios = 0;
   btnApuntarse = "fill";
   btnDesapuntarse = "fill";
@@ -45,4 +46,13 @@ export class DesplazamientosItemComponent {
    
     
   }
+
+  // deleteDisplacement(id: number) {
+  //   this.service.deleteDisplacement(id);
+  //   window.location.reload();
+  // }
+
+  
+
+  
 }

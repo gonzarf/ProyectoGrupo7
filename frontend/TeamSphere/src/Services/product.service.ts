@@ -26,8 +26,7 @@ import { Product } from "../app/producto/producto.model";
       const headers = new HttpHeaders().set('Content-Type','application/json');
       return this.http.post(`${this.url}/add`,body,{headers:headers}).subscribe(
         (response) => {
-          console.log(response);
-          
+          console.log(response);          
         },
         (error) => {
           console.error(error);

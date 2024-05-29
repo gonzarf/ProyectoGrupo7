@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { SideBarComponent } from "../side-bar/side-bar.component";
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
-import { CommonModule, NgIf } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { TarjetaSocialComponent } from '../tarjeta-social/tarjeta-social.component';
-import { Noticia } from '../noticia/noticia.model';
-import { HomeServices } from '../../Services/home.services';
 import { NoticiaComponent } from "../noticia/noticia.component";
-import { log } from 'console';
+import Swal from 'sweetalert2';
+import { Afterwork } from './afterwork.model';
+import { AfterworkServices } from '../../Services/afterwork.service';
 
 
 
@@ -23,7 +23,7 @@ import { log } from 'console';
 export class AfterworkComponent implements OnInit{
 
 
-  constructor(private service: HomeServices) {
+  constructor(private service: AfterworkServices) {
   }
 
 
@@ -31,6 +31,13 @@ export class AfterworkComponent implements OnInit{
   title= "AfterWork";
   
   isFormVisible = false;
+
+  titulo = "";
+  description = "";
+  fecha = "";
+  lugar = "";
+  type = "afterwork";
+  image = "";
   
   formData = {
     field1: '',
@@ -47,16 +54,16 @@ export class AfterworkComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.loadNews();
+    this.loadAfterwork();
 
   }
 
-  noticias: Array<Noticia> = new Array<Noticia>();
-  datos: Array<Noticia> = new Array<Noticia>();
+  noticias: Array<Afterwork> = new Array<Afterwork>();
+  datos: Array<Afterwork> = new Array<Afterwork>();
 
 
-  loadNews(): void {
-    this.service.loadNews().subscribe((data) => {
+  loadAfterwork(): void {
+    this.service.loadAfterwork().subscribe((data) => {
 
       this.noticias = data;
 
@@ -64,13 +71,53 @@ export class AfterworkComponent implements OnInit{
 
     this.noticias.forEach(element => {
 
-      if(element.type == "Naturaleza"){
+      if(element.type == "afterwork"){
         this.datos.push(element)
       }
       
     });
 
     console.log(this.noticias)
+  }
+
+  createAfterwork(){
+    let afterwork : Afterwork = {
+      title: this.titulo,
+      description: this.description + "," + this.lugar + "," + this.fecha,
+      type: this.type,
+      image: this.image
+    };
+
+    try {
+      console.log(afterwork);
+      
+      this.service.postAfterwork(afterwork);
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer);
+          toast.addEventListener('mouseleave', Swal.resumeTimer);
+        }
+      });
+      Toast.fire({
+        icon: "success",
+        title: "¡Quedada publicada!"
+      });
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000);
+    } catch (error) {
+      Swal.fire({
+        title: 'Error',
+        text: 'Hubo un problema al publicar la noticia.',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      });
+    }
   }
 
 }

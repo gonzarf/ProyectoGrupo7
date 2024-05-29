@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 <app-side-bar></app-side-bar>
 <app-navbar [page]="'home'" (searchResult)="onSearchResult($event)"></app-navbar>
 <app-sort-bar></app-sort-bar>
@@ -8,7 +9,10 @@
     class="button-image"
   />
 </button>
-<app-noticia *ngFor="let noticia of noticias" [noticia]="noticia"></app-noticia>
+<div class="divContenido">
+  <app-noticia *ngFor="let noticia of noticias" [noticia]="noticia" (click)="toggleNew(noticia)"></app-noticia>
+
+</div>
 <div *ngIf="isFormVisible" class="overlay">
   <div class="form-container">
     <form class="margin-2">
@@ -42,6 +46,24 @@
       <div class="div-button">
         <button type="submit" class="submit-button" (click)="createNews()">Crear</button>
         <button type="button" class="cancel-button" (click)="cancel()">
+          Cancelar
+        </button>
+      </div>
+      
+    </form>
+  </div>
+</div>
+<div *ngIf="isNewVisible" class="overlay">
+  <div class="form-container">
+    <form class="margin-2">
+      <div class="profile-image2">
+        <img src="../../assets/img/chart2.png" alt="Imagen de noticia" />
+      </div>
+      <h2>{{noticiaActual.title}}</h2>
+      <hr>
+      <h3 style="text-align: justify;">{{noticiaActual.description}}</h3>
+      <div class="div-button">
+        <button type="button" class="cancel-button" (click)="cancelNew()">
           Cancelar
         </button>
       </div>

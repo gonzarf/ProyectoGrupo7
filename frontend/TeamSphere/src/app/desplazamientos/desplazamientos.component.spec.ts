@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SortBarComponent } from './sort-bar.component';
+import { DesplazamientosComponent } from './desplazamientos.component';
 
-describe('SortBarComponent', () => {
-  let component: SortBarComponent;
-  let fixture: ComponentFixture<SortBarComponent>;
+describe('DesplazamientosComponent', () => {
+  let component: DesplazamientosComponent;
+  let fixture: ComponentFixture<DesplazamientosComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SortBarComponent]
+      imports: [DesplazamientosComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(SortBarComponent);
+    fixture = TestBed.createComponent(DesplazamientosComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

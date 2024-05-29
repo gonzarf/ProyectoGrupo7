@@ -42,7 +42,7 @@ export class ProductComponent implements OnInit{
     this.userService.getuserById(this.product.seller).subscribe(data =>{
 
       this.user = data;
-
+      
     })
 
 

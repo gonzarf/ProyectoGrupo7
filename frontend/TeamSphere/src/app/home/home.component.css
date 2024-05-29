@@ -3,6 +3,14 @@ body {
     background-color: #fedbcd;
 }
 
+h3{
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+h2{
+  color: #F97C4B;
+}
+
 .fixed-button {
   position: fixed;
   bottom: 2em;
@@ -49,9 +57,9 @@ body {
   border-radius: 8px;
   width: 90%;
   max-width: 400px;
-  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px 0 rgba(249, 124, 75, 1), 0 6px 20px 0 rgba(249, 124, 75, 1);
   text-align: center;
-  border: 1px black solid;
+  border: 2px #F97C4B solid;
 }
 
 .form-group {
@@ -145,11 +153,35 @@ body {
   flex-direction: column;
   margin-top: 1.5em;
 }
+.profile-image2 {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.divContenido{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-left: 3em;
+  margin-right: 3em;
+  justify-content: space-around;
+}
 
 .profile-image img {
   width: 150px;
   height: 150px;
   border-radius: 50%;
+}
+.profile-image2 img {
+  width: 50%;
+  resize: horizontal;
+ border-radius: 10px;
+  
 }
 
 .div-button{

@@ -48,6 +48,7 @@
             name="price"
             required
             min="0"
+            (input)="onPriceInput($event)"
             [(ngModel)]="formData.price"
           />
         </div>
@@ -81,6 +82,7 @@
   
 
   <div class="container-items" *ngFor="let product of products">
+    
     <app-product [product]="product"></app-product>
   </div>
     

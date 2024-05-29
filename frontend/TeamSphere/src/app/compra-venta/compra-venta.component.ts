@@ -30,21 +30,30 @@ export class CompraVentaComponent implements OnInit{
 
 
     imageUrl!: File;
-    imageUrls!: [];
+    imageUrls: any[] = [];
 
     name= '';
     desc= '';
-    price!:number ;
-    image!: [];
+    price!: number;
+    image: any[] = [];
 
   
     formData = {
         name: '',
         desc: '',
-        price: 0 ,
+        price: 0,
         image: []
     };
 
+    onPriceInput(event: Event): void {
+        const input = event.target as HTMLInputElement;
+        const value = input.value;
+
+        const numericValue = value.replace(/[^0-9]/g, '');
+        input.value = numericValue;
+        this.formData.price = Number(numericValue);
+      }
+      
     toggleForm() {
         this.isFormVisible = !this.isFormVisible;
     }
@@ -98,10 +107,11 @@ export class CompraVentaComponent implements OnInit{
       this.getProducts();
     }
   
-    getProducts() {
+    getProducts(): void {
   
       this.productService.getProducts().subscribe((data) => {
         this.products = data;
+        
       });
     }
 }

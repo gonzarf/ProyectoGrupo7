@@ -21,6 +21,7 @@
             id="field1"
             name="field1"
             required
+            [(ngModel)]="titulo"
           />
         </div>
         <div class="input-field">
@@ -31,6 +32,7 @@
             id="field2"
             name="field2"
             required
+            [(ngModel)]="fecha"
           />
         </div>
         <div class="input-field">
@@ -41,6 +43,7 @@
             id="field3"
             name="field3"
             required
+            [(ngModel)]="lugar"
           />
         </div>
         <div class="input-field">
@@ -51,10 +54,11 @@
             id="field4"
             name="field4"
             required
+            [(ngModel)]="description"
           />
         </div>
         <div class="div-button">
-          <button type="submit" class="submit-button">Crear</button>
+          <button type="submit" class="submit-button" (click)="createAfterwork()">Crear</button>
           <button type="button" class="cancel-button" (click)="cancel()">
             Cancelar
           </button>
