@@ -1,94 +1,144 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 <div class="body">
     <div class="container animate__animated animate__fadeIn animate__slow">
-        <div class="signin-signup">
-            <form class="signin" (ngSubmit)="onSubmit()" [formGroup]="loginForm">
-                <div class="welcome-text">
-                    <h2 class="title">HOLA!!</h2>
-                    <h2 class="title">BUENOS DIAS</h2>
-                </div>  
-                
-                <div class="datos">
-                    <div class="login-text">
-                        <p class="orange-text">Entra</p><p>con tu cuenta</p>
-                    </div>
-                    <div class="sign-in-form">
-                        <div class="input-field">
-                            <i class="fas fa-user"></i>
-                            <input type="text" placeholder="Usuario"  name="username" formControlName="username">
-                        </div>
-                        <div class="input-field">
-                            <i class="fas fa-lock"></i>
-                            <input type="password" placeholder="Password" name="password" formControlName="password">
-                        </div>
-                        <button type="submit" value="Entrar" class="btn">Entrar</button>
-                    </div>
-                </div>
-
-                <div class="no-account">
-                    <p class="account-text">¿No tienes cuenta? <a href="#" id="sign-up-btn2" (click)="showSignUp()">Registrate</a></p>
-                </div>
-                <div class="no-account">
-                    <p class="account-text">¿Has olvidado tu contraseña? <br/> <a href="/cambiar-password" id="sign-up-btn2">Cambiar contraseña</a></p>
-                </div>
-            </form>
-
-            <form class="signup" [formGroup]="registerForm" (ngSubmit)="onSubmitRegister()">
-                <div class="datos">
-                    <div class="login-text">
-                        <p class="orange-text">Registrate</p><p>con tus datos</p>
-                    </div>
-                    <div class="sign-up-form">
-                        <div class="input-field">
-                            <i class="fas fa-user"></i>
-                            <input type="text" placeholder="Nombre"  formControlName="name">
-                        </div>
-                        <div class="input-field">
-                            <i class="fas fa-lock"></i>
-                            <input type="text" placeholder="Apellido"  formControlName="lastName">
-                        </div>
-                        <div class="input-field">
-                            <i class="fas fa-lock"></i>
-                            <input type="text" placeholder="Usuario"  formControlName="username">
-                        </div>
-                        <div class="input-field">
-                            <i class="fas fa-lock"></i>
-                            <input type="email" placeholder="Correo"  formControlName="email">
-                        </div>
-                        <div class="input-field">
-                            <i class="fas fa-lock"></i>
-                            <input type="text" placeholder="Introduzca su teléfono"  formControlName="phone">
-                        </div>
-                        <div class="input-field">
-                            <i class="fas fa-lock"></i>
-                            <input type="password" placeholder="Contraseña"  formControlName="password">
-                        </div>
-                        <div class="input-field">
-                            <i class="fas fa-lock"></i>
-                            <input type="password" placeholder="Repita la contraseña" >
-                        </div>
-                        <button type="submit" value="Registrarse" class="btn"></button>
-                    </div>
-                </div>
-
-                <div class="no-account">
-                    <p class="account-text">¿Ya tienes cuenta? <a href="#" id="sign-up-btn2" (click)="showSignIn()">Inicia sesión</a></p>
-                </div>
-            </form>
-        </div>
-        
-        <div class="panels-container">
-            <div class="panel left-panel">
-                <div class="content">
-                    <img src="../../assets/img/logoNombre.png" alt="" class="image">
-                </div>
-                
+      <div class="signin-signup">
+        <!-- Sign In Form -->
+        <form class="signin" (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+          <div class="welcome-text">
+            <h2 class="title">HOLA!!</h2>
+            <h2 class="title">BUENOS DIAS</h2>
+          </div>
+          <div class="datos">
+            <div class="login-text">
+              <p class="orange-text">Entra</p>
+              <p>con tu cuenta</p>
             </div>
-            <div class="panel right-panel">
-                <div class="content">
-                    <img src="../../assets/img/logoNombre.png" alt="" class="image">
-                </div>
+            <div class="sign-in-form">
+              <div class="input-field">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Usuario" name="username" formControlName="username" />
+              </div>
+              <div class="input-field">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Password" name="password" formControlName="password" />
+              </div>
+              <button type="submit" value="Entrar" class="btn">Entrar</button>
             </div>
+          </div>
+          <div class="no-account">
+            <p class="account-text">
+              ¿No tienes cuenta?
+              <a href="#" id="sign-up-btn2" (click)="showSignUp()">Registrate</a>
+            </p>
+          </div>
+          <div class="no-account">
+            <p class="account-text">
+              ¿Has olvidado tu contraseña? <br />
+              <a href="/cambiar-password" id="sign-up-btn2">Cambiar contraseña</a>
+            </p>
+          </div>
+        </form>
+  
+        <!-- Sign Up Form -->
+        <form class="signup" [formGroup]="registerForm" (ngSubmit)="onSubmitRegister()">
+          <div class="datos">
+            <div class="login-text">
+              <p class="orange-text">Registrate</p>
+              <p>con tus datos</p>
+            </div>
+            <div class="sign-up-form">
+              <div class="input-group">
+                <div class="input-field">
+                  <i class="fas fa-user"></i>
+                  <input type="text" placeholder="Nombre" formControlName="name"/>
+                </div>
+
+                <div class="input-field">
+                  <i class="fas fa-lock"></i>
+                  <input type="text" placeholder="Apellido" formControlName="lastName" />
+                </div>
+
+                <div class="input-field">
+                  <i class="fas fa-lock"></i>
+                  <input type="text" placeholder="Usuario" formControlName="username" />
+                </div>
+
+                <div class="input-field">
+                  <i class="fas fa-lock"></i>
+                  <input type="email" placeholder="Correo" formControlName="email" />
+                </div>
+  
+                <div class="input-field">
+                  <i class="fas fa-lock"></i>
+                  <input type="text" placeholder="Teléfono" formControlName="phone" />
+                </div>
+
+                <div class="input-field">
+                  <i class="fas fa-lock"></i>
+                  <input type="password" placeholder="Contraseña" formControlName="password" />
+
+                </div>
+
+                <div class="input-field">
+                  <i class="fas fa-lock"></i>
+                  <input type="password" placeholder="Repita la contraseña" formControlName="passwordRepeat" />
+                </div>
+
+              </div>
+              <!--Errores nombre-->                  
+                <div *ngIf="registerForm.get('name')?.touched && registerForm.get('name')?.invalid">
+                <small *ngIf="registerForm.get('name')?.errors?.['required']" style="color: red">El nombre es obligatorio</small>
+              </div>
+              <!--Errores nombre-->
+              <div *ngIf="registerForm.get('lastName')?.touched && registerForm.get('lastName')?.invalid">
+                <small *ngIf="registerForm.get('lastName')?.errors?.['required']" style="color: red">El apellido es obligatorio</small>
+              </div>
+              <!--Errores nombre-->
+              <div *ngIf="registerForm.get('username')?.touched && registerForm.get('username')?.invalid">
+                <small *ngIf="registerForm.get('username')?.errors?.['required']" style="color: red">El nombre de usuario es obligatorio</small>
+              </div>  
+              <!--Errores nombre-->  
+              <div *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.invalid">
+                <small *ngIf="registerForm.get('email')?.errors?.['required']" style="color: red">El email es obligatorio</small>
+                <small *ngIf="registerForm.get('email')?.errors?.['email']" style="color: red">El email no es válido</small>
+              </div>
+              <!--Errores nombre-->  
+              <div *ngIf="registerForm.get('phone')?.touched && registerForm.get('phone')?.invalid">
+                <small *ngIf="registerForm.get('phone')?.errors?.['required']" style="color: red">El teléfono es obligatorio</small>
+                <small *ngIf="registerForm.get('phone')?.errors?.['minlength']" style="color: red">El teléfono es demasiado corto</small>
+                <small *ngIf="registerForm.get('phone')?.errors?.['maxlength']" style="color: red">El teléfono es demasiado largo</small>
+              </div>
+              <!--Errores nombre-->  
+              <div *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.invalid">
+                <small *ngIf="registerForm.get('password')?.errors?.['required']" style="color: red">La contraseña es obligatoria</small>
+                <small *ngIf="registerForm.get('password')?.errors?.['minlength']" style="color: red">La contraseña es demasiado corta</small>
+              </div>
+              <!--Errores nombre-->  
+             <div *ngIf="registerForm.get('passwordRepeat')?.touched && registerForm.get('passwordRepeat')?.invalid">
+                <small *ngIf="registerForm.get('passwordRepeat')?.errors?.['required']" style="color: red">La contraseña es obligatoria</small>
+            </div>
+              <button type="submit" value="Registrarse" class="btn">Registrarse</button>
+            </div>
+          </div>
+          <div class="no-account">
+            <p class="account-text">
+              ¿Ya tienes cuenta?
+              <a href="#" id="sign-up-btn2" (click)="showSignIn()">Inicia sesión</a>
+            </p>
+          </div>
+        </form>
+      </div>
+      <div class="panels-container">
+        <div class="panel left-panel">
+          <div class="content">
+            <img src="../../assets/img/logoNombre.png" alt="" class="image" />
+          </div>
         </div>
+        <div class="panel right-panel">
+          <div class="content">
+            <img src="../../assets/img/logoNombre.png" alt="" class="image" />
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
+  
