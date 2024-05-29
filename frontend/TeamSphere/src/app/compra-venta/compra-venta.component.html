@@ -83,9 +83,10 @@
   </div>
   
 
-  <div class="container-items" *ngFor="let product of products">
-    
-    <app-product [product]="product"></app-product>
+  <div class="container-grid">
+    <div class="container-items" *ngFor="let product of products">
+      <app-product [product]="product"></app-product>
+    </div>
   </div>
     
 
