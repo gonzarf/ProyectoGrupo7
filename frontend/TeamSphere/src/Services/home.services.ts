@@ -6,6 +6,7 @@ import { Noticia, NoticiaExistente } from '../app/noticia/noticia.model';
 @Injectable({
   providedIn: 'root',
 })
+
 export class HomeServices {
   private url = 'http://localhost:8081/post';
   constructor(private http: HttpClient) {}
@@ -17,6 +18,8 @@ export class HomeServices {
 
     return this.http.get<Array<NoticiaExistente>>(`${this.url}/all`);
   }
+
+
   postNews(noticia:Noticia){
     
     let body = JSON.stringify(noticia);

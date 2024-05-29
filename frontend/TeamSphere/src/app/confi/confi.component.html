@@ -1,11 +1,14 @@
 <div class="container">
+   
     <div class="profile-form">
         <div class="volver" [routerLink]="['/home']" routerLinkActive="router-link-active" >
         </div>
+        
         <div class="profile-image">
             <img src="../../assets/img/chart2.png" alt="Imagen de usuario">
             <input style="margin-top: 1.5em;" type="file" accept="image/*">
         </div>
+      
         <div class="form-fields">
             
             <div class="left">
@@ -41,11 +44,12 @@
 
                 </div>
             </div>
+           
         </div>
         <div class="divBtns">
             <button class="btn">Guardar cambios</button>
 
-            <button class="btnEliminar">Eliminar cuenta</button>
+            <button class="btnEliminar" (click)="deleteProfile()">Eliminar cuenta</button>
         </div>
     </div>
 </div>
