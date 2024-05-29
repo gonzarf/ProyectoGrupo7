@@ -17,4 +17,8 @@ export class LoginServices {
     });
     return this.http.post<any>(`${this.url}/signin`, logindto, { headers });
   }
+
+  register(formData:FormData):Observable<any>{
+    return this.http.post<any>(`${this.url}/signup`, formData)
+  }
 }
