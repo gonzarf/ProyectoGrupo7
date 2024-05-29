@@ -38,19 +38,19 @@ export class HomeComponent implements OnInit {
 
 
 
-  postListFiltered : Noticia[] = [];
+  postListFiltered : NoticiaExistente[] = [];
 
   ngOnInit(): void {
     this.loadNews();
     
   }
 
-  onSearchResult(data: Noticia[]) {
+  onSearchResult(data: NoticiaExistente[]) {
     this.postListFiltered = data;
     this.noticias = this.postListFiltered;
   
   }
-  
+
   titulo = "";
   description = "";
   type = "noticias";
@@ -63,9 +63,9 @@ export class HomeComponent implements OnInit {
 
 
 
-  noticias: Array<Noticia> = new Array<Noticia>();
-  datos: Array<Noticia> = new Array<Noticia>();
-  
+  noticias: Array<NoticiaExistente> = new Array<NoticiaExistente>();
+  datos: Array<NoticiaExistente> = new Array<NoticiaExistente>();
+
   noticiaActual: Noticia = new Noticia();
   noticiaEditar: NoticiaExistente = new NoticiaExistente();
 

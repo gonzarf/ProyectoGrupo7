@@ -50,11 +50,14 @@ onSubmit(): void {
 }
 
 onSubmitRegister(){
-
+  console.log("alcachofa")
 
   if(this.registerForm.controls.password.value != this.registerForm.controls.passwordRepeat.value){
     alert('Las contraseñas no coinciden')
+    console.log("sadfdsgfdefggfdnfdfg")
   }else if (this.registerForm.controls.password.value != this.registerForm.controls.passwordRepeat.value){
+    console.log("sadfdsgfdefggfdnfdfg")
+
     if(this.registerForm.valid) {
       const name = this.registerForm.controls.name.value || ''
       const lastName = this.registerForm.controls.lastName.value || ''
@@ -83,6 +86,8 @@ onSubmitRegister(){
         this.router.navigate(['home']);
         }
       )
+    } else {
+      console.log("asdfsdfg")
     }
   }
 }
