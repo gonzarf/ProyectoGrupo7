@@ -1,6 +1,10 @@
 package dev.TeamSphere.product;
 
+import dev.TeamSphere.user.User;
 import jakarta.validation.constraints.NotBlank;
+
+import java.util.List;
+import java.util.UUID;
 
 public record CreateProductDto(
 
@@ -12,8 +16,23 @@ public record CreateProductDto(
         @NotBlank(message = "The description is required")
         String description,
 
-        String image
+        List<String> imageList,
+
+        UUID seller
+
 
 ) {
+        public static CreateProductDto withUpdatedImagesAndSeller(CreateProductDto createProductDto, List<String> updatedImageList/*, User seller*/) {
+                return new CreateProductDto(
+                        createProductDto.name(),
+                        createProductDto.price(),
+                        createProductDto.description(),
+                        updatedImageList,
+                        //seller,
+                        createProductDto.seller()
+                );
+        }
+
+
 
 }
