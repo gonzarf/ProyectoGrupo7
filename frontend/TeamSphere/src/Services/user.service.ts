@@ -18,5 +18,8 @@ export class UserService {
     return this.http.get<Usuario>(`${this.url}/${id}`);
   }
 
+  deleteProfile(): Observable<any>{
+    return this.http.delete(`${this.url}/me/profile`);
+  }
 
 }
