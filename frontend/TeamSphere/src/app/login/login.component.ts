@@ -7,13 +7,12 @@ import { FormBuilder } from '@angular/forms';
 import { Token } from './token.model';
 import { validateHeaderName } from 'http';
 
-
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [RouterOutlet, RouterLink, FormsModule, CommonModule, ReactiveFormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css']
 })
 
 export class LoginComponent{
@@ -85,10 +84,9 @@ onSubmitRegister(){
     const container = document.querySelector('.container') as HTMLDivElement;
     container.classList.add('sign-up-mode');
   }
- 
+
   showSignIn(): void {
     const container = document.querySelector('.container') as HTMLDivElement;
     container.classList.remove('sign-up-mode');
   }
-
 }

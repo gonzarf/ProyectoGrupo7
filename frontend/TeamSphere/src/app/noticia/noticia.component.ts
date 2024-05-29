@@ -1,5 +1,5 @@
 import { NgForOf } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { HomeServices } from '../../Services/home.services';
 import { Noticia } from './noticia.model';
 
@@ -13,5 +13,25 @@ import { Noticia } from './noticia.model';
 export class NoticiaComponent {
 
   @Input() noticia: any = "C:\Users\a926861\OneDrive - Eviden\Documentos\GitHub\ProyectoGrupo7\frontend\TeamSphere\src\assets\img\chart2.png";
+
+  @Output()
+  btnEditarPulsado = new EventEmitter<boolean>();
+
+
+  Hola(){
+    alert("Hola");
+  }
+
+  btnEditarSeleccionado(editar: boolean){ 
+    if (editar) {
+      this.btnEditarPulsado.emit(true);
+      
+    } else {
+      
+      this.btnEditarPulsado.emit(false);
+    }
+  }
+  
+
 
 }

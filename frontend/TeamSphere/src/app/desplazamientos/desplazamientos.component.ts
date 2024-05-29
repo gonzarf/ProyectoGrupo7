@@ -36,6 +36,7 @@ export class DesplazamientosComponent {
   description = '';
   type = 'desplazamiento';
   fechaSalida = '';
+  image="";
 
   formData = {
     field1: '',
@@ -74,9 +75,12 @@ export class DesplazamientosComponent {
       title: this.titulo,
       description:
         this.fechaSalida + ', ' + this.title + ', ' + this.description,
-      type: this.type,
+      image:this.image,
+      type: this.type
     };
 
+    console.log(desplazamiento);
+    
     this.service.createDisplacement(desplazamiento);
     window.location.reload();
   }
