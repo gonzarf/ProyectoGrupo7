@@ -10,4 +10,8 @@ import { RouterLink } from '@angular/router';
 })
 export class SideBarComponent {
 
+  logOut(){
+    localStorage.removeItem('access_token')
+  }  
+
 }

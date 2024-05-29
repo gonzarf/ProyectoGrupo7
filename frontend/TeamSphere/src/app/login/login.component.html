@@ -33,7 +33,7 @@
                 </div>
             </form>
 
-            <form class="signup">
+            <form class="signup" [formGroup]="registerForm" (ngSubmit)="onSubmitRegister()">
                 <div class="datos">
                     <div class="login-text">
                         <p class="orange-text">Registrate</p><p>con tus datos</p>
@@ -41,25 +41,33 @@
                     <div class="sign-up-form">
                         <div class="input-field">
                             <i class="fas fa-user"></i>
-                            <input type="text" placeholder="Nombre">
+                            <input type="text" placeholder="Nombre"  formControlName="name">
                         </div>
                         <div class="input-field">
                             <i class="fas fa-lock"></i>
-                            <input type="text" placeholder="Apellido">
+                            <input type="text" placeholder="Apellido"  formControlName="lastName">
                         </div>
                         <div class="input-field">
                             <i class="fas fa-lock"></i>
-                            <input type="email" placeholder="Correo">
+                            <input type="text" placeholder="Usuario"  formControlName="username">
                         </div>
                         <div class="input-field">
                             <i class="fas fa-lock"></i>
-                            <input type="password" placeholder="Contraseña">
+                            <input type="email" placeholder="Correo"  formControlName="email">
                         </div>
                         <div class="input-field">
                             <i class="fas fa-lock"></i>
-                            <input type="password" placeholder="Repita la contraseña">
+                            <input type="text" placeholder="Introduzca su teléfono"  formControlName="phone">
                         </div>
-                        <input type="submit" value="Registrarse" class="btn">
+                        <div class="input-field">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" placeholder="Contraseña"  formControlName="password">
+                        </div>
+                        <div class="input-field">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" placeholder="Repita la contraseña" >
+                        </div>
+                        <button type="submit" value="Registrarse" class="btn"></button>
                     </div>
                 </div>
 
