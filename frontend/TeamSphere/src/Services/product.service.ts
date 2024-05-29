@@ -20,21 +20,25 @@ import { Product } from "../app/producto/producto.model";
       return this.http.get<Product[]>(`${this.url}`);
     }
 
-    createProduct(producto:Product){
+    createProduct(product: Product, files: File[]): Observable<any> {
+      const formData: FormData = new FormData();
+      
+      console.log("productooo: " + product.name)
 
-      let body = JSON.stringify(producto);
-      const headers = new HttpHeaders().set('Content-Type','application/json');
-      return this.http.post(`${this.url}/add`,body,{headers:headers}).subscribe(
-        (response) => {
-          console.log(response);          
-        },
-        (error) => {
-          console.error(error);
-          
-        }
-      );
+      // Agrega el objeto del producto como una cadena JSON
+      formData.append('product', JSON.stringify(product));
 
-    }
+      // Agrega los archivos al FormData
+      files.forEach((file, index) => {
+          formData.append('file', file, file.name);
+      });
+
+      return this.http.post(this.url, formData, {
+          headers: new HttpHeaders({
+              'Accept': 'application/json'
+          })
+      });
+  }
 
 
 

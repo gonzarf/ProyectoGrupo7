@@ -15,7 +15,7 @@ import { Usuario } from '../login/usuario.model';
 })
 export class ItemPageComponent implements OnInit{
 
-  product:Product = new Product;
+  product! :Product;
   user:Usuario = new Usuario;
 
   ngOnInit(): void {

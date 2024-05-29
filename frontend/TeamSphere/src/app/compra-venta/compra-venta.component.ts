@@ -22,96 +22,93 @@ import { ProductService } from '../../Services/product.service';
 
 export class CompraVentaComponent implements OnInit{
 
-    constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService) {}
 
-    title = "Compra / Venta";
+  title = "Compra / Venta";
 
-    isFormVisible = false;
+  isFormVisible = false;
 
 
-    imageUrl!: File;
-    imageUrls: any[] = [];
 
-    name= '';
-    desc= '';
-    price!: number;
-    image: any[] = [];
 
-  
-    formData = {
-        name: '',
-        desc: '',
-        price: 0,
-        image: []
+  name! : String;
+  desc! : String
+  price! : number
+  imageUrl! : String[]
+
+  selectedFiles: File[] = [];
+
+
+  formData = {
+    name: '',
+    desc: '',
+    price: 0,
+    image: []
+  };
+
+
+  onPriceInput(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    const value = input.value;
+
+    const numericValue = value.replace(/[^0-9]/g, '');
+    input.value = numericValue;
+    this.price = Number(numericValue);
+  }
+    
+  toggleForm() {
+    this.isFormVisible = !this.isFormVisible;
+  }
+
+  createProduct() {
+
+    let product: Product = {
+      name: this.formData.name,
+      description: this.formData.desc,
+      price: this.formData.price,
+      image: this.formData.image
     };
 
-    onPriceInput(event: Event): void {
-        const input = event.target as HTMLInputElement;
-        const value = input.value;
-
-        const numericValue = value.replace(/[^0-9]/g, '');
-        input.value = numericValue;
-        this.formData.price = Number(numericValue);
+    this.productService.createProduct(product, this.selectedFiles).subscribe(
+      response => {
+        console.log(response);
+      },
+      error => {
+        console.error(error);
       }
-      
-    toggleForm() {
-        this.isFormVisible = !this.isFormVisible;
-    }
-
-    createProduct() {
-        const name = this.formData.name;
-        const desc = this.formData.desc;
-        const price = this.formData.price;
-        const image = this.formData.image;
-
-        
-        let currentDate = new Date();
-        let formattedDate = currentDate.toISOString().split('T')[0]; // Formato: YYYY-MM-DD
-
-        let producto: Product = {
-            name: this.name,
-            description: this.desc,
-            price: this.price,
-            image: this.image,
-            date: formattedDate,
-            seller: 0,
-            buyer: 0
-        };
-
-
-      
-          this.productService.createProduct(producto);
-          window.location.reload();
-    }
-
-    cancel() {
-        this.isFormVisible = false;
-    }
-
-    handleImageUpload(event: any) {
-        const files = event.target.files;
-        const imageUrls: string[] = [];
-        for (const file of files) {
-            const imageUrl = 'https://ruta-de-la-imagen.com/imagen.jpg'; // Cambia esto con la URL real
-            imageUrls.push(imageUrl);
-        }
-    }
+    );
     
+    window.location.reload();
+
     
+  }
 
-    products!: Product[];
+  cancel() {
+    this.isFormVisible = false;
+  }
+
+  handleImageUpload(event: any) {
+    if (event.target.files && event.target.files.length) {
+      this.selectedFiles = Array.from(event.target.files);
+    }
+  }
 
   
   
-    ngOnInit(): void {
-      this.getProducts();
-    }
-  
-    getProducts(): void {
-  
-      this.productService.getProducts().subscribe((data) => {
-        this.products = data;
-        
-      });
-    }
+
+  products!: Product[];
+
+
+
+  ngOnInit(): void {
+    this.getProducts();
+  }
+
+  getProducts(): void {
+
+    this.productService.getProducts().subscribe((data) => {
+      this.products = data;
+      
+    });
+  }
 }
