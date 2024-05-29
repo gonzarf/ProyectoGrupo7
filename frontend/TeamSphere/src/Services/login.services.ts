@@ -11,10 +11,10 @@ export class LoginServices {
 
   constructor(private http: HttpClient) {}
 
-  login(logindto: LoginDTO): Observable<Token> {
+  login(logindto: LoginDTO): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-    return this.http.post<Token>(`${this.url}/signin`, logindto, { headers });
+    return this.http.post<any>(`${this.url}/signin`, logindto, { headers });
   }
 }
