@@ -22,7 +22,9 @@ public record ResponseUserDto(
 
         String phone,
 
-        Set<Roles> roles
+        Set<Roles> roles,
+        List<UUID> followers,
+        List<UUID> following
 
 
 ) {

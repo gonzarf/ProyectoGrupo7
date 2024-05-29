@@ -1,5 +1,6 @@
 package dev.TeamSphere.product;
 
+import dev.TeamSphere.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,6 +12,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -39,13 +41,16 @@ public class Product {
     @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime date = LocalDateTime.now();
 
-    //@Column(nullable = false)
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> image;
 
-    //private UUID id_comprador;
+    @ElementCollection(fetch = FetchType.EAGER)
+    @Enumerated(EnumType.STRING)
+    private Set<Status> status;
 
-    //private UUID id_vendedor;
+    private UUID seller;
+
+    private UUID buyer;
 
 
 }

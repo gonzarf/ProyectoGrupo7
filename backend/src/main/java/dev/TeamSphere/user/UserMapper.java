@@ -2,6 +2,7 @@ package dev.TeamSphere.user;
 
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.Set;
 
 @Component
@@ -17,6 +18,8 @@ public class UserMapper {
                 .image(requestDto.image() != null ? requestDto.image() : User.IMAGE_DEFAULT)
                 .phone(requestDto.phone())
                 .roles(Set.of(Roles.USER))
+                .followers(new ArrayList<>())
+                .following(new ArrayList<>())
                 .build();
     }
 
@@ -30,6 +33,8 @@ public class UserMapper {
                 .password(updateUserDto.password() != null ? updateUserDto.password() : user.getPassword())
                 .image(updateUserDto.image() != null ? updateUserDto.image() : user.getImage())
                 .phone(updateUserDto.phone() != null ? updateUserDto.phone() : user.getPhone())
+                .followers(updateUserDto.followers() != null ? updateUserDto.followers() : user.getFollowers())
+                .following(updateUserDto.following() != null ? updateUserDto.following() : user.getFollowing())
                 .build();
     }
 
@@ -43,6 +48,8 @@ public class UserMapper {
                 .image(user.getImage())
                 .phone(user.getPhone())
                 .roles(user.getRoles())
+                .followers(user.getFollowers())
+                .following(user.getFollowing())
                 .build();
     }
 }

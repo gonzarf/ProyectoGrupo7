@@ -23,7 +23,6 @@ public class PostService {
 
     public List<Post> getNews(){
 
-
         List<Post> allPosts = postRepository.findAll();
         List<Post> newsPosts = new ArrayList<Post>();
 
@@ -77,6 +76,11 @@ public class PostService {
 
         // Guardar los cambios en la lista de likes
         postRepository.save(postFind);
+    }
+
+    //search bar
+    public List<Post> searchPosts(String query) {
+        return postRepository.findByTitleContainingIgnoreCase(query);
     }
 
 }

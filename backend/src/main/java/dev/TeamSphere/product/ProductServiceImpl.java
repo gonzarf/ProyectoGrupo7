@@ -2,6 +2,7 @@
 package dev.TeamSphere.product;
 
 import dev.TeamSphere.storage.StorageService;
+import dev.TeamSphere.user.User;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.juli.logging.Log;
 import org.springframework.stereotype.Service;
@@ -59,8 +60,13 @@ public class ProductServiceImpl implements ProductService{
             urlList.add(storageService.getUrl(image));
         }
 
+        //TODO: El user hay que buscarlo con el authorization del header cuando lo metamos
+        //TODO: El null del parametro de debajo es donde debe ir el user encontrado por el token del header;
+
         // Crear un nuevo CreateProductDto con la lista de imágenes actualizada
-        CreateProductDto updatedProductDto = CreateProductDto.withUpdatedImages(createProductDto, urlList);
+        CreateProductDto updatedProductDto = CreateProductDto.withUpdatedImagesAndSeller(createProductDto, urlList/*, null  Aqui va el seller*/);
+
+
 
         // Convertir CreateProductDto a Product entity y guardar en la base de datos
         Product product = mapper.toProductFromCreate(updatedProductDto);

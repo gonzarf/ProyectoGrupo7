@@ -4,6 +4,8 @@ package dev.TeamSphere.product;
 import jakarta.validation.constraints.NotBlank;
 
 import java.util.List;
+import java.util.Set;
+import java.util.UUID;
 
 public record UpdateProductDto(
 
@@ -13,7 +15,11 @@ public record UpdateProductDto(
 
         String description,
 
-        List<String> image
+        List<String> image,
+
+        UUID buyer,
+
+        Set<Status> status
 ) {
 
     public static UpdateProductDto withUpdatedImages(UpdateProductDto updateProductDto, List<String> updatedImageList) {
@@ -21,7 +27,9 @@ public record UpdateProductDto(
                 updateProductDto.name(),
                 updateProductDto.price(),
                 updateProductDto.description(),
-                updatedImageList
+                updatedImageList,
+                updateProductDto.buyer(),
+                updateProductDto.status()
         );
     }
 }

@@ -10,10 +10,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Entity
@@ -53,33 +50,20 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private String phone;
 
+
     @ElementCollection(fetch = FetchType.EAGER)
     @Enumerated(EnumType.STRING)
     private Set<Roles> roles;
 
+    //logic for following system
 
-    @ManyToMany
-    @JoinTable(
-            name = "user_follower",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "follower_id"),
-            uniqueConstraints = {@UniqueConstraint(columnNames = {"user_id","follower_id"})}
-    )
-    private List<Follower> follower;
+    //list with the ids of the people that follows someone
+    @ElementCollection(fetch = FetchType.EAGER)
+    private List<UUID> followers = new ArrayList<>();
 
-
-    @ManyToMany
-    @JoinTable(
-            name = "user_followed",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "followed_id"),
-            uniqueConstraints = {@UniqueConstraint(columnNames = {"user_id","followed_id"})}
-    )
-    private List<Follower> followed;
-
-
-
-
+    //list with the ids of the people that a user follows
+    @ElementCollection(fetch = FetchType.EAGER)
+    private List<UUID> following = new ArrayList<>();
 
 
     @Override
@@ -92,6 +76,7 @@ public class User implements UserDetails {
     public String getUsername() {
         return username;
     }
+
 
     @Override
     public boolean isAccountNonExpired() {
