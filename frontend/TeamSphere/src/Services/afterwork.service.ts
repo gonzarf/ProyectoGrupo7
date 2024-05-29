@@ -1,6 +1,5 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Noticia } from "../app/noticia/noticia.model";
 import { Afterwork } from "../app/afterwork/afterwork.model";
 import { Observable } from "rxjs";
 import { after } from "node:test";

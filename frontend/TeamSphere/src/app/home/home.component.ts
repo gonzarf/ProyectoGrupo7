@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { SideBarComponent } from '../side-bar/side-bar.component';
 import { NavbarComponent } from '../navbar/navbar.component';
-import { NoticiaComponent } from '../noticia/noticia.component';
 import { RouterLink } from '@angular/router';
 import { HomeServices } from '../../Services/home.services';
 import { CommonModule, NgForOf } from '@angular/common';
 import { SortBarComponent } from '../sort-bar/sort-bar.component';
 import { FormsModule } from '@angular/forms';
-import { Noticia } from '../noticia/noticia.model';
 import Swal from 'sweetalert2';
+import { Noticia } from '../social/post.model';
+import { NoticiaComponent } from '../noticia/noticia.component';
 
 
 @Component({
