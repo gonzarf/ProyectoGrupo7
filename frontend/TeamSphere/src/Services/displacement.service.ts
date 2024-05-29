@@ -20,6 +20,8 @@ export class DisplacementServices {
   createDisplacement(desplazamiento:Desplazamiento){
     
     let body = JSON.stringify(desplazamiento);
+    console.log(body);
+    
     const headers = new HttpHeaders().set('Content-Type','application/json');
     return this.http.post(`${this.url}/add`,body,{headers:headers}).subscribe(
       (response) => {

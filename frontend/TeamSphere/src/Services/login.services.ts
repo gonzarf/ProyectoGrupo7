@@ -8,12 +8,12 @@ import { LoginDTO } from '../app/login/loginDTO.model';
   providedIn: 'root',
 })
 export class LoginServices {
-  private url = 'http://localhost:8081/user';
+  private url = 'http://localhost:8081/auth';
   constructor(private http: HttpClient) {}
 
-    login (logindto:LoginDTO): Observable<Usuario> {
-        const header = new HttpHeaders()
+    login (logindto:LoginDTO): Observable<any> {
+        const headers = new HttpHeaders({'Content-Type':'application/json'});
 
-        return this.http.post<Usuario>(`${this.url}/login`, logindto, {headers:header})
+        return this.http.post<any>(`${this.url}/signin`, logindto, {headers})
     }
 }
