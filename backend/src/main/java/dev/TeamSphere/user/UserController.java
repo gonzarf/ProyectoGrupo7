@@ -110,6 +110,9 @@ public class UserController {
         return  userService.getFollowers(idUser);
     }
 
-
+    @GetMapping("/search")
+    public ResponseEntity<List<ResponseUserDto>> searchUsersByName(@RequestParam("name") String name) {
+        return ResponseEntity.ok(userService.getUsersByName(name));
+    }
 
 }
