@@ -1,4 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { AfterworkExistente } from '../afterwork/afterwork.model';
+import { AfterworkServices } from '../../Services/afterwork.service';
 
 @Component({
   selector: 'app-tarjeta-social',
@@ -11,6 +13,11 @@ export class TarjetaSocialComponent {
   likesAmount: number = 7;
   liked: boolean = false;
 
+
+  constructor(private service: AfterworkServices){
+
+  }
+
   toggleLike() {
     this.liked = !this.liked;
     if (this.liked) {
@@ -20,7 +27,7 @@ export class TarjetaSocialComponent {
     }
   }
   
-  @Input() noticia: any;
+  @Input() noticia: AfterworkExistente = new AfterworkExistente();
   
   @Output()
   btnEditarPulsado = new EventEmitter<boolean>();
@@ -28,6 +35,13 @@ export class TarjetaSocialComponent {
   btnEditarSeleccionado(){ 
     
       this.btnEditarPulsado.emit(true);
+  }
+
+
+
+  deleteAfterwork(afterwork: AfterworkExistente){
+    this.service.deleteAfterwork(afterwork);
+    window.location.reload();
   }
   
 }
