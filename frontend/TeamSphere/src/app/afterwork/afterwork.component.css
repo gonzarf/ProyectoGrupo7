@@ -230,6 +230,22 @@
   width: 24%;
 }
 
+.profile-image {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5em;
+}
+.profile-image img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
 /* Responsive de la página */
 
 @media (max-width: 1050px) {

@@ -19,7 +19,7 @@ import { AparcamientoComponent } from './aparcamiento/aparcamiento.component';
 
 export const routes: Routes = [
     {
-        path:'', 
+        path:'',
         component:LoginComponent
     },{
         path:'home',

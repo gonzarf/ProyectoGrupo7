@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 <app-side-bar></app-side-bar>
-<app-navbar></app-navbar>
+<app-navbar [page]="'home'" (searchResult)="onSearchResult($event)"></app-navbar>
 <app-sort-bar></app-sort-bar>
 <button class="fixed-button" (click)="toggleForm()">
   <img
@@ -10,7 +10,7 @@
   />
 </button>
 <div class="divContenido">
-  <app-noticia *ngFor="let noticia of noticias" [noticia]="noticia" (click)="toggleNew(noticia)"></app-noticia>
+  <app-noticia *ngFor="let noticia of noticias" [noticia]="noticia" (btnEditarPulsado)="Editar($event,noticia)"></app-noticia>
 
 </div>
 <div *ngIf="isFormVisible" class="overlay">
@@ -46,6 +46,46 @@
       <div class="div-button">
         <button type="submit" class="submit-button" (click)="createNews()">Crear</button>
         <button type="button" class="cancel-button" (click)="cancel()">
+          Cancelar
+        </button>
+      </div>
+      
+    </form>
+  </div>
+</div>
+<div *ngIf="isEditVisible" class="overlay">
+  <div class="form-container">
+    <form class="margin-2">
+      <h2 for="field4 input-field">MODIFICAR LA NOTICIA</h2>
+      <div class="profile-image">
+        <img src="../../assets/img/chart2.png" alt="Imagen de noticia" />
+        <input style="margin-top: 1.5em" type="file" accept="image/*" [(ngModel)]="imageEditar" name="image" />
+      </div>
+      <div class="input-field">
+        <i class="fas fa-user"></i>
+        <input
+          value={{noticiaEditar.title}}
+          type="text"
+          id="field1"
+          name="field1"
+          required
+          [(ngModel)]="tituloEditar"
+        />
+      </div>
+      <div class="input-field">
+        <i class="fas fa-user"></i>
+        <input
+          placeholder={{noticiaEditar.description}}
+          type="text"
+          id="field4"
+          name="field4"
+          required
+          [(ngModel)]="descriptionEditar"
+        />
+      </div>
+      <div class="div-button">
+        <button type="submit" class="submit-button" (click)="editNews(noticiaEditar)">Modificar</button>
+        <button type="button" class="cancel-button" (click)="cancelEdit()">
           Cancelar
         </button>
       </div>

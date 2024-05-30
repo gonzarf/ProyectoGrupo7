@@ -1,18 +1,28 @@
+*{
+    font-family: 'Poppins', sans-serif;
+        
+}
+.title{
+    background-color: #ff6d43;
+
+    padding: 10px;
+    height: 1px;
+}
+
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #FCBFA7;
+    background-color: #ff6d43;
     overflow: hidden;
 }
 .volver{
     height: 40px;
     width: 40px;
-    background-image: url("../../assets/img/volver.png");
     background-repeat: no-repeat;
     background-size: contain;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-left: 27px;
     align-self: flex-start;
     cursor: pointer;
@@ -23,7 +33,7 @@
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 45em;
-    height: 40em;
+    height: auto;
     background-color: #FFFFFF;
     display: flex;
     flex-direction: column;
@@ -47,6 +57,23 @@
     height: 150px;
     border-radius: 50%;
 }
+.custom-file-upload {
+    margin-top: 1.5em;
+    font-weight: normal;
+    cursor: pointer;
+    color: #ff5a18;
+    border: 2px solid #ff6d43;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    
+    
+}
+
+.custom-file-upload:hover {
+    background-color: #ff6d43;
+    color: white;
+}
 
 .form-fields {
     width: 100%;
@@ -64,14 +91,13 @@
     margin-bottom: 10px;
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid #ccc;
+   
 }
 
 .input-field {
-   
     width:100%;
     height: 50px;
-    background: #f0f0f0;
+    background: #ffffff;
     border: 2px solid #F97C4B;
     border-radius: 5px;
     display: flex;

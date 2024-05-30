@@ -1,9 +1,11 @@
 
 package dev.TeamSphere.product;
 
+import dev.TeamSphere.user.User;
 import lombok.Builder;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 import java.util.UUID;
 
 @Builder
@@ -19,6 +21,12 @@ public record ResponseProductDto(
 
         LocalDateTime date,
 
-        String image
+        UUID seller,
+
+        UUID buyer,
+
+        String image,
+
+        Set<Status> status
 ) {
 }

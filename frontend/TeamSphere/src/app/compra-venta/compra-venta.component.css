@@ -210,6 +210,16 @@
   justify-content: center;
 }
 
+.container-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 75px;
+  width: 100%;
+  max-width: 1400px; /* Ajusta esto si deseas un ancho máximo para tu grid */
+  padding: 25px;
+  box-sizing: border-box;
+}
+
 .container-items {
   display: flex;
   flex-wrap: wrap;

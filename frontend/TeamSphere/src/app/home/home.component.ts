@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { SideBarComponent } from '../side-bar/side-bar.component';
 import { NavbarComponent } from '../navbar/navbar.component';
-import { RouterLink } from '@angular/router';
+import { NoticiaComponent } from '../noticia/noticia.component';
+import { Router, RouterLink } from '@angular/router';
 import { HomeServices } from '../../Services/home.services';
 import { CommonModule, NgForOf } from '@angular/common';
 import { SortBarComponent } from '../sort-bar/sort-bar.component';
 import { FormsModule } from '@angular/forms';
+import { Noticia, NoticiaExistente } from '../noticia/noticia.model';
 import Swal from 'sweetalert2';
-import { Noticia } from '../social/post.model';
-import { NoticiaComponent } from '../noticia/noticia.component';
 
 
 @Component({
@@ -29,30 +29,45 @@ import { NoticiaComponent } from '../noticia/noticia.component';
   ],
 })
 export class HomeComponent implements OnInit {
-  constructor(private service: HomeServices) {}
+  constructor(private service: HomeServices, private router:Router) {}
 
   title = 'Home';
   isFormVisible = false;
+  isEditVisible = false;
   isNewVisible = false;
+
+
+
+  postListFiltered : NoticiaExistente[] = [];
+
   ngOnInit(): void {
     this.loadNews();
+    
+  }
+
+  onSearchResult(data: NoticiaExistente[]) {
+    this.postListFiltered = data;
+    this.noticias = this.postListFiltered;
+  
   }
 
   titulo = "";
   description = "";
   type = "noticias";
   image = "";
+  tituloEditar = "";
+  descriptionEditar = "";
+  typeEditar = "noticias";
+  imageEditar = "";
 
-  formData = {
-    field1: '',
-    field2: '',
-    field3: '',
-    field4: ''
-  };
 
-  noticias: Array<Noticia> = new Array<Noticia>();
-  datos: Array<Noticia> = new Array<Noticia>();
+
+
+  noticias: Array<NoticiaExistente> = new Array<NoticiaExistente>();
+  datos: Array<NoticiaExistente> = new Array<NoticiaExistente>();
+
   noticiaActual: Noticia = new Noticia();
+  noticiaEditar: NoticiaExistente = new NoticiaExistente();
 
   loadNews(): void {
     this.service.loadNews().subscribe((data) => {
@@ -76,8 +91,68 @@ export class HomeComponent implements OnInit {
   cancel() {
     this.isFormVisible = false;
   }
+  cancelEdit() {
+    this.isEditVisible = false;
+  }
   cancelNew() {
     this.isNewVisible = false;
+  }
+
+  Editar(visible:boolean, noticia:NoticiaExistente){
+    
+    if (visible) {
+      this.isFormVisible = false;
+      console.log(this.isFormVisible);
+      this.isEditVisible = true;
+      this.noticiaEditar = noticia;
+      this.tituloEditar = noticia.title
+      this.descriptionEditar = noticia.description
+      this.imageEditar = noticia.image
+    }
+    else{
+      this.toggleNew(noticia);
+    }
+  }
+
+  editNews(_noticiaEditar: NoticiaExistente){
+    let noticia : NoticiaExistente = {
+      id: _noticiaEditar.id,
+      title: this.tituloEditar,
+      description: this.descriptionEditar,
+      type: this.typeEditar,
+      image: this.imageEditar
+    };
+    console.log(noticia);
+    
+
+    try {
+      this.service.putNew(noticia);
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer);
+          toast.addEventListener('mouseleave', Swal.resumeTimer);
+        }
+      });
+      Toast.fire({
+        icon: "success",
+        title: "¡Noticia modificada!"
+      });
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000);
+    } catch (error) {
+      Swal.fire({
+        title: 'Error',
+        text: 'Hubo un problema al publicar la noticia.',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      });
+    }
   }
   createNews(){
     let noticia : Noticia = {

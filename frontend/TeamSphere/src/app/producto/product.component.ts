@@ -39,11 +39,12 @@ export class ProductComponent implements OnInit{
 
     this.imageUrl = this.product.image[0];
     
-    this.userService.getuserById(this.product.seller).subscribe(data =>{
+    //TODO poner cuando se pille el id del user
+    /*this.userService.getuserById(this.product.seller).subscribe(data =>{
 
       this.user = data;
       
-    })
+    })*/
 
 
   }

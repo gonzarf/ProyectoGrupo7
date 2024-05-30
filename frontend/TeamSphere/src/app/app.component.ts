@@ -1,6 +1,6 @@
 
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
 import { SortBarComponent } from './sort-bar/sort-bar.component';
 
 @Component({
@@ -11,6 +11,18 @@ import { SortBarComponent } from './sort-bar/sort-bar.component';
   styleUrl: './app.component.css',
 
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'TeamSphere';
+
+  constructor(private router: Router) {}
+
+  
+  ngOnInit(): void {
+
+    if(localStorage.getItem('access_token') == null){
+
+      this.router.navigate([''])
+    }
+
+  }
 }

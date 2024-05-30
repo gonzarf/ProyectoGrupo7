@@ -4,6 +4,9 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { UserService } from '../../Services/user.service';
+import { User } from '../social/social.model';
+import { Router } from '@angular/router'
 
 
 
@@ -24,4 +27,16 @@ export class ConfiComponent {
     currentPassword:string = "";
     newPassword:string = "";
     repeatPassword:string = "";
+    currentUser!:User;
+
+    constructor(private service: UserService, private router: Router){
+    }
+
+    deleteProfile(){
+        this.service.deleteProfile()
+        .subscribe( () => 
+            { this.router.navigate(['login']);
+        }
+    )
+    }
 }

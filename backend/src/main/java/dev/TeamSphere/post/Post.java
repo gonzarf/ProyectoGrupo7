@@ -1,7 +1,5 @@
 package dev.TeamSphere.post;
 
-import dev.TeamSphere.likes.Like;
-import dev.TeamSphere.user.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -21,6 +19,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor(force = true)
 @Table(name="posts")
+
 public class Post {
 
     @Id
@@ -43,6 +42,8 @@ public class Post {
     private String type;
 
 
-    //en el front para sacar el numero de likes de un post basta con hacer un recuento en la tabla de likes
+    @ElementCollection(fetch = FetchType.EAGER)
+    private List<String> likes;
 
 }
+

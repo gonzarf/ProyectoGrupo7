@@ -49,7 +49,7 @@
     position: absolute;
     background-color: #f97c4b;
     opacity: 1;
-    width: 15em;
+    width: 16em;
     height: 14em;
     border-radius: 7px;
     margin-top: 1em;
@@ -61,7 +61,7 @@
     margin-top: 0em;
     margin-left: 0em;
     scale: 1.1;
-    height: 15.25em;
+    height: 16.25em;
     cursor: pointer;
   }
   
@@ -90,7 +90,7 @@
     justify-content: center;
     flex-direction: column;
     margin-left: 1.1em;
-    width: 100%;
+    width: 70%;
     font-family: Montserrat;
     color: white;
   }
@@ -129,6 +129,8 @@
     gap: 0.5em;
     transition: .2s ease-in-out;
     text-align: center;
+    margin-left: 1.1em;
+    margin-top: 1em;
   }
   
   .likes {
