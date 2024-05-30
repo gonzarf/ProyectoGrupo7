@@ -35,7 +35,7 @@ export class HomeServices {
       }
     );
   }
-  putNew(noticiaE: NoticiaExistente){
+  putNews(noticiaE: NoticiaExistente){
     let body = JSON.stringify(noticiaE);
     const headers = new HttpHeaders().set('Content-Type','application/json');
     console.log(body);
@@ -51,6 +51,22 @@ export class HomeServices {
         
       }
     );
+  }
+
+
+  deleteNews(noticia: NoticiaExistente){
+    
+    return this.http.delete(`${this.url}/delete/`+noticia.id).subscribe(
+      (response) => {
+        console.log(response);
+        
+      },
+      (error) => {
+        console.error(error);
+        
+      }
+    );
+    
   }
 
 

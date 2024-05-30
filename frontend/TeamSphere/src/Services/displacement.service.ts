@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Desplazamiento, DesplazamientoExistente } from '../app/desplazamientos/desplazamiento.model';
+import { Binary } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root',
@@ -50,6 +51,21 @@ export class DisplacementServices {
         
       }
     );
+  }
+
+  deleteDisplacement(desplazamientoE: DesplazamientoExistente){
+    
+    return this.http.delete(`${this.url}/delete/`+desplazamientoE.id).subscribe(
+      (response) => {
+        console.log(response);
+        
+      },
+      (error) => {
+        console.error(error);
+        
+      }
+    );
+    
   }
 
 

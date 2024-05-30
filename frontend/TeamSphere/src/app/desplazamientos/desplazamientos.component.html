@@ -17,14 +17,16 @@
       </div>
       <h1 class="texto">TODOS LOS DESPLAZAMIENTOS</h1>
       <div class="desplazamientos-general">
-        <app-desplazamientos-item *ngFor="let desplazamiento of desplazamientos" [desplazamiento]="desplazamiento" (btnEditarPulsado)="Editar($event,desplazamiento)"></app-desplazamientos-item>
+        <app-desplazamientos-item *ngFor="let desplazamiento of desplazamientos" [fecha_salida]="fechaSalida" [desplazamiento]="desplazamiento" (btnEditarPulsado)="Editar($event,desplazamiento)"></app-desplazamientos-item>
       </div>
       </div>
 </div>
+<!-- Formulario para agregar desplazamientos -->
+
 <div *ngIf="isFormVisible" class="overlay">
-    <div class="form-container">
-      <form class="margin-2">
-        <h2 for="field4 input-field">AGREGA UN NUEVO VIAJE</h2>
+  <div class="form-container">
+    <form class="margin-2">
+      <h2 for="field4 input-field">AGREGA UN NUEVO VIAJE</h2>
         <div class="input-field">
           <i class="fas fa-user"></i>
           <input
@@ -67,6 +69,7 @@
       </form>
     </div>
   </div>
+<!-- Formulario para modificar desplazamientos -->
 <div *ngIf="isEditVisible" class="overlay">
     <div class="form-container">
       <form class="margin-2">

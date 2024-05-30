@@ -1,7 +1,7 @@
 import { NgForOf } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { HomeServices } from '../../Services/home.services';
-import { Noticia } from './noticia.model';
+import { Noticia, NoticiaExistente } from './noticia.model';
 
 @Component({
   selector: 'app-noticia',
@@ -18,6 +18,9 @@ export class NoticiaComponent {
   btnEditarPulsado = new EventEmitter<boolean>();
 
 
+  constructor(private service: HomeServices){}
+
+
   btnEditarSeleccionado(editar: boolean){ 
     if (editar) {
       this.btnEditarPulsado.emit(true);
@@ -26,6 +29,11 @@ export class NoticiaComponent {
       
       this.btnEditarPulsado.emit(false);
     }
+  }
+
+  deleteNews(noticia: NoticiaExistente){
+    this.service.deleteNews(noticia);
+    window.location.reload();
   }
   
 

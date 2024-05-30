@@ -113,7 +113,7 @@ export class HomeComponent implements OnInit {
     
 
     try {
-      this.service.putNew(noticia);
+      this.service.putNews(noticia);
       const Toast = Swal.mixin({
         toast: true,
         position: "top-end",

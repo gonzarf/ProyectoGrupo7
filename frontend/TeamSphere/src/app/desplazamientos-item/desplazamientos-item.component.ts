@@ -1,7 +1,10 @@
 import { NgClass, NgStyle } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Desplazamiento } from '../desplazamientos/desplazamiento.model';
+import { Desplazamiento, DesplazamientoExistente } from '../desplazamientos/desplazamiento.model';
 import { DisplacementServices } from '../../Services/displacement.service';
+import { Binary } from '@angular/compiler';
+import { log } from 'console';
+import { randomUUID } from 'crypto';
 
 @Component({
   selector: 'app-desplazamientos-item',
@@ -11,13 +14,17 @@ import { DisplacementServices } from '../../Services/displacement.service';
   styleUrl: './desplazamientos-item.component.css'
 })
 export class DesplazamientosItemComponent {
+
+  
+
   constructor(private service: DisplacementServices) {}
   espacios = 0;
   btnApuntarse = "fill";
   btnDesapuntarse = "fill";
   
   
-  @Input() desplazamiento: any = "C:\Users\a926861\OneDrive - Eviden\Documentos\GitHub\ProyectoGrupo7\frontend\TeamSphere\src\assets\img\chart2.png";
+  @Input() desplazamiento: DesplazamientoExistente = new DesplazamientoExistente();
+  @Input() fecha_salida:string = "";
   @Output()
   btnEditarPulsado = new EventEmitter<boolean>();
   
@@ -55,10 +62,12 @@ export class DesplazamientosItemComponent {
   }
 
 
-  // deleteDisplacement(id: number) {
-  //   this.service.deleteDisplacement(id);
-  //   window.location.reload();
-  // }
+  deleteDisplacement(desplazamiento: DesplazamientoExistente) {
+    this.service.deleteDisplacement(desplazamiento);
+    
+    
+    window.location.reload();
+  }
 
   
 
