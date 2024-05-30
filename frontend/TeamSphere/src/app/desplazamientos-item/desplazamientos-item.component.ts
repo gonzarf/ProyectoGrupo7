@@ -5,6 +5,7 @@ import { DisplacementServices } from '../../Services/displacement.service';
 import { Binary } from '@angular/compiler';
 import { log } from 'console';
 import { randomUUID } from 'crypto';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-desplazamientos-item',
@@ -63,10 +64,39 @@ export class DesplazamientosItemComponent {
 
 
   deleteDisplacement(desplazamiento: DesplazamientoExistente) {
-    this.service.deleteDisplacement(desplazamiento);
-    
-    
-    window.location.reload();
+
+    try {
+      this.service.deleteDisplacement(desplazamiento);
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer);
+          toast.addEventListener('mouseleave', Swal.resumeTimer);
+        }
+      });
+      Toast.fire({
+        icon: "success",
+        title: "Borrado en curso...."
+      });
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+    } catch (error) {
+      Swal.fire({
+        title: 'Error',
+        text: 'Hubo un problema al publicar la noticia.',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      });
+    }
+
+
+
+
   }
 
   
