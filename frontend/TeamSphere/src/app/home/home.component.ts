@@ -36,9 +36,19 @@ export class HomeComponent implements OnInit {
   isEditVisible = false;
   isNewVisible = false;
 
-  ngOnInit(): void {
-      this.loadNews();
 
+
+  postListFiltered : NoticiaExistente[] = [];
+
+  ngOnInit(): void {
+    this.loadNews();
+    
+  }
+
+  onSearchResult(data: NoticiaExistente[]) {
+    this.postListFiltered = data;
+    this.noticias = this.postListFiltered;
+  
   }
 
   titulo = "";
@@ -51,8 +61,11 @@ export class HomeComponent implements OnInit {
   imageEditar = "";
 
 
+
+
   noticias: Array<NoticiaExistente> = new Array<NoticiaExistente>();
   datos: Array<NoticiaExistente> = new Array<NoticiaExistente>();
+
   noticiaActual: Noticia = new Noticia();
   noticiaEditar: NoticiaExistente = new NoticiaExistente();
 

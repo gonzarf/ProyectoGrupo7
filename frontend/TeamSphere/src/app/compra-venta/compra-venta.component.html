@@ -64,9 +64,11 @@
         </div>
 
             <!-- TODO Mostrar Imganes subidas -->
+            <!--
         <div *ngFor="let imageUrl of imageUrls">
           <img [src]="imageUrl" alt="Imagen seleccionada">
         </div>
+      -->
 
         <div class="div-button">
           <button type="submit" class="submit-button" (click)="createProduct()">
@@ -81,9 +83,10 @@
   </div>
   
 
-  <div class="container-items" *ngFor="let product of products">
-    
-    <app-product [product]="product"></app-product>
+  <div class="container-grid">
+    <div class="container-items" *ngFor="let product of products">
+      <app-product [product]="product"></app-product>
+    </div>
   </div>
     
 

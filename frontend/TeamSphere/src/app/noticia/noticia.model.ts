@@ -7,7 +7,7 @@ export class Noticia{
     image=""
 }
 export class NoticiaExistente{
-    id=Binary
+    id?=Binary
     title=""
     description!:string
     type=""

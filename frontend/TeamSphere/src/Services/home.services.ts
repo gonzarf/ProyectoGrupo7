@@ -53,6 +53,11 @@ export class HomeServices {
     );
   }
 
+  searchPosts(searchText: string): Observable<NoticiaExistente[]> {
+    console.log(`${this.url}/search?query=${searchText}`)
+    return this.http.get<NoticiaExistente[]>(`${this.url}/search?query=${searchText}`);
+  }
+
 
   deleteNews(noticia: NoticiaExistente){
     

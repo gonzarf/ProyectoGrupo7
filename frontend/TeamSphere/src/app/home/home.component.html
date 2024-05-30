@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 <app-side-bar></app-side-bar>
-<app-navbar></app-navbar>
+<app-navbar [page]="'home'" (searchResult)="onSearchResult($event)"></app-navbar>
 <app-sort-bar></app-sort-bar>
 <button class="fixed-button" (click)="toggleForm()">
   <img

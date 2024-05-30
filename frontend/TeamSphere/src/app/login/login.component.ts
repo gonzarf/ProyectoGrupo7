@@ -28,7 +28,8 @@ export class LoginComponent{
     name : ['', [Validators.required]],
     lastName: ['', [Validators.required]],
     username: ['', [Validators.required]],
-    password: ['', [Validators.required]],
+    password: ['', [Validators.required, Validators.minLength(5)]],
+    passwordRepeat: ['', [Validators.required, Validators.minLength(5)]],
     email: ['', [Validators.required, Validators.email]],
     phone: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(12)]], 
   })
@@ -49,34 +50,45 @@ onSubmit(): void {
 }
 
 onSubmitRegister(){
-  if(this.registerForm.valid) {
-    const name = this.registerForm.controls.name.value || ''
-    const lastName = this.registerForm.controls.lastName.value || ''
-    const email = this.registerForm.controls.email.value || ''
-    const phone = this.registerForm.controls.phone.value || ''
-    const username = this.registerForm.controls.username.value || ''
-    const password = this.registerForm.controls.password.value || ''
-    const formData = new FormData()
-    formData.append('name', name)
-    formData.append('lastName', lastName)
-    formData.append('email', email)
-    formData.append('phone', phone)
-    formData.append('username', username)
-    formData.append('password', password)
+  console.log("alcachofa")
 
-    console.log(formData.get('name'))
-    console.log(formData.get('username'))
-    console.log(formData.get('lastName'))
-    console.log(formData.get('email'))
-    console.log(formData.get('password'))
-    console.log(formData.get('phone'))
+  if(this.registerForm.controls.password.value != this.registerForm.controls.passwordRepeat.value){
+    alert('Las contraseñas no coinciden')
+    console.log("sadfdsgfdefggfdnfdfg")
+  }else if (this.registerForm.controls.password.value != this.registerForm.controls.passwordRepeat.value){
+    console.log("sadfdsgfdefggfdnfdfg")
 
-    this.service.register(formData).subscribe(
-      (data: Token) => {localStorage.setItem('access_token', data.token)
-      console.log(localStorage.getItem('access_token'))
-      this.router.navigate(['home']);
-      }
-    )
+    if(this.registerForm.valid) {
+      const name = this.registerForm.controls.name.value || ''
+      const lastName = this.registerForm.controls.lastName.value || ''
+      const email = this.registerForm.controls.email.value || ''
+      const phone = this.registerForm.controls.phone.value || ''
+      const username = this.registerForm.controls.username.value || ''
+      const password = this.registerForm.controls.password.value || ''
+      const formData = new FormData()
+      formData.append('name', name)
+      formData.append('lastName', lastName)
+      formData.append('email', email)
+      formData.append('phone', phone)
+      formData.append('username', username)
+      formData.append('password', password)
+
+      console.log(formData.get('name'))
+      console.log(formData.get('username'))
+      console.log(formData.get('lastName'))
+      console.log(formData.get('email'))
+      console.log(formData.get('password'))
+      console.log(formData.get('phone'))
+
+      this.service.register(formData).subscribe(
+        (data: Token) => {localStorage.setItem('access_token', data.token)
+        console.log(localStorage.getItem('access_token'))
+        this.router.navigate(['home']);
+        }
+      )
+    } else {
+      console.log("asdfsdfg")
+    }
   }
 }
 
