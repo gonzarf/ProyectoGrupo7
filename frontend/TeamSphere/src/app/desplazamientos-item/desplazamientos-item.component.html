@@ -8,7 +8,7 @@
       <div class="text">
         <div class="text_m">
           <div class="calle">{{desplazamiento.title}}</div>
-          <div class="fecha">{{desplazamiento.fechaSalida}}</div>
+          <div class="fecha">{{fecha_salida}}</div>
         </div>
         <div class="text_s">
           <div class="usuario">{{desplazamiento.description}}</div>
@@ -50,7 +50,7 @@
         </svg>
       </button>
       <!-- ELIMINAR -->
-      <button class="bin-button">
+      <button class="bin-button" (click)="deleteDisplacement(desplazamiento)">
         <svg
           class="bin-top"
           viewBox="0 0 39 7"

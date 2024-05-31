@@ -13,7 +13,7 @@ div{
   height: 100%;
   width: 100%;
   margin: 0px;
-  background: radial-gradient(circle, #240015 0%, #12000b 100%);
+  background-color: #fedbcd;
   overflow: hidden;
 }
 
@@ -52,8 +52,7 @@ h2{
 }
 
 #svgWrap_1,
-#svgWrap_2,
-div{
+#svgWrap_2{
   animation: hueRotate 6s ease-in-out 3s infinite;
 }
 

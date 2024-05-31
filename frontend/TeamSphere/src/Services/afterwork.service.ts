@@ -53,6 +53,21 @@ import { after } from "node:test";
         }
       );
     }
+
+    deleteAfterwork(afterwork: AfterworkExistente){
+    
+      return this.http.delete(`${this.url}/delete/`+afterwork.id).subscribe(
+        (response) => {
+          console.log(response);
+          
+        },
+        (error) => {
+          console.error(error);
+          
+        }
+      );
+      
+    }
   
   
   

@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder } from '@angular/forms';
 import { Token } from './token.model';
 import { validateHeaderName } from 'http';
+import { EmailService } from '../../Services/email.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,11 @@ import { validateHeaderName } from 'http';
 })
 
 export class LoginComponent{
-  constructor(private service:LoginServices, private router:Router, private fb:FormBuilder){
+  constructor(
+    private service:LoginServices,
+     private router:Router,
+      private fb:FormBuilder,
+      private emailService: EmailService,){
   }
 
   loginForm = this.fb.group({
@@ -31,7 +36,7 @@ export class LoginComponent{
     password: ['', [Validators.required, Validators.minLength(5)]],
     passwordRepeat: ['', [Validators.required, Validators.minLength(5)]],
     email: ['', [Validators.required, Validators.email]],
-    phone: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(12)]], 
+    phone: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(12)]],
   })
 
 onSubmit(): void {
@@ -50,11 +55,12 @@ onSubmit(): void {
 }
 
 onSubmitRegister(){
-
+  console.log("entra")
 
   if(this.registerForm.controls.password.value != this.registerForm.controls.passwordRepeat.value){
     alert('Las contraseñas no coinciden')
-  }else if (this.registerForm.controls.password.value != this.registerForm.controls.passwordRepeat.value){
+  }else if (this.registerForm.controls.password.value == this.registerForm.controls.passwordRepeat.value){
+    console.log("entra tambien")
     if(this.registerForm.valid) {
       const name = this.registerForm.controls.name.value || ''
       const lastName = this.registerForm.controls.lastName.value || ''
@@ -80,9 +86,30 @@ onSubmitRegister(){
       this.service.register(formData).subscribe(
         (data: Token) => {localStorage.setItem('access_token', data.token)
         console.log(localStorage.getItem('access_token'))
-        this.router.navigate(['home']);
-        }
-      )
+
+        
+      }
+    );
+    // LLamada al servicio Email
+    const emailDetails = {
+      from: 'teamsphereapp@gmail.com', 
+      to: email,
+      subject: 'Bienvenido a TeamSphere',
+      body: `¡Hola, ${name}!,\n\Te damos la bienvenida a nuestro servicio.\n\nEl equipo de TeamSphere`
+    };
+
+    this.emailService.sendEmail(emailDetails).subscribe(
+      response => {
+        console.log('Welcome email sent successfully');
+      },
+      error => {
+        console.error('Error sending welcome email', error);
+      }
+    );
+    this.router.navigate(['home']);
+
+    } else {
+      console.log("no es valido")
     }
   }
 }

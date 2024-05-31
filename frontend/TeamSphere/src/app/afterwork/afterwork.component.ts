@@ -4,10 +4,10 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { TarjetaSocialComponent } from '../tarjeta-social/tarjeta-social.component';
-import { NoticiaComponent } from "../noticia/noticia.component";
 import Swal from 'sweetalert2';
 import { Afterwork, AfterworkExistente } from './afterwork.model';
 import { AfterworkServices } from '../../Services/afterwork.service';
+import { NoticiaComponent } from '../noticia/noticia.component';
 
 
 
