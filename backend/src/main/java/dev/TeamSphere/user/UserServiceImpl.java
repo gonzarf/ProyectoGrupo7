@@ -49,15 +49,6 @@ public class UserServiceImpl implements UserService {
         User user = userMapper.toUserFromCreate(createUserDto);
         User savedUser = userRepository.save(user);
 
-        // Enviar correo de bienvenida
-        try {
-            String subject = "Bienvenido a TeamSphere";
-            String body = "Hola " + user.getName() + ",\n\nGracias por registrarte en TeamSphere. ¡Esperamos que disfrutes de nuestra plataforma!";
-            gmailSender.sendEmail(user.getEmail(), subject, body);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
         return userMapper.toResponseDto(savedUser);
 
 
