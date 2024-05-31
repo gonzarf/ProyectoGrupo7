@@ -10,8 +10,13 @@ export class EmailService {
 
   constructor(private http: HttpClient) { }
 
+  /*
   sendEmail(email: { from: string, to: string, subject: string, body: string }): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.post(this.apiUrl, email, { headers:headers });
+  }
+  */
+  sendEmail(emailRequest: any): Observable<any> {
+    return this.http.post(this.apiUrl, emailRequest, { responseType: 'text' });
   }
 }
