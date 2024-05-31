@@ -1,0 +1,18 @@
+<div class="sort-bar">
+    <label>Ordenar por:</label>
+    <div class="sort-option" (click)="toggleSort('date')">
+      <span>Fecha</span>
+      <div class="sort-arrows">
+        <i [ngClass]="{'fa': true, 'fa-arrow-up': sortOption === 'date' && !isDescending, 'fa-arrow-down': sortOption === 'date' && isDescending}"></i>
+      </div>
+    </div>
+
+    <div class="sort-option" (click)="toggleSort('likes')">
+      <span>Nº Likes</span>
+      <div class="sort-arrows">
+        <i [ngClass]="{'fa': true, 'fa-arrow-up': sortOption === 'likes' && !isDescending, 'fa-arrow-down': sortOption === 'likes' && isDescending}"></i>
+      </div>
+    </div>
+    
+  </div>
+  

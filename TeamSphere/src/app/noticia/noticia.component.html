@@ -1,0 +1,8 @@
+<div class="noticia" *ngFor = "let noticia of noticias">
+    <img class="imagen" [src]= "noticia.image" alt="">
+    <div class="contenido">
+      <h2 class="titulo">{{noticia.title}}</h2>
+      <p class="texto">{{noticia.description}}</p>
+    </div>
+  </div>
+  

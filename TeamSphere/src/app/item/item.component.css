@@ -1,0 +1,36 @@
+.item {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 0px 4px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    max-height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+    border-radius: 8px;
+    background-color: white;
+  }
+  
+  .imagen {
+    width: 150px;
+    height: 150px;
+    margin-right: 20px;
+    border-radius: 8px;
+  }
+  
+  .contenido {
+    flex: 1;
+  }
+  
+  .titulo {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #f97c4b;
+  }
+  
+  .texto {
+    font-size: 14px;
+  }
+  
