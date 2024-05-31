@@ -21,5 +21,6 @@ export class LoginServices {
 
   register(formData: FormData): Observable<any> {
     return this.http.post(`${this.url}/signup`, formData);
+    console.log(formData);
   }
 }

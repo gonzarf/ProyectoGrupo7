@@ -77,15 +77,17 @@ export class AfterworkComponent implements OnInit{
 
       this.afterwork = data;
 
+      this.afterwork.forEach(element => {
+
+        if(element.type == "afterwork"){
+          this.datos.push(element)
+        }
+        
+      });
+
     });
 
-    this.afterwork.forEach(element => {
 
-      if(element.type == "afterwork"){
-        this.datos.push(element)
-      }
-      
-    });
   }
 
   createAfterwork(){

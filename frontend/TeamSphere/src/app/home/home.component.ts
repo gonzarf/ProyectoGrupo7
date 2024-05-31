@@ -44,6 +44,7 @@ export class HomeComponent implements OnInit {
     this.loadNews();
     
   }
+  
 
   onSearchResult(data: NoticiaExistente[]) {
     this.postListFiltered = data;
