@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder } from '@angular/forms';
 import { Token } from './token.model';
 import { validateHeaderName } from 'http';
+import { EmailService } from '../../Services/email.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,11 @@ import { validateHeaderName } from 'http';
 })
 
 export class LoginComponent{
-  constructor(private service:LoginServices, private router:Router, private fb:FormBuilder){
+  constructor(
+    private service:LoginServices,
+     private router:Router,
+      private fb:FormBuilder,
+      private emailService: EmailService,){
   }
 
   loginForm = this.fb.group({
@@ -82,8 +87,25 @@ onSubmitRegister(){
         (data: Token) => {localStorage.setItem('access_token', data.token)
         console.log(localStorage.getItem('access_token'))
         this.router.navigate(['home']);
-        }
-      )
+
+        // LLamada al servicio Email
+        const emailDetails = {
+          from: 'teamsphereapp@gmail.com', 
+          to: email,
+          subject: 'Bienvenido a TeamSphere',
+          body: `¡Hola, ${name}!,\n\Te damos la bienvenida a nuestro servicio.\n\nEl equipo de TeamSphere`
+        };
+
+        this.emailService.sendEmail(emailDetails).subscribe(
+          response => {
+            console.log('Welcome email sent successfully');
+          },
+          error => {
+            console.error('Error sending welcome email', error);
+          }
+        );
+      }
+    );
     } else {
       console.log("no es valido")
     }
