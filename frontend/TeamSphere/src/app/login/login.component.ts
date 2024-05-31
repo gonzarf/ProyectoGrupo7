@@ -31,7 +31,7 @@ export class LoginComponent{
     password: ['', [Validators.required, Validators.minLength(5)]],
     passwordRepeat: ['', [Validators.required, Validators.minLength(5)]],
     email: ['', [Validators.required, Validators.email]],
-    phone: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(12)]], 
+    phone: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(12)]],
   })
 
 onSubmit(): void {
@@ -50,14 +50,12 @@ onSubmit(): void {
 }
 
 onSubmitRegister(){
-  console.log("alcachofa")
+  console.log("entra")
 
   if(this.registerForm.controls.password.value != this.registerForm.controls.passwordRepeat.value){
     alert('Las contraseñas no coinciden')
-    console.log("sadfdsgfdefggfdnfdfg")
-  }else if (this.registerForm.controls.password.value != this.registerForm.controls.passwordRepeat.value){
-    console.log("sadfdsgfdefggfdnfdfg")
-
+  }else if (this.registerForm.controls.password.value == this.registerForm.controls.passwordRepeat.value){
+    console.log("entra tambien")
     if(this.registerForm.valid) {
       const name = this.registerForm.controls.name.value || ''
       const lastName = this.registerForm.controls.lastName.value || ''
@@ -87,7 +85,7 @@ onSubmitRegister(){
         }
       )
     } else {
-      console.log("asdfsdfg")
+      console.log("no es valido")
     }
   }
 }
