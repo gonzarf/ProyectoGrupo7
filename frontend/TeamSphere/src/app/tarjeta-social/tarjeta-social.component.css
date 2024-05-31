@@ -1,0 +1,242 @@
+.contenedor {
+  font-family: arial;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 250px;
+  width: 100%;
+  box-shadow: 5px 5px 5px lightslategray;
+  border-radius: 10px;
+  background-color: #fff;
+}
+ 
+.contenedor:hover {
+  box-shadow: 2px 2px 5px lightslategray;
+}
+ 
+.img {
+  height: 50%;
+}
+ 
+.like-button .heart-icon {
+  height: 100px;
+  width: 100px;
+  background: url("../../assets/img/heart.png");
+  background-position: left;
+  cursor: pointer;
+  position: absolute;
+}
+ 
+.like-button .heart-icon.liked {
+  animation: like-anim 0.7s steps(28) forwards;
+}
+ 
+@keyframes like-anim {
+  to {
+    background-position: right;
+  }
+}
+ 
+.like-button .heart-bg {
+  background: rgba(255, 192, 200, 0);
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 100ms ease;
+}
+ 
+.like-button .heart-bg:hover {
+  background: rgba(255, 192, 200, 0.7);
+}
+ 
+.like-button {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  right: 1em;
+}
+ 
+.like-button .likes-amount {
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+  color: #f97c4b;
+  font-weight: 900;
+  margin-left: 6px;
+}
+ 
+img {
+  width: 100%;
+  max-height: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+ 
+.datos {
+  height: 50%;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  overflow: auto;
+  white-space: nowrap;
+  scrollbar-width: thin;
+}
+ 
+.titulo {
+  padding: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 20px;
+  height: 30%;
+  padding-top: 8px;
+  color: #f97c4b;
+}
+ 
+.fecha {
+  font-size: 15px;
+  padding-left: 10px;
+  text-transform: uppercase;
+  height: 70%;
+  color: rgb(177, 177, 177);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  width: 40%;
+}
+ 
+.ubicacion {
+  font-size: 15px;
+  padding-left: 10px;
+  text-transform: uppercase;
+  margin-top: 5px;
+  height: 70%;
+  color: rgb(177, 177, 177);
+  width: 70%;
+}
+ 
+.like {
+  border: none;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-radius: 1000px;
+  background-color: #f97c4b8c;
+}
+ 
+.editBtn {
+  width: 35px;
+  height: 35px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(93, 93, 116);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.123);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+.editBtn::before {
+  content: "";
+  width: 200%;
+  height: 200%;
+  background-color: rgb(102, 102, 141);
+  position: absolute;
+  z-index: 1;
+  transform: scale(0);
+  transition: all 0.3s;
+  border-radius: 50%;
+  filter: blur(10px);
+}
+.editBtn:hover::before {
+  transform: scale(1);
+}
+.editBtn:hover {
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.336);
+}
+ 
+.editBtn svg {
+  height: 17px;
+  fill: white;
+  z-index: 3;
+  transition: all 0.2s;
+  transform-origin: bottom;
+}
+.editBtn:hover svg {
+  transform: rotate(-15deg) translateX(5px);
+}
+.editBtn::after {
+  content: "";
+  width: 25px;
+  height: 1.5px;
+  position: absolute;
+  bottom: 19px;
+  left: -10px;
+  bottom: 8px;
+  background-color: white;
+  border-radius: 2px;
+  z-index: 2;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease-out;
+}
+.editBtn:hover::after {
+  transform: scaleX(1);
+  left: -10px;
+  bottom: 8px;
+  transform-origin: right;
+}
+ 
+.bin-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 8px;
+  background-color: rgb(255, 95, 95);
+  cursor: pointer;
+  border: 3px solid rgb(255, 201, 201);
+  transition-duration: 0.3s;
+}
+.bin-bottom {
+  width: 15px;
+}
+.bin-top {
+  width: 17px;
+  transform-origin: right;
+  transition-duration: 0.3s;
+}
+.bin-button:hover .bin-top {
+  transform: rotate(45deg);
+}
+.bin-button:hover {
+  background-color: rgb(255, 0, 0);
+}
+.bin-button:active {
+  transform: scale(0.9);
+}
+ 
+.cabecera {
+  display: flex;
+  justify-content: space-between;
+}
+ 
+.botones {
+margin-top: 5px;
+margin-right: 5px;
+display: flex;
+column-gap: 5px;
+}

@@ -1,0 +1,139 @@
+<app-side-bar></app-side-bar>
+<app-navbar [title]="title"></app-navbar>
+<div class="container">
+  <button class="fixed-button" (click)="toggleForm()">
+    <img
+      src="../../assets/img/plus.png"
+      alt="Button Image"
+      class="button-image"
+    />
+  </button>
+
+  <div *ngIf="isFormVisible" class="overlay">
+    <div class="form-container">
+      <form class="margin-2">
+        <h2 for="field4 input-field">CREA UNA PUBLICACION</h2>
+        <div class="input-field">
+          <i class="fas fa-user"></i>
+          <input
+            placeholder="Titulo"
+            type="text"
+            id="field1"
+            name="field1"
+            required
+            [(ngModel)]="titulo"
+          />
+        </div>
+        <div class="input-field">
+          <i class="fas fa-user"></i>
+          <input
+            placeholder="Fecha"
+            type="date"
+            id="field2"
+            name="field2"
+            required
+            [(ngModel)]="fecha"
+          />
+        </div>
+        <div class="input-field">
+          <i class="fas fa-user"></i>
+          <input
+            placeholder="Lugar"
+            type="text"
+            id="field3"
+            name="field3"
+            required
+            [(ngModel)]="lugar"
+          />
+        </div>
+        <div class="input-field">
+          <i class="fas fa-user"></i>
+          <input
+            placeholder="Descripcion"
+            type="text"
+            id="field4"
+            name="field4"
+            required
+            [(ngModel)]="description"
+          />
+        </div>
+        <div class="div-button">
+          <button type="submit" class="submit-button" (click)="createAfterwork()">Crear</button>
+          <button type="button" class="cancel-button" (click)="cancel()">
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div *ngIf="isEditVisible" class="overlay">
+    <div class="form-container">
+      <form class="margin-2">
+        <h2 for="field4 input-field">MODIFICAR QUEDADA</h2>
+        <div class="profile-image">
+          <img src="../../assets/img/chart2.png" alt="Imagen de noticia" />
+          <input style="margin-top: 1.5em" type="file" accept="image/*" [(ngModel)]="imageEditar" name="image" />
+        </div>
+        <div class="input-field">
+          <i class="fas fa-user"></i>
+          <input
+            placeholder="Titulo"
+            type="text"
+            id="field1"
+            name="field1"
+            required
+            [(ngModel)]="tituloEditar"
+          />
+        </div>
+        <div class="input-field">
+          <i class="fas fa-user"></i>
+          <input
+            placeholder="Fecha"
+            type="date"
+            id="field2"
+            name="field2"
+            required
+            [(ngModel)]="fechaEditar"
+          />
+        </div>
+        <div class="input-field">
+          <i class="fas fa-user"></i>
+          <input
+            placeholder="Lugar"
+            type="text"
+            id="field3"
+            name="field3"
+            required
+            [(ngModel)]="lugarEditar"
+          />
+        </div>
+        <div class="input-field">
+          <i class="fas fa-user"></i>
+          <input
+            placeholder="Descripcion"
+            type="text"
+            id="field4"
+            name="field4"
+            required
+            [(ngModel)]="descriptionEditar"
+          />
+        </div>
+        <div class="div-button">
+          <button type="submit" class="submit-button" (click)="editAfterworks(afterworkEditar)">Modificar</button>
+          <button type="button" class="cancel-button" (click)="cancelEdit()">
+            Cancelar
+          </button>
+        </div>
+        
+      </form>
+    </div>
+</div>
+
+<div class="body">
+  <div class="contenedor">
+    <app-tarjeta-social
+      *ngFor="let dato of datos"
+      [noticia]="dato" (btnEditarPulsado)="Editar($event,dato)"
+    ></app-tarjeta-social>
+  </div>
+</div>

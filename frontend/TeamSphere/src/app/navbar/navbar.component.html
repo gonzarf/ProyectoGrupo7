@@ -1,0 +1,20 @@
+<header class="header">
+
+        <p class="title-page">{{title}}</p>
+
+
+  <div class="search-bar">
+    <input type="text" [(ngModel)]="searchText" placeholder="Buscar...">
+    <button (click)="searchByTitle()">Buscar</button>
+  </div>
+  <div class="search-icon">
+    <button><i class="fa fa-search"></i></button>
+  </div>
+  <div class="user-profile">
+    <a href="/confi">
+
+      <img src="../../assets/img/chart2.png" alt="Imagen de usuario" >
+
+    </a>
+  </div>
+</header>

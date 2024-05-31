@@ -1,0 +1,26 @@
+<app-side-bar></app-side-bar>   
+<app-navbar></app-navbar>
+
+
+<div class="body">
+    <div class="container">
+      <div class="images">
+        <button class="prev" (click)="prevImage()">&#10094;</button>
+            <img [src]="product.image[currentImageIndex]" alt="Product Image" id="carousel-image" />
+        <button class="next" (click)="nextImage()">&#10095;</button>
+      </div>
+  
+      <div class="product">
+        <p>Vendedor: {{ user.name }}</p>
+        <h1>{{ product.name }}</h1>
+        <h2>{{ product.price }} €</h2>
+        <p class="desc">{{ product.description }}</p>
+        <div class="buttons">
+          <button class="add">Comprar</button>
+            <span class="button-separator"></span>
+          <button class="like"><span>♥</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
