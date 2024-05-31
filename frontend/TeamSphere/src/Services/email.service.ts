@@ -12,6 +12,6 @@ export class EmailService {
 
   sendEmail(email: { from: string, to: string, subject: string, body: string }): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post(this.apiUrl, email, { headers });
+    return this.http.post(this.apiUrl, email, { headers:headers });
   }
 }

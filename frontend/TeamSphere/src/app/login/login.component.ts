@@ -86,26 +86,28 @@ onSubmitRegister(){
       this.service.register(formData).subscribe(
         (data: Token) => {localStorage.setItem('access_token', data.token)
         console.log(localStorage.getItem('access_token'))
-        this.router.navigate(['home']);
 
-        // LLamada al servicio Email
-        const emailDetails = {
-          from: 'teamsphereapp@gmail.com', 
-          to: email,
-          subject: 'Bienvenido a TeamSphere',
-          body: `¡Hola, ${name}!,\n\Te damos la bienvenida a nuestro servicio.\n\nEl equipo de TeamSphere`
-        };
-
-        this.emailService.sendEmail(emailDetails).subscribe(
-          response => {
-            console.log('Welcome email sent successfully');
-          },
-          error => {
-            console.error('Error sending welcome email', error);
-          }
-        );
+        
       }
     );
+    // LLamada al servicio Email
+    const emailDetails = {
+      from: 'teamsphereapp@gmail.com', 
+      to: email,
+      subject: 'Bienvenido a TeamSphere',
+      body: `¡Hola, ${name}!,\n\Te damos la bienvenida a nuestro servicio.\n\nEl equipo de TeamSphere`
+    };
+
+    this.emailService.sendEmail(emailDetails).subscribe(
+      response => {
+        console.log('Welcome email sent successfully');
+      },
+      error => {
+        console.error('Error sending welcome email', error);
+      }
+    );
+    this.router.navigate(['home']);
+
     } else {
       console.log("no es valido")
     }
