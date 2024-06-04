@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a8ebcc8-282c-49ca-bd33-078ade7768cd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/email/EmailController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/email/EmailRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/email/GmailSender.java" afterDir="false" />
+    <list default="true" id="2a8ebcc8-282c-49ca-bd33-078ade7768cd" name="Changes" comment="rama current user">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/user/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/user/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/user/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/TeamSphere/src/app/confi/confi.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/TeamSphere/src/app/confi/confi.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/TeamSphere/src/app/confi/confi.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/TeamSphere/src/app/confi/confi.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +25,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Back" />
+        <entry key="$PROJECT_DIR$" value="Front_3.0" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -75,7 +69,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.TeamSphereApplication.executor": "Run",
-    "git-widget-placeholder": "Front__2.0",
+    "git-widget-placeholder": "currentUser",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/a925926/Downloads/ProyectoGrupo7",
@@ -84,10 +78,12 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "npm.start.executor": "Run",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "C:\\Users\\a925926\\Downloads\\TeamSphere\\ProyectoGrupo7\\TeamSphere\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -96,7 +92,7 @@
       <recent name="C:\Users\a925926\Downloads\ProyectoGrupo7\backend" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.TeamSphereApplication">
+  <component name="RunManager" selected="npm.start">
     <configuration name="TeamSphereApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="dev.TeamSphere.TeamSphereApplication" />
       <module name="TeamSphere" />
@@ -117,8 +113,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/frontend/TeamSphere/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.start" />
         <item itemvalue="Application.TeamSphereApplication" />
       </list>
     </recent_temporary>
@@ -146,6 +153,8 @@
       <workItem from="1715093228509" duration="214000" />
       <workItem from="1715093457956" duration="164000" />
       <workItem from="1715148168987" duration="970000" />
+      <workItem from="1717485201513" duration="54000" />
+      <workItem from="1717485263531" duration="1468000" />
     </task>
     <task id="LOCAL-00001" summary="configuration">
       <option name="closed" value="true" />
@@ -171,7 +180,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715093528150</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="rama current user">
+      <option name="closed" value="true" />
+      <created>1717486065547</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1717486065547</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,6 +221,7 @@
     <MESSAGE value="configuration" />
     <MESSAGE value="proyecto creado" />
     <MESSAGE value="creacion carpeta backend" />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="rama current user" />
+    <option name="LAST_COMMIT_MESSAGE" value="rama current user" />
   </component>
 </project>

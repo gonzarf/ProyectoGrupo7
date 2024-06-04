@@ -12,13 +12,15 @@
       <h2>Editar Perfil</h2>
     </div>
 
+    @if (currentUser) {
     <div class="profile-image">
-      <img src="../../assets/img/chart2.png" alt="Imagen de usuario">
+      <img [src]="currentUser.image" alt="Imagen de usuario">
       <label for="file-upload" class="custom-file-upload">
         <b>Actualizar Imagen</b>
       </label>
       <input id="file-upload" type="file" accept="image/*" style="display: none;">
     </div>
+    }
 
     <form [formGroup]="updateForm" (ngSubmit)="updateProfile()">
       <div class="form-fields">
@@ -30,7 +32,7 @@
             <input class="input-field" type="text" formControlName="name">
           </div>
           <div class="input-field">
-            <input class="input-field" type="text" formControlName="lastname">
+            <input class="input-field" type="text" formControlName="lastName">
           </div>
           <div class="input-field">
             <input class="input-field" type="email" formControlName="email">
@@ -42,15 +44,15 @@
 
           </div>
           <div class="input-field">
-            <input class="input-field" type="password" formControlName="currentPassword">
+            <input class="input-field" type="password" formControlName="currentPassword" placeholder="Contraseña actual">
 
           </div>
           <div class="input-field">
-            <input class="input-field" type="password" formControlName="newPassword">
+            <input class="input-field" type="password" formControlName="newPassword" placeholder="Nueva contraseña">
 
           </div>
           <div class="input-field">
-            <input class="input-field" type="password" formControlName="repeatPassword">
+            <input class="input-field" type="password" formControlName="repeatPassword" placeholder="Repetir contraseña">
 
           </div>
         </div>
