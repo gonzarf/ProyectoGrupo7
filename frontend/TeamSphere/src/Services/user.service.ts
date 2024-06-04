@@ -23,6 +23,10 @@ export class UserService {
     return this.http.get<Usuario>(`${this.url}/me/profile`);
   }
 
+  updateImageProfile(formData: FormData): Observable<any> {
+    return this.http.put(`${this.url}/me/profile/image`, formData);
+  }
+
   deleteProfile(): Observable<any>{
     return this.http.delete(`${this.url}/me/profile`);
   }

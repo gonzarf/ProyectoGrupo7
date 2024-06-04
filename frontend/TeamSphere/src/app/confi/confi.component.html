@@ -18,7 +18,7 @@
       <label for="file-upload" class="custom-file-upload">
         <b>Actualizar Imagen</b>
       </label>
-      <input id="file-upload" type="file" accept="image/*" style="display: none;">
+      <input id="file-upload" type="file" accept="image/*" style="display: none;" (select)="onFileChange($event)" name="image">
     </div>
     }
 
@@ -53,15 +53,13 @@
           </div>
           <div class="input-field">
             <input class="input-field" type="password" formControlName="repeatPassword" placeholder="Repetir contraseña">
-
           </div>
         </div>
       </div>
-    </form>
     <div class="divBtns">
       <button class="btn" type="submit">Guardar cambios</button>
-
       <button class="btnEliminar" (click)="deleteProfile()">Eliminar cuenta</button>
     </div>
+    </form>
   </div>
 </div>
