@@ -1,70 +1,65 @@
 <div class="title" >
-    <img src="../../assets/img/logoNombre.png" alt="" style="height: 32px;">
+  <img src="../../assets/img/logoNombre.png" alt="" style="height: 32px;">
 </div>
 <div class="container">
-    <div class="profile-form">
-        <div title="Volver" class="volver" [routerLink]="['/home']" routerLinkActive="router-link-active">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
-              </svg>
-        </div>
-        
-        <div class="profile-title">
-            <h2>Editar Perfil</h2>
-        </div>
-
-        <div class="profile-image">
-            <img src="../../assets/img/chart2.png" alt="Imagen de usuario">
-            <label for="file-upload" class="custom-file-upload">
-                <b>Actualizar Imagen</b>
-            </label>
-            <input id="file-upload" type="file" accept="image/*" style="display: none;">
-        </div>
-      
-        <div class="form-fields">
-            
-            <div class="left">
-            
-                <div class="input-field">
-                     
-                    <input type="text" placeholder="Username" [(ngModel)]="username">
-                </div>
-            
-                <div class="input-field">
-                    <input class="input-field" type="text" placeholder="Name" [(ngModel)]="name">
-                </div>
-                <div class="input-field">
-                    <input class="input-field" type="text" placeholder="Lastname" [(ngModel)]="lastname">
-                </div>
-                <div class="input-field">
-                    <input class="input-field" type="email" placeholder="Email" [(ngModel)]="email">
-                </div>
-                
-            </div>
-            <div class="right">
-                <div class="input-field">
-                    <input class="input-field" type="tel" placeholder="Phone" [(ngModel)]="phone">
-
-                </div>
-                <div class="input-field">
-                    <input class="input-field" type="password" placeholder="Current Password" [(ngModel)]="currentPassword">
-
-                </div>
-                <div class="input-field">
-                    <input class="input-field" type="password" placeholder="New Password" [(ngModel)]="newPassword">
-
-                </div>
-                <div class="input-field">
-                    <input class="input-field" type="password" placeholder="Repeat Password" [(ngModel)]="repeatPassword">
-
-                </div>
-            </div>
-           
-        </div>
-        <div class="divBtns">
-            <button class="btn">Guardar cambios</button>
-
-            <button class="btnEliminar" (click)="deleteProfile()">Eliminar cuenta</button>
-        </div>
+  <div class="profile-form">
+    <div title="Volver" class="volver" [routerLink]="['/home']" routerLinkActive="router-link-active">
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+      </svg>
     </div>
+    <div class="profile-title">
+      <h2>Editar Perfil</h2>
+    </div>
+
+    <div class="profile-image">
+      <img src="../../assets/img/chart2.png" alt="Imagen de usuario">
+      <label for="file-upload" class="custom-file-upload">
+        <b>Actualizar Imagen</b>
+      </label>
+      <input id="file-upload" type="file" accept="image/*" style="display: none;">
+    </div>
+
+    <form [formGroup]="updateForm" (ngSubmit)="updateProfile()">
+      <div class="form-fields">
+        <div class="left">
+          <div class="input-field">
+            <input type="text" formControlName="username">
+          </div>
+          <div class="input-field">
+            <input class="input-field" type="text" formControlName="name">
+          </div>
+          <div class="input-field">
+            <input class="input-field" type="text" formControlName="lastname">
+          </div>
+          <div class="input-field">
+            <input class="input-field" type="email" formControlName="email">
+          </div>
+        </div>
+        <div class="right">
+          <div class="input-field">
+            <input class="input-field" type="tel" formControlName="phone">
+
+          </div>
+          <div class="input-field">
+            <input class="input-field" type="password" formControlName="currentPassword">
+
+          </div>
+          <div class="input-field">
+            <input class="input-field" type="password" formControlName="newPassword">
+
+          </div>
+          <div class="input-field">
+            <input class="input-field" type="password" formControlName="repeatPassword">
+
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="divBtns">
+      <button class="btn" type="submit">Guardar cambios</button>
+
+      <button class="btnEliminar" (click)="deleteProfile()">Eliminar cuenta</button>
+    </div>
+  </div>
 </div>

@@ -16,7 +16,7 @@ public class ProductMapper {
                 .description(createProductDto.description())
                 .date(LocalDateTime.now())
                 .seller(createProductDto.seller())
-                .image(createProductDto.image())
+                .image(createProductDto.imageList())
                 .status(Set.of(Status.AVAILABLE))
                 .build();
     }
