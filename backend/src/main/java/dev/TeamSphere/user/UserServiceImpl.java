@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
+import dev.TeamSphere.email.GmailSender;
 
 @Service
 @Slf4j
@@ -16,12 +17,13 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
     private final StorageService storageService;
+    private final GmailSender gmailSender;
 
-
-    public UserServiceImpl(UserRepository userRepository, UserMapper userMapper, StorageService storageService) {
+    public UserServiceImpl(UserRepository userRepository, UserMapper userMapper, StorageService storageService, GmailSender gmailSender) {
         this.userRepository = userRepository;
         this.userMapper = userMapper;
         this.storageService = storageService;
+        this.gmailSender = gmailSender;
     }
 
     @Override
@@ -46,7 +48,10 @@ public class UserServiceImpl implements UserService {
         log.info("Creating user: {}", createUserDto);
         User user = userMapper.toUserFromCreate(createUserDto);
         User savedUser = userRepository.save(user);
+
         return userMapper.toResponseDto(savedUser);
+
+
     }
 
     @Override

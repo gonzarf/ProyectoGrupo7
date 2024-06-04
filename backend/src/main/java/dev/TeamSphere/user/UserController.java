@@ -14,9 +14,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
+import dev.TeamSphere.email.GmailSender;
+
+
 @RestController
 @RequestMapping("/user")
-@PreAuthorize("hasRole('USER')")
+//@PreAuthorize("hasRole('USER')")
+@CrossOrigin(origins = "*", methods = {RequestMethod.POST, RequestMethod.PUT, RequestMethod.GET, RequestMethod.DELETE})
+
 public class UserController {
     private final UserServiceImpl userService;
 

@@ -16,6 +16,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/product/")
 @PreAuthorize("hasRole('USER')")
+@CrossOrigin(origins = "*", methods = {RequestMethod.POST, RequestMethod.PUT, RequestMethod.GET, RequestMethod.DELETE})
 public class ProductController {
 
     private final ProductServiceImpl service;

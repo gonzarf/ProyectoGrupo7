@@ -69,14 +69,16 @@ export class DesplazamientosComponent {
   loadDisplacement(): void {
     this.service.loadDisplacement().subscribe((data) => {
       this.datos = data;
+
+      this.datos.forEach(dato => {
+      
+        if ((dato.type.toUpperCase() == "DESPLAZAMIENTOS")||(dato.type.toUpperCase() == "DESPLAZAMIENTO")) {
+          this.desplazamientos.push(dato);
+        }
+      });
     });
 
-    this.datos.forEach(dato => {
-      
-      if ((dato.type.toUpperCase() == "DESPLAZAMIENTOS")||(dato.type.toUpperCase() == "DESPLAZAMIENTO")) {
-        this.desplazamientos.push(dato);
-      }
-    });
+
 
   }
 

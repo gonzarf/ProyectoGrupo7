@@ -15,8 +15,12 @@ import { after } from "node:test";
   
     // LLamada para recoger todos los post de tipo noticia
     loadAfterwork(): Observable<Array<AfterworkExistente>> {
-      const header = new HttpHeaders();
-  
+      //const header = new HttpHeaders();
+     this.http.get<Array<AfterworkExistente>>(`${this.url}/all`).forEach(element => {
+        console.log(element);
+        
+      })
+      
       return this.http.get<Array<AfterworkExistente>>(`${this.url}/all`);
     }
     postAfterwork(afterwork:Afterwork){

@@ -5,36 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a8ebcc8-282c-49ca-bd33-078ade7768cd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/auth/AuthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/auth/AuthException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/auth/AuthService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/auth/AuthServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/auth/AuthSingInInvalid.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/auth/AuthUsersRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/auth/AuthUsersService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/auth/AuthUsersServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/auth/JwtAuthResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/auth/JwtService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/auth/JwtServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/auth/UserAuthNameOrEmailExist.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/auth/UserDiferentPasswords.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/auth/UserResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/auth/UserSignInRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/auth/UserSignUpRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/config/JwtAuthenticationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/email/EmailController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/email/EmailRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/email/GmailSender.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/user/CreateUserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/user/CreateUserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/user/LoginDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/user/ResponseUserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/user/ResponseUserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/user/UpdateUserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/user/UpdateUserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/user/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/user/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/user/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/user/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/user/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/user/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/user/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/dev/TeamSphere/user/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,33 +66,50 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.TeamSphereApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;b-user&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/a925926/Downloads/ProyectoGrupo7&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.TeamSphereApplication.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.TeamSphereApplication.executor": "Run",
+    "git-widget-placeholder": "Front__2.0",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/a925926/Downloads/ProyectoGrupo7",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\a925926\Downloads\ProyectoGrupo7\backend" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.TeamSphereApplication">
+    <configuration name="TeamSphereApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dev.TeamSphere.TeamSphereApplication" />
+      <module name="TeamSphere" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dev.TeamSphere.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TeamSphereApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="TeamSphere" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="dev.TeamSphere.TeamSphereApplication" />
@@ -121,6 +117,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TeamSphereApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
