@@ -18,7 +18,6 @@ public record UpdateUserDto(
         @Email(message = "The email is invalid")
         String email,
 
-        @NotBlank(message = "Username cannot be empty")
         @Length(min = 3, message = "Username must have at least 3 characters")
         String username,
 
