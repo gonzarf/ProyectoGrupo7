@@ -9,6 +9,8 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  background: url("../../assets/img/eviden_logo.png") repeat 0 0;
+  animation: bg-animate 4s infinite linear;
 }
 .sign-in-form {
   display: flex;
@@ -136,9 +138,15 @@ form.signup {
   .signup {
     display: none;
   }
-  .signin {
+
+}
+
+@keyframes bg-animate {
+  100%{
+    background-position: 299px 182px;
   }
 }
+
 .title {
   font-size: 25px;
   color: black;
