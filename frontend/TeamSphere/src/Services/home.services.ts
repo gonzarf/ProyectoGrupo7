@@ -15,7 +15,6 @@ export class HomeServices {
   // LLamada para recoger todos los post de tipo noticia
   loadNews(): Observable<Array<NoticiaExistente>> {
     const header = new HttpHeaders();
-
     return this.http.get<Array<NoticiaExistente>>(`${this.url}/all`);
   }
 

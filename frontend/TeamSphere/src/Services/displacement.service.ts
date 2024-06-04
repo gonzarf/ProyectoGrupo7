@@ -15,8 +15,8 @@ export class DisplacementServices {
   // LLamada para recoger todos los post de tipo noticia
   loadDisplacement(): Observable<Array<DesplazamientoExistente>> {
     const header = new HttpHeaders();
-
     return this.http.get<Array<DesplazamientoExistente>>(`${this.url}/all`);
+
   }
   createDisplacement(desplazamiento:Desplazamiento){
     

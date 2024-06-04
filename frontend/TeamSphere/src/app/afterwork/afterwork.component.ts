@@ -74,9 +74,10 @@ export class AfterworkComponent implements OnInit{
 
   loadAfterwork(): void {
     this.service.loadAfterwork().subscribe((data) => {
-
+    
+      
       this.afterwork = data;
-
+      
     });
 
     this.afterwork.forEach(element => {
@@ -86,6 +87,8 @@ export class AfterworkComponent implements OnInit{
       }
       
     });
+    
+    
   }
 
   createAfterwork(){

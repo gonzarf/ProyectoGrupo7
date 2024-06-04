@@ -74,9 +74,12 @@ export class DesplazamientosComponent {
     this.datos.forEach(dato => {
       
       if ((dato.type.toUpperCase() == "DESPLAZAMIENTOS")||(dato.type.toUpperCase() == "DESPLAZAMIENTO")) {
+        console.log(dato);
+        
         this.desplazamientos.push(dato);
       }
     });
+    
 
   }
 
@@ -118,7 +121,7 @@ export class DesplazamientosComponent {
         title: "¡Desplazamiento publicado!"
       });
       setTimeout(() => {
-        window.location.reload();
+        //window.location.reload();
       }, 3000);
     } catch (error) {
       Swal.fire({

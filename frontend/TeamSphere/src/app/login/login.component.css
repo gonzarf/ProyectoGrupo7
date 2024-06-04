@@ -9,7 +9,17 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  background: url("../../assets/img/eviden_logo.png") repeat 0 0;
+  animation: bg-animate 4s infinite linear;
 }
+
+@keyframes bg-animate {
+  100%{
+    background-position: 299px 182px;
+  }
+}
+
+
 .sign-in-form {
   display: flex;
   flex-direction: column;
@@ -136,8 +146,7 @@ form.signup {
   .signup {
     display: none;
   }
-  .signin {
-  }
+  
 }
 .title {
   font-size: 25px;
@@ -252,6 +261,7 @@ a {
   transition: 1.1s ease-in-out;
   transition-delay: 0.5s;
   width: 100%;
+  
 }
 .image {
   width: 100%;
@@ -329,3 +339,5 @@ a {
     width: 90%;
   }
 }
+
+
