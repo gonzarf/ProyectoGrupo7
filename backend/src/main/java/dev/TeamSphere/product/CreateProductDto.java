@@ -16,7 +16,7 @@ public record CreateProductDto(
         @NotBlank(message = "The description is required")
         String description,
 
-        List<String> imageList,
+        List<String> image,
 
         UUID seller
 
