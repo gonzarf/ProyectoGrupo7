@@ -91,11 +91,12 @@ onSubmitRegister(){
       }
     );
     // LLamada al servicio Email
+   
     const emailDetails = {
       from: 'teamsphereapp@gmail.com', 
       to: email,
       subject: 'Bienvenido a TeamSphere',
-      body: `¡Hola, ${name}!,\n\Te damos la bienvenida a nuestro servicio.\n\nEl equipo de TeamSphere`
+      body: `¡Hola, ${name}!\n\Te damos la bienvenida a nuestro servicio.\n\nEl equipo de TeamSphere`
     };
 
     this.emailService.sendEmail(emailDetails).subscribe(
@@ -106,6 +107,8 @@ onSubmitRegister(){
         console.error('Error sending welcome email', error);
       }
     );
+  
+  
     this.router.navigate(['home']);
 
     } else {
