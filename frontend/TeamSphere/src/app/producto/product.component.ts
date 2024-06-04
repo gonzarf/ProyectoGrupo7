@@ -25,10 +25,6 @@ export class ProductComponent implements OnInit{
 
 
   ngOnInit(): void {
-
-    
-    
-    console.log(typeof this.product.image.splice)
     
     //Hay que hacer esto para que obtenga bien la lista de urls
     if (typeof this.product.image === 'string') {
@@ -38,13 +34,12 @@ export class ProductComponent implements OnInit{
     }
 
     this.imageUrl = this.product.image[0];
-    
-    //TODO poner cuando se pille el id del user
-    /*this.userService.getuserById(this.product.seller).subscribe(data =>{
+    console.log("👽👽👽👽👽👽👽" +this.product.seller)
+    this.userService.getuserById(this.product.seller!).subscribe(data =>{
 
       this.user = data;
-      
-    })*/
+      console.log("👽👽👽👽👽👽👽" + this.user.email)
+    })
 
 
   }

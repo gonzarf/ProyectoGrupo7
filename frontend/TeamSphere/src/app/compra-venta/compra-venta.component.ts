@@ -8,6 +8,8 @@ import { NavbarComponent } from "../navbar/navbar.component";
 import { SortBarComponent } from "../sort-bar/sort-bar.component";
 import { Product } from '../producto/producto.model';
 import { ProductService } from '../../Services/product.service';
+import { UserService } from '../../Services/user.service';
+import { User } from '../social/social.model';
 
 
 @Component({
@@ -22,7 +24,7 @@ import { ProductService } from '../../Services/product.service';
 
 export class CompraVentaComponent implements OnInit{
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService, private userService:UserService) {}
 
   title = "Compra / Venta";
 
@@ -60,25 +62,33 @@ export class CompraVentaComponent implements OnInit{
     this.isFormVisible = !this.isFormVisible;
   }
 
+
+  currentUser! : User;
+
   createProduct() {
 
-    let product: Product = {
-      name: this.formData.name,
-      description: this.formData.desc,
-      price: this.formData.price,
-      image: this.formData.image
-    };
+    this.userService.getCurrentUser().subscribe((data) => {
 
-    this.productService.createProduct(product, this.selectedFiles).subscribe(
-      response => {
-        console.log(response);
-      },
-      error => {
-        console.error(error);
-      }
-    );
-    
-    window.location.reload();
+
+      let product: Product = {
+        name: this.formData.name,
+        description: this.formData.desc,
+        price: this.formData.price,
+        image: this.formData.image,
+        seller: data.id
+      };
+
+      this.productService.createProduct(product, this.selectedFiles).subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.error(error);
+        }
+      );
+
+      window.location.reload();
+    });
 
     
   }

@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Product } from "../app/producto/producto.model";
 
+
 @Injectable({
     providedIn: 'root'
   })
@@ -23,8 +24,6 @@ import { Product } from "../app/producto/producto.model";
     createProduct(product: Product, files: File[]): Observable<any> {
       const formData: FormData = new FormData();
       
-      console.log("productooo: " + product.name)
-
       // Agrega el objeto del producto como una cadena JSON
       formData.append('product', JSON.stringify(product));
 
@@ -38,7 +37,7 @@ import { Product } from "../app/producto/producto.model";
               'Accept': 'application/json'
           })
       });
-  }
+    }
 
 
 
